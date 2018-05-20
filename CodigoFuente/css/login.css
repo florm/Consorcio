@@ -1,0 +1,119 @@
+html {
+    min-width: 456px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: url('img/fondoLogin.jpg') no-repeat center;
+    background-size: cover;
+    background-position: center;
+    /*width: 100%;*/
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    height: 100%;
+    text-align: center;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.contenedor-formulario {
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 4px 0 #000000;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.25);
+    padding-left: 37.7px;
+    padding-right: 29.8px;
+    padding-top: 41px;
+    padding-bottom: 38px;
+}
+
+.contenido-form {
+    max-width: 102vh;
+    background-color: #ffffff;
+}
+
+.img-cprop {
+    width: 174px;
+    height: 64px;
+    margin-top: -8px;
+}
+
+.header-formulario {
+    margin-top: 2rem;
+    width: 320.4px;
+    height: 38.3px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    line-height: 1;
+    letter-spacing: 0.5px;
+    text-align: left;
+    color: #231f20;
+}
+
+.subheader-formulario {
+    width: 390px;
+    height: 22px;
+    font-size: 14px;
+    line-height: 1.57;
+    letter-spacing: normal;
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.input-size {
+    padding-left: 12px;
+    padding-right: 25.4px;
+}
+
+.form-control {
+    font-size: 14px;
+    height: 2.235rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.btn-ingresar {
+    background-color: #1fb6ff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 338.89px;
+    height: 2.235rem;
+    margin-left: -15px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.copyrights {
+    width: 285px;
+    height: 30px;
+    font-size: 11px;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ffffff;
+}
+
+.alert-danger-custom {
+    background-color: #fff0f2;
+    border: solid 0.5px #fba9a9;
+    color: #ff5151;
+    font-size: 10px;
+    letter-spacing: 0.2px;
+    text-align: left;
+    width: 338.89px;
+    margin-left: 11px;
+    height: 2.235rem;
+    padding: 0.35rem 1.25rem;
+}
+

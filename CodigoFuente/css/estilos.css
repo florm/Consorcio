@@ -1,0 +1,496 @@
+.span-error-identifier {
+    text-align: left;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 10px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.2px;
+}
+
+.nav-link[data-toggle].collapsed:after {
+    content: "▸";
+}
+
+.nav-link[data-toggle]:not(.collapsed):after {
+    content: "▴";
+}
+
+.background-menu-default {
+    height: 500px;
+    background: #37003b;
+}
+.background-content-default {
+    background: #fafafa;
+}
+
+.nav-link:hover {
+    background: #1fb6ff;
+    color: white;
+}
+
+.menu-sidebar-item {
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #cecece;
+    cursor: pointer;
+}
+
+    .menu-sidebar-item.lasts {
+        font-size: 13px;
+        font-weight: 300;
+    }
+
+    .menu-sidebar-item.interno {
+        background: #1c313a;
+        padding-left: 4rem;
+    }
+
+.menu-sidebar-li-borders {
+    border-top: .25rem solid #a59e9e;
+    border-bottom: .25rem solid #a59e9e;
+}
+
+.menu-sidebar {
+    background: #273238;
+}
+.input-group-text#lupita {
+    background: white;
+    border-left: 0;
+}
+
+.input-busqueda {
+    border-right: 0;
+}
+
+    .input-busqueda:focus {
+        box-shadow: none;
+        border-color: #ced4da;
+    }
+
+.img-logo {
+    height: 41px;
+}
+
+.input-group.anchear {
+    width: 25rem;
+}
+
+.borde-top {
+    border-top: 1px solid #2a4956;
+}
+
+.black-strong-bg {
+    background: #1a2024;
+}
+
+.lasts-nav-bg {
+    background: #2f3c44;
+}
+
+.select-consorcio {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    color: #fafafa;
+    border: none;
+    padding: 0;
+}
+
+    .select-consorcio:focus {
+        box-shadow: none;
+    }
+
+    .select-consorcio:hover {
+        color: #fafafa;
+    }
+
+.user-name {
+    font-family: "Open Sans", sans-serif;
+    font-size: 12px;
+}
+
+.btn-circle {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 20px;
+    background-color: #b76feb;
+}
+
+.text-btn-circle {
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 300;
+    color: white;
+}
+
+.text-usuario, .text-consorcio {
+    font-family: Roboto;
+    font-size: 11px;
+}
+
+
+.color-usuario {
+    color: #ced4da;
+}
+
+.color-consorcio {
+    color:#72808C;
+}
+
+table.dataTable {
+    border-collapse: collapse !important;
+}
+
+.item-consorcio {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    color: #97A3AA;
+    border-top: 1px solid #2f3c44;
+    padding-top: 13px;
+    padding-bottom: 13px;
+}
+
+.nav-link.item-consorcio:hover {
+    color: #1FB6FF;
+    background: #1a2024;
+}
+
+.nav-en-pantalla {
+    background: #1fb6ff;
+    color: white;
+}
+
+.modal-backdrop {
+    opacity: 0.3 !important;
+}
+
+.custom-modal-content {
+    box-shadow: 0 1px 3px 0 #ced5da;
+    border: .5px solid #ced5da;
+    border-radius: 8px;
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+.btn-confirm-font {
+    font-family: Roboto;
+    font-size: 18px;
+    line-height: 1.39;
+}
+
+.header-title {
+    font-family: "Roboto", sans-serif;
+    font-size: 28px;
+    line-height: 0.93;
+    color: #303B41;
+}
+
+.header-custom {
+    background-color: #f1f4f5;
+    box-shadow: 0 1px 2px 0 rgba(206, 213, 218, 0.92), inset 0 1px 2px 0 rgba(206, 213, 218, 0.92);
+    margin-bottom: 2px;
+}
+
+
+.div-contenedor-alertas-login {
+    position: absolute;
+    z-index: 999999;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.div-contenedor-alertas {
+    position: absolute;
+    z-index: 999999;
+    display: block;
+    width: 100%;
+    text-align: center;
+    top: 68px;
+}
+
+    .div-contenedor-alertas.sticky-alerta {
+        top: 0;
+        position: fixed;
+    }
+
+
+/*para que el texto este centrado en el span d alerta, separado del top, con max-height definido*/
+div[id^='alertacustom'] {
+    background: #43d160;
+    color: white;
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 1.36;
+    padding-top: 12px;
+    padding-bottom: 11px;
+}
+
+.text-default-grid {
+    font-family: "Open Sans", sans-serif;
+    line-height: 1.85;
+    font-size: 13px;
+    vertical-align: middle !important;
+}
+
+.modal-custom-title {
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 0.79;
+}
+
+.div-no-records {
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: -0.2px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    border: solid 1px #e4eaec;
+}
+
+.modal .btn-cancel {
+    background: #ced5da;
+    border: solid 1px #ced5da;
+}
+
+.modal .btn-confirm {
+    background: #43d260;
+    border: solid 1px #43d160;
+}
+
+.th-sortable {
+    cursor: pointer;
+}
+
+    .th-sortable:hover {
+        background: #fafafa;
+    }
+
+.page-link {
+    font-family: "Open Sans", sans-serif;
+    line-height: 1.58;
+    font-size: 12px;
+}
+
+.page-item.active > .page-link {
+    background-color: #1fb6ff;
+    border: solid 0.9px #1fb6ff;
+}
+
+    .page-item.active > .page-link:hover {
+        color: #ffffff;
+    }
+
+.input-grid-invalido {
+    border-color: #dc3545;
+}
+
+.break-word-aligned-field {
+    word-break: break-all;
+    /* Non standard for webkit */
+    /* ReSharper disable once InvalidValue */
+    word-break: break-word;
+    vertical-align: middle !important;
+}
+
+.navbar .dropdown-menu-right {
+    right: 0;
+    left: auto;
+}
+
+    .navbar .dropdown-menu-right.opciones {
+        font-family: "Open Sans";
+        font-size: 12px;
+        line-height: 2;
+    }
+
+.dropdown-item:hover, .dropdown-item:focus {
+    color: #1fb6ff;
+    text-decoration: none;
+    background-color: #ffffff;
+}
+
+.dropdown-toggle::after {
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+#dropdownMenuButton {
+    cursor: pointer;
+}
+
+.dropdown-item i {
+    margin-left: -1rem;
+    margin-right: 5px;
+}
+
+.inicio-oculto {
+    display: none;
+}
+
+.checkbox input[type="checkbox"] + label:before {
+    box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+
+input[type="checkbox"]:checked + label:before {
+    background-color: #1fb6ff;
+    border-color: #1092d1;
+}
+
+
+.checkbox input[type="checkbox"]:checked + label:after {
+    color: #fff;
+}
+
+.checkbox label {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    text-align: left;
+    display: inline-block;
+    position: relative;
+    padding-left: 7px;
+}
+
+    .checkbox label:before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        left: 4px;
+        top: 4px;
+        margin-left: -20px;
+        border: 1px solid #cccccc;
+        border-radius: 2px;
+        background-color: #fff;
+        -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+        -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+        transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+        cursor: pointer;
+    }
+
+    .checkbox label:after {
+        display: inline-block;
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        left: 4px;
+        top: 1px;
+        margin-left: -20px;
+        padding-left: 1px;
+        padding-top: 0;
+        font-size: 11px;
+        color: #555555;
+        cursor: pointer;
+    }
+
+.checkbox input[type="checkbox"] {
+    opacity: 0;
+}
+
+    .checkbox input[type="checkbox"]:focus + label:before {
+        outline: thin dotted;
+        outline: 5px auto -webkit-focus-ring-color;
+        outline-offset: -2px;
+    }
+
+    .checkbox input[type="checkbox"]:checked + label:after {
+        font-family: 'FontAwesome';
+        content: "\f00c";
+    }
+
+.checkbox label {
+    font-family: "Open Sans";
+    font-size: 13px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.85;
+    letter-spacing: normal;
+    text-align: left;
+    vertical-align: top;
+}
+
+.header-custom .acciones {
+    position: relative;
+    width: 30%;
+}
+
+.header-custom .link-back {
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.58;
+    letter-spacing: normal;
+    text-align: left;
+    position: absolute;
+    right: 20px;
+    bottom: -10px;
+    color: #1fb6ff;
+}
+
+.modal-eliminar .btn-confirm {
+    color: white;
+    background-color: #dc3545;
+    background-image: none;
+    border-color: #dc3545;
+}
+
+.acciones-multiples .dropdown-toggle:after {
+    margin-top: 0;
+}
+
+.acciones-multiples .dropdown-toggle,
+.acciones-multiples .dropdown-toggle.btn-primary:not(:disabled):not(.disabled):active,
+.acciones-multiples .show > .btn-primary.dropdown-toggle {
+    background-color: #1fb6ff;
+    border-color: #1fb6ff;
+}
+
+    .acciones-multiples .show > .btn-primary.dropdown-toggle:focus {
+        box-shadow: none;
+    }
+
+    .acciones-multiples .dropdown-toggle,
+    .acciones-multiples .dropdown-menu a.dropdown-item {
+        font-family: Roboto;
+        font-size: 12px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.58;
+        letter-spacing: normal;
+        text-align: left;
+    }
+
+.acciones-multiples .dropdown-item:hover {
+    background-color: transparent;
+}
+
+
+.span-accion {
+    cursor: pointer;
+    color: #97a3aa;
+}
