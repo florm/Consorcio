@@ -1,4 +1,4 @@
-<form class="contenedor-formulario" method="post" action="./usuario/home">
+<form class="contenedor-formulario" method="post" action="./usuario/login">
     <img class="img-cprop" src="/imagenes/logoApp.png" alt="ControlProp" />
     <p class="header-formulario">Bienvenido</p>
     <p class="subheader-formulario">Ingrese a nuestro sistema de Administración de Consorcios</p>
