@@ -33,7 +33,7 @@
         </form>
         <div class="row pr-5">
             <div class="text-right flex-column pr-3">
-                <div class="pb-1"><span class="text-usuario color-usuario">USUARIO</span></div>
+                <div class="pb-1"><span class="text-usuario color-usuario"><?php echo($data) ?></span></div>
                 <div><span id="usuarioNombre" class="user-name">Nombre Apellido</span></div>
             </div>
             <button type="button" class="btn btn-circle mt-2"><span class="text-btn-circle">FM</span></button>

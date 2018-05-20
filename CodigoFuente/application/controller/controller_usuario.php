@@ -7,12 +7,12 @@ class Controller_Usuario extends Controller{
 
     }
 
-    function login(){
+    function home(){
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $this->model->validarUsuario($username, $password);
+        $data = $this->model->login($username, $password);
         if(isset($_SESSION['login'])){
-            $this->view->generate('main_view.php', 'template_view.php');
+           $this->view->generate('main_view.php', 'template_view.php', $data);
         }
         else{
             echo("error");

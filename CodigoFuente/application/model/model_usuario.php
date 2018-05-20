@@ -9,7 +9,7 @@ class Model_Usuario extends Model{
 
 
 
-    function validarUsuario ($username, $password){
+    function login ($username, $password){
 	    $password = md5($password);
 
        $sql = "SELECT * FROM usuario WHERE" . " " . "username = '$username'" . " " . "AND password = '$password'";
@@ -22,6 +22,7 @@ class Model_Usuario extends Model{
         if ($this->conn->cantidadFilas($resultado) > 0){
           session_start();
           $_SESSION['login'] = $username;
+            return strtoupper($username);
         }
 
         $this->conn->cerrarConexion( $this->conn);
