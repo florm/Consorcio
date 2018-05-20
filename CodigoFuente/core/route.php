@@ -20,6 +20,7 @@ class Route
     }
 
     private static function extractActionName($routes){
+
         return !empty($routes[1]) ? $routes[2] : "index";
     }
 

@@ -13,11 +13,16 @@ class Controller_Usuario extends Controller{
         $password = $_POST['password'];
         $data = $this->model->validarUsuario($username, $password);
         if(isset($_SESSION['login'])){
-           //aca tendria que ir al controlador main funcion index para que entra al else y vaya al main
-            $this->view->generate('main_view.php', 'template_view.php', $data);
+           //redirijo al controlador main funcion index para que entre al else y vaya al main
+            header("Location: /");
+            exit();
+
         }
         else{
-            echo("entro a error en controller usuario");
+            //si no se pudo iniciar la sesion redirijo al controlador main funcion index para que
+            // entre al if y vaya nuevamente al login
+            header("Location: /");
+            exit();
         }
 
     }
@@ -25,8 +30,8 @@ class Controller_Usuario extends Controller{
     function logout(){
         session_start();
         session_destroy();
-        //aca deberia redireccionar al controlador main funcion index para que me muestre el login
-        $this->view->generate("login_view.php", "template_log_view.php");
+        //redirecciona al controlador main funcion index para que me muestre el login
+        header("Location: /");
     }
 
 
