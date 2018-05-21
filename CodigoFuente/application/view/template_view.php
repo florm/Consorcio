@@ -1,3 +1,6 @@
+<?php
+$username = strtoupper($_SESSION['login']);
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,10 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto">
     <link rel="stylesheet" href="/css/estilos.css" />
-    
+
     <!--favicon-->
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
@@ -31,13 +35,21 @@
                 </div>
             </div>
         </form>
-        <div class="row pr-5">
+
+        <div class="row pr-5 dropdown dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="text-right flex-column pr-3">
-                <div class="pb-1"><span class="text-usuario color-usuario"><?php echo($data) ?></span></div>
+                <div class="pb-1"><span class="text-usuario color-usuario"><?php echo($username) ?></span></div>
                 <div><span id="usuarioNombre" class="user-name">Nombre Apellido</span></div>
-                <div><a href="./usuario/logout">Logout</a></div>
             </div>
-            <button type="button" class="btn btn-circle mt-2"><span class="text-btn-circle">FM</span></button>
+            <button class="btn btn-circle mt-2" type="button">
+                <span class="text-btn-circle">AA</span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right opciones mr-5 mt-2 pl-3 pr-3" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Mi cuenta</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" id="aLogOut"><i class="fa fa-power-off"></i>
+                    Cerrar sesión</a>
+            </div>
         </div>
     </header>
     <div id="contenedorAlertas" class="div-contenedor-alertas"></div>
@@ -58,12 +70,12 @@
                             <li class="nav-item"><a class="nav-link item-consorcio" href="#" id="3">Consorcio3</a></li>
                         </ul>
                 </div>
-               
+
             </form>
                 <nav class="navbar navbar-dark px-0 py-0">
                     <div class="navbar-collapse collapse show menu-sidebar">
                         <ul class="nav flex-column flex-nowrap">
-                           
+
                             <li class="nav-item borde-top text-left">
                                 <span class="collapsed nav-link menu-sidebar-item py-3 pl-5" data-toggle="collapse" data-target="#submenu-administracion">
                                     <img src="/imagenes/iconos/admin.svg" alt="adm" class="pr-3" /> Administración
@@ -79,25 +91,25 @@
                                     </ul>
                                 </div>
                             </li>
-                                                            
+
                             <li class="nav-item borde-top text-left">
-                                <a class="nav-link menu-sidebar-item py-3 pl-5" idmenu="1" href="#">
+                                <a class="nav-link menu-sidebar-item py-3 pl-5" href="#">
                                     <img src="/imagenes/iconos/pagos.svg" alt="exp" class="pr-3" /> Realizar Pago
                                 </a>
                             </li>
 
                             <li class="nav-item borde-top text-left">
-                                <a class="nav-link menu-sidebar-item py-3 pl-5" idmenu="1" href="#">
+                                <a class="nav-link menu-sidebar-item py-3 pl-5" href="#">
                                     <img src="/imagenes/iconos/expensas.svg" alt="exp" class="pr-3" /> Ver Expensas
                                 </a>
                             </li>
-                                
+
                             <li class="nav-item borde-top text-left">
-                                <a class="nav-link menu-sidebar-item py-3 pl-5" idmenu="1" href="#">
+                                <a class="nav-link menu-sidebar-item py-3 pl-5" href="#">
                                     <img src="/imagenes/iconos/reclamos.svg" alt="exp" class="pr-3" /> Reclamos
                                 </a>
                             </li>
-                            
+
                             <li class="nav-item borde-top text-left">
                                 <span class="collapsed nav-link menu-sidebar-item py-3 pl-5" data-toggle="collapse" data-target="#submenu-reportes">
                                     <img src="/imagenes/iconos/admin.svg" alt="adm" class="pr-3" /> Reportes
@@ -113,11 +125,11 @@
                                     </ul>
                                 </div>
                             </li>
-                            
+
                         </ul>
                     </div>
                 </nav>
-                
+
             </div>
             <main class="col-md-9 col-xl-9 col-sm-8 p-0 background-content-default" role="main">
                 <!-- <?php include 'application/view/'.$content_view; ?> -->
@@ -128,6 +140,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./js/script.js"></script>
 
 
 </body>
