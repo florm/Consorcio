@@ -21,8 +21,9 @@ class Model_Usuario extends Model{
 
         if ($this->conn->cantidadFilas($resultado) > 0){
 
-          $_SESSION['login'] = $username;
-            return strtoupper($username);
+          //$_SESSION['login'] = $username;
+            //return strtoupper($username);
+            $this->sesion->add('login', $username);
         }
 
         $this->conn->cerrarConexion( $this->conn);
