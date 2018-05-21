@@ -28,6 +28,7 @@ class Conexion {
         return mysqli_num_rows($resultado);
     }
 
+
     
 }
 //
