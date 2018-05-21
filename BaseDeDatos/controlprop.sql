@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.8.0
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1:3307
--- Tiempo de generación: 19-05-2018 a las 21:36:02
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 21-05-2018 a las 22:52:12
 -- Versión del servidor: 10.1.31-MariaDB
--- Versión de PHP: 7.2.3
+-- Versión de PHP: 7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,121 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `controlprop`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `consorcio`
+--
+
+CREATE TABLE `consorcio` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `cuit` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
+  `dirCalle` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `dirNumero` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `codPost` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `telefono` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `email` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `coordGoogle` varchar(200) COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `expensa`
+--
+
+CREATE TABLE `expensa` (
+  `id` int(11) NOT NULL,
+  `idLiquidacion` int(11) NOT NULL,
+  `idPropiedad` int(11) NOT NULL,
+  `importe` decimal(20,0) NOT NULL,
+  `fechaVencimiento` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `gasto`
+--
+
+CREATE TABLE `gasto` (
+  `id` int(11) NOT NULL,
+  `fecha` date NOT NULL,
+  `concepto` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
+  `importe` decimal(20,0) NOT NULL,
+  `idReclamo` int(11) NOT NULL,
+  `idProveedor` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `liqgasto`
+--
+
+CREATE TABLE `liqgasto` (
+  `id` int(11) NOT NULL,
+  `idLiquidacion` int(11) NOT NULL,
+  `idGasto` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `liquidacion`
+--
+
+CREATE TABLE `liquidacion` (
+  `id` int(11) NOT NULL,
+  `periodo` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `fecha` date NOT NULL,
+  `idConsorcio` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `ordenpago`
+--
+
+CREATE TABLE `ordenpago` (
+  `id` int(11) NOT NULL,
+  `idGasto` int(11) NOT NULL,
+  `importe` decimal(20,0) NOT NULL,
+  `fecha` date NOT NULL,
+  `formapago` varchar(100) COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pago`
+--
+
+CREATE TABLE `pago` (
+  `id` int(11) NOT NULL,
+  `importe` decimal(20,0) NOT NULL,
+  `fecha` date NOT NULL,
+  `idPropiedad` int(11) NOT NULL,
+  `idExpensa` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `propiedad`
+--
+
+CREATE TABLE `propiedad` (
+  `id` int(11) NOT NULL,
+  `piso` varchar(10) COLLATE utf8_spanish_ci NOT NULL,
+  `depto` varchar(10) COLLATE utf8_spanish_ci NOT NULL,
+  `porcentajeParticipacion` decimal(10,0) NOT NULL,
+  `idPropietario` int(11) NOT NULL,
+  `idConsorcio` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -41,6 +156,33 @@ CREATE TABLE `propietario` (
   `idUsuario` int(11) NOT NULL,
   `idSexo` int(11) NOT NULL,
   `idTipoDocumento` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `proveedor`
+--
+
+CREATE TABLE `proveedor` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `cuit` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
+  `telefono` varchar(50) COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `reclamo`
+--
+
+CREATE TABLE `reclamo` (
+  `id` int(11) NOT NULL,
+  `descripcion` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
+  `estado` int(11) DEFAULT NULL,
+  `fecha` date NOT NULL,
+  `idPropiedad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
@@ -128,9 +270,69 @@ INSERT INTO `usuario` (`id`, `username`, `password`, `idRol`) VALUES
 --
 
 --
+-- Indices de la tabla `consorcio`
+--
+ALTER TABLE `consorcio`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `expensa`
+--
+ALTER TABLE `expensa`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `gasto`
+--
+ALTER TABLE `gasto`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `liqgasto`
+--
+ALTER TABLE `liqgasto`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `liquidacion`
+--
+ALTER TABLE `liquidacion`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `ordenpago`
+--
+ALTER TABLE `ordenpago`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `pago`
+--
+ALTER TABLE `pago`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `propiedad`
+--
+ALTER TABLE `propiedad`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `propietario`
 --
 ALTER TABLE `propietario`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `proveedor`
+--
+ALTER TABLE `proveedor`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `reclamo`
+--
+ALTER TABLE `reclamo`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -165,9 +367,69 @@ ALTER TABLE `usuario`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `consorcio`
+--
+ALTER TABLE `consorcio`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `expensa`
+--
+ALTER TABLE `expensa`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `gasto`
+--
+ALTER TABLE `gasto`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `liqgasto`
+--
+ALTER TABLE `liqgasto`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `liquidacion`
+--
+ALTER TABLE `liquidacion`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `ordenpago`
+--
+ALTER TABLE `ordenpago`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `pago`
+--
+ALTER TABLE `pago`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `propiedad`
+--
+ALTER TABLE `propiedad`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `propietario`
 --
 ALTER TABLE `propietario`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `proveedor`
+--
+ALTER TABLE `proveedor`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `reclamo`
+--
+ALTER TABLE `reclamo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
