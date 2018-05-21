@@ -12,7 +12,7 @@ class Controller_Usuario extends Controller{
         $username = $_POST['username'];
         $password = $_POST['password'];
         $data = $this->model->validarUsuario($username, $password);
-        if(isset($_SESSION['login'])){
+        if(empty($this->sesion->get('email'))){
            //redirijo al controlador main funcion index para que entre al else y vaya al main
             header("Location: /");
             exit();
