@@ -6,4 +6,8 @@ class Controller_Registro extends Controller{
         $this->view->generate('registro_view.php', 'template_log_view.php');
     }
 
+    function insertarRegistro(){
+        
+    }
+
 }
