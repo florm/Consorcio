@@ -28,6 +28,10 @@ class Conexion {
         return mysqli_num_rows($resultado);
     }
 
+    function ultimoId(){
+        mysqli_insert_id($this->conn);
+    }
+
 
     
 }

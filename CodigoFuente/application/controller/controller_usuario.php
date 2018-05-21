@@ -12,7 +12,7 @@ class Controller_Usuario extends Controller{
         $username = $_POST['username'];
         $password = $_POST['password'];
         $data = $this->model->validarUsuario($username, $password);
-        if(empty($this->sesion->get('key'))){
+        if(empty($this->sesion->get('login'))){
            //redirijo al controlador main funcion index para que entre al else y vaya al main
             header("Location: /");
             exit();
@@ -39,14 +39,17 @@ class Controller_Usuario extends Controller{
     }
 
     function crearUsuario(){
-        $nombre = $_POST['nombre'];
-        $apellido = $_POST['apellido'];
-        $dni = $_POST['dni'];
-        $cuil = $_POST['cuil'];
-        $tel = $_POST['tel'];
-        $email = $_POST['email'];
+
         $username = $_POST['username'];
         $password = $_POST['password'];
+
+        $this->model->crearUsuario($username, $password);
+        if(empty($this->sesion->get('login'))){
+            //redirijo al controlador main funcion index para que entre al else y vaya al main
+            header("Location: /");
+            exit();
+
+        }
 
 
     }
