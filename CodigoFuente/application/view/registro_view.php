@@ -1,4 +1,4 @@
-<form method="post" action="registro.php" class="contenedor-formulario">
+<form method="post" action="registro/insertarRegistro" class="contenedor-formulario">
     <img class="img-cprop" src="/imagenes/logoApp.png" alt="ControlProp" />
     <p class="header-formulario">Registro</p>
     <p class="subheader-formulario">Complete el siguiente formulario</p>
@@ -26,6 +26,6 @@
     <div class="form-group input-size">
         <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña" required>
     </div>
-    <button type="submit" id="registrase" class="btn btn-ingresar">REGISTRARSE</button>
+    <input type="submit" id="registrase" value="REGISTRARSE" class="btn btn-ingresar"></button>
             
 </form>   

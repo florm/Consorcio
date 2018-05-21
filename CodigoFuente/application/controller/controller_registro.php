@@ -9,4 +9,8 @@ class Controller_Registro extends Controller{
 
 
 
+    function insertarRegistro(){
+        
+    }
+
 }
