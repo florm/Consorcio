@@ -11,6 +11,7 @@ class Model_Rol extends Model
     private $id;
     private $nombre;
 
+
     function __construct($id, $nombre)
     {
         parent::__construct();

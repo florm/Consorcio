@@ -1,6 +1,6 @@
 <?php
 include_once ('./helpers/conexion.php');
-include_once ('/model/model_rol.php');
+include_once ('./application/model/model_rol.php');
 
 class Model_Usuario extends Model{
     private $id;
@@ -12,7 +12,7 @@ class Model_Usuario extends Model{
     function __construct()
     {
         parent::__construct();
-        $this->rol = new Model_Rol();
+        $this->rol = new Model_Rol(null, null);
     }
 
     function validarUsuario ($username, $password){
