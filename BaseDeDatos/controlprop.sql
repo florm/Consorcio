@@ -148,7 +148,7 @@ CREATE TABLE `propietario` (
   `nombre` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `apellido` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `dni` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
-  `cuit` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
+  `cuil` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `email` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `telefono` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `consejo` tinyint(4) NOT NULL,
