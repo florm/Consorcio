@@ -4,5 +4,5 @@
 var aLogOut = $("#aLogOut");
 
 aLogOut.click(function(){
-   window.location.href = "./usuario/logout";
+   window.location.href = "../usuario/logout";
 });

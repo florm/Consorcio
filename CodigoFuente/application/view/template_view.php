@@ -1,18 +1,21 @@
 <?php
+
 $username = strtoupper($_SESSION['login']);
+$nombre = $_SESSION['nombre'];
+$apellido = $_SESSION['apellido'];
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
+    <title>ControlProp</title>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto">
-    <link rel="stylesheet" href="/css/estilos.css" />
-
+    <link rel="stylesheet" href="../css/estilos.css" />
+    <link rel="stylesheet" href="../css/formPropietario.css" />
     <!--favicon-->
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
@@ -38,8 +41,8 @@ $username = strtoupper($_SESSION['login']);
 
         <div class="row pr-5 dropdown dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="text-right flex-column pr-3">
-                <div class="pb-1"><span class="text-usuario color-usuario"><?php echo($username) ?></span></div>
-                <div><span id="usuarioNombre" class="user-name">Nombre Apellido</span></div>
+                <div class="pb-1"><span class="text-usuario color-usuario"><?php echo($username); ?></span></div>
+                <div><span id="usuarioNombre" class="user-name"><?php echo($nombre . " " ); echo($apellido);?></span></div>
             </div>
             <button class="btn btn-circle mt-2" type="button">
                 <span class="text-btn-circle">AA</span>
@@ -47,7 +50,7 @@ $username = strtoupper($_SESSION['login']);
             <div class="dropdown-menu dropdown-menu-right opciones mr-5 mt-2 pl-3 pr-3" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="#">Mi cuenta</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" id="aLogOut"><i class="fa fa-power-off"></i>
+                <a class="dropdown-item" href="/usuario/logout.php" id="aLogOut"><i class="fa fa-power-off"></i>
                     Cerrar sesión</a>
             </div>
         </div>
@@ -91,7 +94,11 @@ $username = strtoupper($_SESSION['login']);
                                     </ul>
                                 </div>
                             </li>
-
+                            <li class="nav-item borde-top text-left">
+                                <a class="nav-link menu-sidebar-item py-3 pl-5" href="/propietario/index">
+                                    <img src="/imagenes/iconos/pagos.svg" alt="exp" class="pr-3" /> Completar datos propietario
+                                </a>
+                            </li>
                             <li class="nav-item borde-top text-left">
                                 <a class="nav-link menu-sidebar-item py-3 pl-5" href="#">
                                     <img src="/imagenes/iconos/pagos.svg" alt="exp" class="pr-3" /> Realizar Pago
@@ -132,7 +139,8 @@ $username = strtoupper($_SESSION['login']);
 
             </div>
             <main class="col-md-9 col-xl-9 col-sm-8 p-0 background-content-default" role="main">
-                <!-- <?php include 'application/view/'.$content_view; ?> -->
+                <?php include 'application/view/'.$content_view; ?>
+
             </main>
         </div>
         <?php include("footer.php") ?>
@@ -140,7 +148,7 @@ $username = strtoupper($_SESSION['login']);
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="./js/script.js"></script>
+    <script type="text/javascript" src="../js/script.js"></script>
 
 
 </body>

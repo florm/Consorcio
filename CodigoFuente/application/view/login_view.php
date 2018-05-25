@@ -19,6 +19,6 @@
     <input type="submit" id="ingresar" class="btn btn-ingresar">
     <div class="text-center">
         <span>Aún no está registrado?</span>
-        <a href="registro/registrar">Registrarse</a>
+        <a href="usuario/registrar">Registrarse</a>
     </div>
 </form>   

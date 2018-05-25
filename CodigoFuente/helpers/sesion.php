@@ -11,7 +11,7 @@ class Sesion{
     }
 
     function get($key){
-        return (!empty($_SESSION[$key])) ? $_SESSION[$key] : null;
+        return (isset($_SESSION[$key])) ? $_SESSION[$key] : null;
     }
 
     function borrarSesion(){

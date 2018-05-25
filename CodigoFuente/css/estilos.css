@@ -18,7 +18,7 @@
 }
 
 .background-menu-default {
-    height: 500px;
+    height: 640px;
     background: #37003b;
 }
 .background-content-default {
@@ -493,4 +493,18 @@ input[type="checkbox"]:checked + label:before {
 .span-accion {
     cursor: pointer;
     color: #97a3aa;
+}
+
+.btn-guardar {
+    background-color: #1fb6ff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 338.89px;
+    height: 2.235rem;
+    margin-left: -15px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
 }
