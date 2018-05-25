@@ -21,7 +21,7 @@ class Route
 
     private static function extractActionName($routes){
 
-        return !empty($routes[1]) ? $routes[2] : "index";
+        return !empty($routes[2]) ? $routes[2] : "index";
     }
 
     private static function createController($moduleName){
@@ -61,6 +61,8 @@ class Route
 
     private static function executeActionFromController($controller, $action)
     {
+
+
         if (method_exists($controller, $action)) {
             //Ejecuto el metodo
             $controller->$action();
@@ -70,6 +72,10 @@ class Route
     }
 
     function ErrorPage404(){
+
+
+
+
         $host = 'http://'.$_SERVER['HTTP_HOST'].'/';
         header('HTTP/1.1 404 Not Found');
         header("Status: 404 Not Found");

@@ -12,20 +12,24 @@ class Model_Rol extends Model
     private $nombre;
 
 
-    function __construct($id, $nombre)
+    function __construct()
     {
         parent::__construct();
-        $this->id = $id;
-        $this->nombre = $nombre;
+
     }
 
     function buscarRol($nombre){
-        $sql = "SELECT id FROM rol WHERE" . " " . "nombre = '$nombre'";
-        $resultado = $this->conn->consulta($sql);
-        if(!$this->conn->cantidadFilas($resultado)){
-            $rol = $this->conn->traerFila($resultado);
-            return new Rol($rol['id'], $rol['nombre']);
+        $sql = "SELECT * FROM rol WHERE" . " " . "nombre = '$nombre';";
+
+        $resultado = $this->db->ejecutar($sql);
+
+        if($this->db->cantidadFilas($resultado)){
+            $fila = $this->db->traerFila($resultado);
+
+            $this->id = $fila['id'];
+
         }
+        return $this->id;
 
     }
 

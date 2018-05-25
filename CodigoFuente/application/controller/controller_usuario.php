@@ -3,15 +3,12 @@
 
 class Controller_Usuario extends Controller{
 
-    function __constructor(){
-
-    }
-
     function login(){
-        session_start();
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $data = $this->model->validarUsuario($username, $password);
+
+        $this->model->validarUsuario($username, $password);
+
         if(empty($this->sesion->get('login'))){
            //redirijo al controlador main funcion index para que entre al else y vaya al main
             header("Location: /");
@@ -28,7 +25,6 @@ class Controller_Usuario extends Controller{
     }
 
     function logout(){
-        session_start();
         session_destroy();
         //redirecciona al controlador main funcion index para que me muestre el login
         header("Location: /");
@@ -40,17 +36,22 @@ class Controller_Usuario extends Controller{
 
     function crearUsuario(){
 
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+        $username = Utilidades::getPost('username');
+        $password = Utilidades::getPost('password');
+        $nombre = Utilidades::getPost('nombre');
+        $apellido= Utilidades::getPost('apellido');
 
-        $this->model->crearUsuario($username, $password);
-        if(empty($this->sesion->get('login'))){
+        $this->model->crearUsuario($username, $password, $nombre, $apellido);
+
+        if($this->sesion->get('login')== $username){
             //redirijo al controlador main funcion index para que entre al else y vaya al main
             header("Location: /");
             exit();
 
         }
-
+        else {
+          echo("entro a else, no creo login");
+        }
 
     }
 

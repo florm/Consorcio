@@ -4,12 +4,12 @@ include_once ('./helpers/sesion.php');
 
 class Model
 {
-    protected $conn;
+    protected $db;
     protected $sesion;
 
     function __construct()
     {
-        $this->conn = new Conexion("127.0.0.1:3307","root","","controlprop");
+        $this->db = new Conexion();
         $this->sesion = new Sesion();
     }
 

@@ -1,5 +1,5 @@
 <?php
-include_once ('./helpers/conexion.php');
+
 include_once ('./application/model/model_rol.php');
 
 class Model_Usuario extends Model{
@@ -12,55 +12,61 @@ class Model_Usuario extends Model{
     function __construct()
     {
         parent::__construct();
-        $this->rol = new Model_Rol(null, null);
+        $this->rol = new Model_Rol();
     }
 
     function validarUsuario ($username, $password){
 	    $password = md5($password);
 
-       $sql = "SELECT * FROM usuario WHERE" . " " . "username = '$username'" . " " . "AND password = '$password'";
+       $usuario = "SELECT id FROM usuario WHERE" . " " . "username = '$username'" . " " . "AND password = '$password'";
 
-        $resultado = $this->conn->consulta($sql);
-
-        $datosUsuario = $this->conn->traerFila($resultado);
+        $resultadoUsuario = $this->db->ejecutar($usuario);
 
 
-        if ($this->conn->cantidadFilas($resultado) > 0){
-
-          $this->sesion->add('login', $username);
-        }
-
-        $this->conn->cerrarConexion( $this->conn);
-
-
-    }
-
-    function crearUsuario($username, $password){
-        $password = md5($password);
-        $this->rol->buscarRol("propietario");
-        $sql = "INSERT INTO usuario (username, password, idRol) VALUES ($username, $password, $this->rol->id)";
-
-        $resultado = $this->conn->consulta($sql);
-        if ($this->conn->cantidadFilas($resultado) > 0){
-
+        if ($this->db->cantidadFilas($resultadoUsuario) > 0){
+            $filaUsuario = $this->db->traerFila($resultadoUsuario);
+            $idUsuario = $this->db->traerCampo($filaUsuario, 'id');
             $this->sesion->add('login', $username);
-            $this->sesion->add('rol', $this->rol);
+
+            //busco nombre y apellido del usuario para cargarlo en la sesion
+            $propietario ="SELECT * FROM propietario WHERE" . " " . "idUsuario = '$idUsuario'";
+            $resultadoPropietario = $this->db->ejecutar($propietario);
+            $filaPropietario = $this->db->traerFila($resultadoPropietario);
+
+            $this->sesion->add('nombre', $this->db->traerCampo($filaPropietario,'nombre'));
+            $this->sesion->add('apellido', $this->db->traerCampo($filaPropietario, 'apellido'));
 
         }
 
-        $this->conn->cerrarConexion( $this->conn);
+        $this->db->cerrarConexion( $this->db);
 
 
     }
-    function checkStatus (){
-        if(isset($_SESSION['logueado'])){
-            return true;
-        }
-        else{
-            return false;
-        }
+
+
+
+    function crearUsuario($username, $password, $nombre, $apellido){
+        $password = md5($password);
+        $idRol = $this->rol->buscarRol("propietario");
+        $sql = "INSERT INTO usuario (username, password, idRol) VALUES ('$username', '$password', $idRol)";
+
+        $this->db->ejecutar($sql);
+
+        //transformamos primera letra de nombre y apellido en mayusculas
+        $nombre = ucfirst($nombre );
+        $apellido = ucfirst($apellido );
+
+        $this->sesion->add('login', $username);
+        $this->sesion->add('nombre', $nombre);
+        $this->sesion->add('apellido', $apellido);
+        $this->sesion->add('rol', $idRol);
+
+        $idUsuario = $this->db->ultimoId();
+        $this->sesion->add('idUsuario',$idUsuario );
+
+        $this->db->cerrarConexion();
+
 
     }
-
 
 }

@@ -1,27 +1,38 @@
 <?php
 
-class Conexion {
+class Conexion extends mysqli {
 
-    private $conn;
-    private $resultado;
+    private $host = '127.0.0.1:3307';
+    private $db = 'controlprop';
+    private $userDb = 'root';
+    private $passDb = '';
 
-    function __construct ($host, $usuario, $pass, $nombreDb){
-
-        $this->conn= mysqli_connect($host, $usuario, $pass, $nombreDb);
+    function __construct() {
+        parent::__construct($this->host, $this->userDb, $this->passDb, $this->db);
 
     }
 
     function cerrarConexion(){
-        mysqli_close($this->conn);
+        mysqli_close($this);
     }
 
-    function consulta($query){
-        $this->resultado = mysqli_query($this->conn,$query);
-        return $this->resultado;
+    function ejecutar($query){
+
+        $resultado = mysqli_query($this,$query);
+        return $resultado;
     }
 
     function traerFila($resultado){
-        return mysqli_fetch_assoc($resultado);
+        $resultado = mysqli_fetch_assoc($resultado);
+        return $resultado;
+    }
+
+    function traerCampo($fila, $nombreCampo){
+        return $fila[$nombreCampo];
+    }
+
+    function traerFilas($resultado){
+        return mysqli_fetch_all($resultado);
     }
 
     function cantidadFilas ($resultado){
@@ -29,11 +40,11 @@ class Conexion {
     }
 
     function ultimoId(){
-        mysqli_insert_id($this->conn);
+        return mysqli_insert_id($this);
     }
 
 
     
 }
-//
+
 ?>
