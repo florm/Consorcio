@@ -100,6 +100,11 @@ $apellido = $_SESSION['apellido'];
                                 </a>
                             </li>
                             <li class="nav-item borde-top text-left">
+                                <a class="nav-link menu-sidebar-item py-3 pl-5" href="/consorcio/index">
+                                    <img src="/imagenes/iconos/pagos.svg" alt="exp" class="pr-3" /> Crear Consorcio
+                                </a>
+                            </li>
+                            <li class="nav-item borde-top text-left">
                                 <a class="nav-link menu-sidebar-item py-3 pl-5" href="#">
                                     <img src="/imagenes/iconos/pagos.svg" alt="exp" class="pr-3" /> Realizar Pago
                                 </a>
