@@ -9,7 +9,11 @@ class Controller_Consorcio extends Controller
        $this->view->generate("consorcio_view.php", "template_view.php");
     }
 
-    function crearConsorcio(){
+    function lista(){
+        $data = $this->model->listarConsorcio();
+        $this->view->generate("listaConsorcio_view.php", "template_view.php", $data);
+    }
+    function alta(){
         $nombre = Utilidades::getPost('nombre');
         $cuit = Utilidades::getPost('cuit');
         $dirCalle = Utilidades::getPost('dirCalle');
@@ -17,9 +21,8 @@ class Controller_Consorcio extends Controller
         $codPost = Utilidades::getPost('codPost');
         $telefono = Utilidades::getPost('telefono');
         $email = Utilidades::getPost('email');
-        $coordGoogle = Utilidades::getPost('coordGoogle');
-        
-        $this->model->crear($nombre,$cuit,$dirCalle,$dirNumero,$codPost,$telefono,$email,$coordGoogle);
-        $this->view->generate("main_view.php", "template_view.php");
+
+        $this->model->crear($nombre,$cuit,$dirCalle,$dirNumero,$codPost,$telefono,$email);
+        $this->view->generate("listaConsorcio_view.php", "template_view.php");
    }
 }

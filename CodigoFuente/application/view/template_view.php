@@ -24,6 +24,13 @@ $apellido = $_SESSION['apellido'];
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#00aba9">
     <meta name="theme-color" content="#ffffff">
+
+    <!--datatable-->
+    <link rel="stylesheet" type="text/css" href="../dataTables/datatables.css"/>
+    <link rel="stylesheet" type="text/css" href="../dataTables/AutoFill-2.2.2/css/autoFill.bootstrap4.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../dataTables/Buttons-1.5.1/css/buttons.bootstrap4.css"/>
+    <link rel="stylesheet" type="text/css" href="../dataTables/Scroller-1.4.4/css/scroller.bootstrap4.css"/>
+
     </head>
 <body>
     <header class="navbar">
@@ -100,9 +107,21 @@ $apellido = $_SESSION['apellido'];
                                 </a>
                             </li>
                             <li class="nav-item borde-top text-left">
-                                <a class="nav-link menu-sidebar-item py-3 pl-5" href="/consorcio/index">
-                                    <img src="/imagenes/iconos/pagos.svg" alt="exp" class="pr-3" /> Crear Consorcio
-                                </a>
+                                <span class="collapsed nav-link menu-sidebar-item py-3 pl-5" data-toggle="collapse" data-target="#submenu-consorcio">
+                                    <img src="/imagenes/iconos/admin.svg" alt="adm" class="pr-3" /> Consorcio
+                                </span>
+                                <div class="collapse" id="submenu-consorcio" aria-expanded="false">
+                                    <ul class="flex-column nav">
+                                        <li class="nav-item">
+                                            <a class="nav-link menu-sidebar-item py-3 pl-5" href="/consorcio/index">
+                                                Crear Consorcio
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link menu-sidebar-item interno py-3" href="/consorcio/lista">Ver Consorcios</a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </li>
                             <li class="nav-item borde-top text-left">
                                 <a class="nav-link menu-sidebar-item py-3 pl-5" href="#">
@@ -154,6 +173,19 @@ $apellido = $_SESSION['apellido'];
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script type="text/javascript" src="../js/script.js"></script>
+
+    <!-- datatable-->
+    <script type="text/javascript" src="../dataTables/datatables.js"></script>
+    <script type="text/javascript" src="../dataTables/DataTables-1.10.16/js/dataTables.bootstrap4.js"></script>
+    <script type="text/javascript" src="../dataTables/AutoFill-2.2.2/js/dataTables.autoFill.js"></script>
+    <script type="text/javascript" src="../dataTables/AutoFill-2.2.2/js/autoFill.bootstrap4.js"></script>
+    <script type="text/javascript" src="../dataTables/Buttons-1.5.1/js/dataTables.buttons.js"></script>
+    <script type="text/javascript" src="../dataTables/Buttons-1.5.1/js/buttons.bootstrap4.js"></script>
+    <script type="text/javascript" src="../dataTables/Buttons-1.5.1/js/buttons.html5.js"></script>
+    <script type="text/javascript" src="../dataTables/Buttons-1.5.1/js/buttons.print.js"></script>
+    <script type="text/javascript" src="../dataTables/Scroller-1.4.4/js/dataTables.scroller.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+
 
 
 </body>

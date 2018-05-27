@@ -1,4 +1,4 @@
-<form method="post" action="crearConsorcio" class="contenedor-formulario">
+<form method="post" action="alta" class="contenedor-formulario">
     <p class="subheader-formulario">Crear consorcio</p>
     <div class="form-group input-size">
             <div class="form-row">
@@ -23,9 +23,7 @@
             <div class="form-group col-md-12">
                  <input type="email" class="form-control" id="email" name="email" placeholder="Correo Electrónico" required>
             </div>
-            <div class="form-group col-md-12">
-                <input type="text" class="form-control" id="coordGoogle" name="coordGoogle" placeholder="Coordenadas">
-            </div>
+
     </div> 
     <div class="form-group input-size text-center">
         <input type="submit" id="btnGuardarCon" value="GUARDAR" class="btn btn-guardar"></button>
