@@ -30,6 +30,8 @@ $apellido = $_SESSION['apellido'];
     <link rel="stylesheet" type="text/css" href="../dataTables/AutoFill-2.2.2/css/autoFill.bootstrap4.min.css"/>
     <link rel="stylesheet" type="text/css" href="../dataTables/Buttons-1.5.1/css/buttons.bootstrap4.css"/>
     <link rel="stylesheet" type="text/css" href="../dataTables/Scroller-1.4.4/css/scroller.bootstrap4.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css"/>
 
     </head>
 <body>
@@ -113,7 +115,7 @@ $apellido = $_SESSION['apellido'];
                                 <div class="collapse" id="submenu-consorcio" aria-expanded="false">
                                     <ul class="flex-column nav">
                                         <li class="nav-item">
-                                            <a class="nav-link menu-sidebar-item py-3 pl-5" href="/consorcio/index">
+                                            <a class="nav-link menu-sidebar-item interno py-3" href="/consorcio/index">
                                                 Crear Consorcio
                                             </a>
                                         </li>
@@ -169,22 +171,26 @@ $apellido = $_SESSION['apellido'];
         </div>
         <?php include("footer.php") ?>
     </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script type="text/javascript" src="../js/script.js"></script>
 
     <!-- datatable-->
     <script type="text/javascript" src="../dataTables/datatables.js"></script>
-    <script type="text/javascript" src="../dataTables/DataTables-1.10.16/js/dataTables.bootstrap4.js"></script>
-    <script type="text/javascript" src="../dataTables/AutoFill-2.2.2/js/dataTables.autoFill.js"></script>
-    <script type="text/javascript" src="../dataTables/AutoFill-2.2.2/js/autoFill.bootstrap4.js"></script>
-    <script type="text/javascript" src="../dataTables/Buttons-1.5.1/js/dataTables.buttons.js"></script>
-    <script type="text/javascript" src="../dataTables/Buttons-1.5.1/js/buttons.bootstrap4.js"></script>
-    <script type="text/javascript" src="../dataTables/Buttons-1.5.1/js/buttons.html5.js"></script>
-    <script type="text/javascript" src="../dataTables/Buttons-1.5.1/js/buttons.print.js"></script>
-    <script type="text/javascript" src="../dataTables/Scroller-1.4.4/js/dataTables.scroller.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+   <script type="text/javascript" src="../dataTables/DataTables-1.10.16/js/dataTables.bootstrap4.js"></script>
+   <script type="text/javascript" src="../dataTables/AutoFill-2.2.2/js/dataTables.autoFill.js"></script>
+   <script type="text/javascript" src="../dataTables/AutoFill-2.2.2/js/autoFill.bootstrap4.js"></script>
+
+   <script type="text/javascript" src="../dataTables/Buttons-1.5.1/js/buttons.bootstrap4.js"></script>
+   <script type="text/javascript" src="../dataTables/Buttons-1.5.1/js/buttons.html5.js"></script>
+   <script type="text/javascript" src="../dataTables/Buttons-1.5.1/js/buttons.print.js"></script>
+   <script type="text/javascript" src="../dataTables/Scroller-1.4.4/js/dataTables.scroller.js"></script>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+
+
+
 
 
 

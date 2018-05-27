@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3307
--- Tiempo de generación: 25-05-2018 a las 23:52:49
+-- Tiempo de generación: 27-05-2018 a las 19:22:51
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 7.2.3
 
@@ -37,8 +37,18 @@ CREATE TABLE `consorcio` (
   `codPost` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `telefono` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `email` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
-  `coordGoogle` varchar(200) COLLATE utf8_spanish_ci NOT NULL
+  `lat` float(10,6) NOT NULL,
+  `lng` float(10,6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `consorcio`
+--
+
+INSERT INTO `consorcio` (`id`, `nombre`, `cuit`, `dirCalle`, `dirNumero`, `codPost`, `telefono`, `email`, `lat`, `lng`) VALUES
+(1, 'Olivera', '123456', 'Av. Olivera', '76', '1407', '123456789', 'consorcio_olivera@gmail.com', -34.636143, -58.487209),
+(2, 'Av. de Mayo', '10101010', 'Av. de Mayo', '1813', '1704', '1544667788', 'consorcio_avMayo@gmail.com', 0.000000, 0.000000),
+(3, 'Pedro Goyena', '123456789', 'Av. Pedro Goyena', '589', '1424', '49242649', 'consorcio_goyena@gmail.com', 0.000000, 0.000000);
 
 -- --------------------------------------------------------
 
@@ -158,6 +168,13 @@ CREATE TABLE `propietario` (
   `idTipoDocumento` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `propietario`
+--
+
+INSERT INTO `propietario` (`id`, `nombre`, `apellido`, `dni`, `cuil`, `email`, `telefono`, `consejo`, `estado`, `idUsuario`, `idSexo`, `idTipoDocumento`) VALUES
+(1, 'Florencia', 'Martin', '29941591', '26299415916', 'flor@gmail.com', '1541695790', 0, NULL, 2, 2, 5);
+
 -- --------------------------------------------------------
 
 --
@@ -262,7 +279,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `username`, `password`, `idRol`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1);
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1),
+(2, 'florm', '767923f509af6ee6ab1a23d622939ede', 2);
 
 --
 -- Índices para tablas volcadas
@@ -369,7 +387,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `consorcio`
 --
 ALTER TABLE `consorcio`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `expensa`
@@ -417,7 +435,7 @@ ALTER TABLE `propiedad`
 -- AUTO_INCREMENT de la tabla `propietario`
 --
 ALTER TABLE `propietario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
@@ -441,7 +459,7 @@ ALTER TABLE `tipodocumento`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

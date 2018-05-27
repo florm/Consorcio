@@ -13,13 +13,16 @@ class Model_Consorcio extends Model
         
         $this->db->ejecutar($sql);
 
-        $this->db->cerrarConexion( $this->db);
+
 
     }
 
     function listarConsorcio(){
         $sql = "SELECT * FROM consorcio ORDER BY nombre ASC ";
-         return $this->db->ejecutar($sql);
+
+         $data=  $this->db->ejecutar($sql);
+
+        return $data;
 
 
 

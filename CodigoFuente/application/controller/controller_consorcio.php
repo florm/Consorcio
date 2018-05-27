@@ -23,6 +23,7 @@ class Controller_Consorcio extends Controller
         $email = Utilidades::getPost('email');
 
         $this->model->crear($nombre,$cuit,$dirCalle,$dirNumero,$codPost,$telefono,$email);
-        $this->view->generate("listaConsorcio_view.php", "template_view.php");
+        header("Location: /consorcio/lista");
+        exit();
    }
 }

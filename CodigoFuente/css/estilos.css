@@ -508,3 +508,8 @@ input[type="checkbox"]:checked + label:before {
     font-weight: bold;
     letter-spacing: 0.5px;
 }
+
+/*dataTables*/
+.dataTables_wrapper {
+    top: 35px;
+}

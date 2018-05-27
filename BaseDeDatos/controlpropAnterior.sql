@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 21-05-2018 a las 22:52:12
+-- Servidor: 127.0.0.1:3307
+-- Tiempo de generación: 25-05-2018 a las 23:52:49
 -- Versión del servidor: 10.1.31-MariaDB
--- Versión de PHP: 7.2.4
+-- Versión de PHP: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -201,7 +201,8 @@ CREATE TABLE `rol` (
 --
 
 INSERT INTO `rol` (`id`, `nombre`) VALUES
-(1, 'admin');
+(1, 'admin'),
+(2, 'propietario');
 
 -- --------------------------------------------------------
 
@@ -219,7 +220,6 @@ CREATE TABLE `sexo` (
 --
 
 INSERT INTO `sexo` (`id`, `nombre`) VALUES
-(1, 'desconocido'),
 (2, 'femenino'),
 (3, 'masculino');
 
@@ -239,7 +239,6 @@ CREATE TABLE `tipodocumento` (
 --
 
 INSERT INTO `tipodocumento` (`id`, `nombre`) VALUES
-(1, 'desconocido'),
 (5, 'dni'),
 (3, 'lc'),
 (2, 'le'),
@@ -421,22 +420,10 @@ ALTER TABLE `propietario`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `proveedor`
---
-ALTER TABLE `proveedor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `reclamo`
---
-ALTER TABLE `reclamo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de la tabla `rol`
 --
 ALTER TABLE `rol`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `sexo`
