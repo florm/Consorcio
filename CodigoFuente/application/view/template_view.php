@@ -1,8 +1,12 @@
 <?php
 
 $username = strtoupper($_SESSION['login']);
-$nombre = $_SESSION['nombre'];
-$apellido = $_SESSION['apellido'];
+if(isset($_SESSION['nombre']))
+    $nombre = $_SESSION['nombre'];
+if(isset($_SESSION['apellido']))
+    $apellido = $_SESSION['apellido'];
+if(isset($_SESSION['idRol']))
+    $idRol = $_SESSION['idRol'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -87,95 +91,20 @@ $apellido = $_SESSION['apellido'];
                 <nav class="navbar navbar-dark px-0 py-0">
                     <div class="navbar-collapse collapse show menu-sidebar">
                         <ul class="nav flex-column flex-nowrap">
+                            <!-- menu dinamico dependiendo del rol de usuario -->
+                            <?php
+                                if($idRol == 1){
+                                    include("menuAdministrador.php");
+                                    include("menuOperador.php");
+                            }
+                                else if($idRol == 3 ){
+                                    include("menuOperador.php");
+                                }
+                                else{
+                                    include("menuPropietario.php");
+                                }
 
-                            <li class="nav-item borde-top text-left">
-                                <span class="collapsed nav-link menu-sidebar-item py-3 pl-5" data-toggle="collapse" data-target="#submenu-administracion">
-                                    <img src="/imagenes/iconos/admin.svg" alt="adm" class="pr-3" /> Administración
-                                </span>
-                                <div class="collapse" id="submenu-administracion" aria-expanded="false">
-                                    <ul class="flex-column nav">
-                                        <li class="nav-item">
-                                            <a class="nav-link menu-sidebar-item interno py-3" href="#">Operadores</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link menu-sidebar-item interno py-3" href="#">Cuenta Corriente</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="nav-item borde-top text-left">
-                                <a class="nav-link menu-sidebar-item py-3 pl-5" href="/propietario/index">
-                                    <img src="/imagenes/iconos/pagos.svg" alt="exp" class="pr-3" /> Completar datos propietario
-                                </a>
-                            </li>
-                            <li class="nav-item borde-top text-left">
-                                <span class="collapsed nav-link menu-sidebar-item py-3 pl-5" data-toggle="collapse" data-target="#submenu-consorcio">
-                                    <img src="/imagenes/iconos/admin.svg" alt="adm" class="pr-3" /> Consorcio
-                                </span>
-                                <div class="collapse" id="submenu-consorcio" aria-expanded="false">
-                                    <ul class="flex-column nav">
-                                        <li class="nav-item">
-                                            <a class="nav-link menu-sidebar-item interno py-3" href="/consorcio/index">
-                                                Crear Consorcio
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link menu-sidebar-item interno py-3" href="/consorcio/lista">Ver Consorcios</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-
-                             <li class="nav-item borde-top text-left">
-                                <span class="collapsed nav-link menu-sidebar-item py-3 pl-5" data-toggle="collapse" data-target="#submenu-proveedores">
-                                    <img src="/imagenes/iconos/admin.svg" alt="adm" class="pr-3" /> Proveedores
-                                </span>
-                                <div class="collapse" id="submenu-proveedores" aria-expanded="false">
-                                    <ul class="flex-column nav">
-                                        <li class="nav-item">
-                                            <a class="nav-link menu-sidebar-item interno py-3" href="/proveedor/index">Dar de alta</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link menu-sidebar-item interno py-3" href="/proveedor/lista">Listar Proveedores</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            
-                            <li class="nav-item borde-top text-left">
-                                <a class="nav-link menu-sidebar-item py-3 pl-5" href="#">
-                                    <img src="/imagenes/iconos/pagos.svg" alt="exp" class="pr-3" /> Realizar Pago
-                                </a>
-                            </li>
-
-                            <li class="nav-item borde-top text-left">
-                                <a class="nav-link menu-sidebar-item py-3 pl-5" href="#">
-                                    <img src="/imagenes/iconos/expensas.svg" alt="exp" class="pr-3" /> Ver Expensas
-                                </a>
-                            </li>
-
-                            <li class="nav-item borde-top text-left">
-                                <a class="nav-link menu-sidebar-item py-3 pl-5" href="#">
-                                    <img src="/imagenes/iconos/reclamos.svg" alt="exp" class="pr-3" /> Reclamos
-                                </a>
-                            </li>
-
-                            <li class="nav-item borde-top text-left">
-                                <span class="collapsed nav-link menu-sidebar-item py-3 pl-5" data-toggle="collapse" data-target="#submenu-reportes">
-                                    <img src="/imagenes/iconos/admin.svg" alt="adm" class="pr-3" /> Reportes
-                                </span>
-                                <div class="collapse" id="submenu-reportes" aria-expanded="false">
-                                    <ul class="flex-column nav">
-                                        <li class="nav-item">
-                                            <a class="nav-link menu-sidebar-item interno py-3" href="#">Consorcio</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link menu-sidebar-item interno py-3" href="#">Cuenta Corriente</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-
+                            ?>
                         </ul>
                     </div>
                 </nav>
