@@ -12,6 +12,8 @@ class Model_Consorcio extends Model
                 VALUES ('$nombre', '$cuit', '$dirCalle', '$dirNumero', '$codPost', '$telefono', '$email')";
                 
         $this->db->ejecutar($sql);
+        $idConsorcio = $this->db->ultimoId();
+        return $idConsorcio;
     }
 
     function listarConsorcio(){

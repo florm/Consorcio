@@ -23,8 +23,9 @@ class Controller_Consorcio extends Controller
         $telefono = Utilidades::getPost('telefono');
         $email = Utilidades::getPost('email');
 
-        $this->model->crear($nombre,$cuit,$dirCalle,$dirNumero,$codPost,$telefono,$email);
-        header("Location: /consorcio/lista");
+        $idConsorcio = $this->model->crear($nombre,$cuit,$dirCalle,$dirNumero,$codPost,$telefono,$email);
+        $this->sesion->add('idConsorcio', $idConsorcio);
+        header("Location: /propiedad/index");
         exit();
    }
 }
