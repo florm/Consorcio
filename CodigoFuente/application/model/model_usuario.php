@@ -18,7 +18,7 @@ class Model_Usuario extends Model{
     function validarUsuario ($username, $password){
 	    $password = md5($password);
 
-       $usuario = "SELECT id FROM usuario WHERE" . " " . "username = '$username'" . " " . "AND password = '$password'";
+       $usuario = "SELECT * FROM usuario WHERE" . " " . "username = '$username'" . " " . "AND password = '$password'";
 
         $resultadoUsuario = $this->db->ejecutar($usuario);
 
@@ -26,16 +26,23 @@ class Model_Usuario extends Model{
         if ($this->db->cantidadFilas($resultadoUsuario) > 0){
             $filaUsuario = $this->db->traerFila($resultadoUsuario);
             $idUsuario = $this->db->traerCampo($filaUsuario, 'id');
+            $idRol = $this->db->traerCampo($filaUsuario, 'idRol');
             $this->sesion->add('login', $username);
+            $this->sesion->add('idRol', $idRol);
 
             //busco nombre y apellido del usuario para cargarlo en la sesion
             $propietario ="SELECT * FROM propietario WHERE" . " " . "idUsuario = '$idUsuario'";
             $resultadoPropietario = $this->db->ejecutar($propietario);
-            $filaPropietario = $this->db->traerFila($resultadoPropietario);
+            if($this->db->cantidadFilas($resultadoPropietario) == 0){
+                $this->sesion->add('nombre', 'admin');
+                $this->sesion->add('apellido', 'admin');
+            }
+            else{
+                $filaPropietario = $this->db->traerFila($resultadoPropietario);
 
-            $this->sesion->add('nombre', $this->db->traerCampo($filaPropietario,'nombre'));
-            $this->sesion->add('apellido', $this->db->traerCampo($filaPropietario, 'apellido'));
-
+                $this->sesion->add('nombre', $this->db->traerCampo($filaPropietario,'nombre'));
+                $this->sesion->add('apellido', $this->db->traerCampo($filaPropietario, 'apellido'));
+            }
         }
 
         $this->db->cerrarConexion( $this->db);
@@ -59,7 +66,7 @@ class Model_Usuario extends Model{
         $this->sesion->add('login', $username);
         $this->sesion->add('nombre', $nombre);
         $this->sesion->add('apellido', $apellido);
-        $this->sesion->add('rol', $idRol);
+        $this->sesion->add('idRol', $idRol);
 
         $idUsuario = $this->db->ultimoId();
         $this->sesion->add('idUsuario',$idUsuario );

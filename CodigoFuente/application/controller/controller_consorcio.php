@@ -13,6 +13,7 @@ class Controller_Consorcio extends Controller
         $data = $this->model->listarConsorcio();
         $this->view->generate("listaConsorcio_view.php", "template_view.php", $data);
     }
+    
     function alta(){
         $nombre = Utilidades::getPost('nombre');
         $cuit = Utilidades::getPost('cuit');
