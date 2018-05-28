@@ -26,6 +26,6 @@
 
     </div> 
     <div class="form-group input-size text-center">
-        <input type="submit" id="btnGuardarCon" value="GUARDAR" class="btn btn-guardar"></button>
+        <input type="submit" id="btnGuardarCon" value="CONTINUAR" class="btn btn-guardar"></button>
     </div>
 </form>
