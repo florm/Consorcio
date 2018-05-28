@@ -10,11 +10,8 @@ class Model_Consorcio extends Model
     function crear($nombre,$cuit,$dirCalle,$dirNumero,$codPost,$telefono,$email){
         $sql = "INSERT INTO consorcio(nombre, cuit, dirCalle, dirNumero, codPost, telefono, email)
                 VALUES ('$nombre', '$cuit', '$dirCalle', '$dirNumero', '$codPost', '$telefono', '$email')";
-        
+                
         $this->db->ejecutar($sql);
-
-
-
     }
 
     function listarConsorcio(){
@@ -23,9 +20,6 @@ class Model_Consorcio extends Model
          $data=  $this->db->ejecutar($sql);
 
         return $data;
-
-
-
 
     }
 }
