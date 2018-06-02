@@ -35,3 +35,5 @@ class Controller_Consorcio extends Controller
        $this->view->generate("listaPropiedades_view.php", "template_view.php", $data);
    }
 }
+
+?>

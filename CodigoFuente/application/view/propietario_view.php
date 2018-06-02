@@ -1,4 +1,4 @@
-<form method="post" action="crearPropietario" class="contenedor-formulario">
+<form method="post" action="crear" class="contenedor-formulario">
     <p class="subheader-formulario">Complete el siguiente formulario</p>
     <div class="form-group input-size">
             <div class="form-row">

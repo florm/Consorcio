@@ -22,5 +22,15 @@ class Controller_Propiedad extends Controller
 
     }
 
+    function insertar(){
+        $idPropietario = Utilidades::getPost('idPropietario');
+        $idPropiedad = Utilidades::getPost('idPropiedad');
+        $this->model->insertarPropietario($idPropietario,$idPropiedad);
 
+        header("Location: /");
+        exit();
+
+        
+
+   }
 }

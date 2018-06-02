@@ -13,8 +13,9 @@ class Model_Propietario extends Model
                 VALUES ('$nombre', '$apellido', '$dni', '$cuil', '$email', '$tel', $consejo, $idUsuario, $idSexo, $idTipoDocumento)";
 
         $this->db->ejecutar($sql);
-
-        $this->db->cerrarConexion( $this->db);
+        $idPropietario = $this->db->ultimoId();
+        return $idPropietario;
+        //$this->db->cerrarConexion( $this->db);
 
     }
 

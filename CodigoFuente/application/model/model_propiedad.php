@@ -20,14 +20,15 @@ class Model_Propiedad extends Model
 
     function listarConsorcio(){
         $sql = "SELECT * FROM consorcio ORDER BY nombre ASC ";
-
-         $data=  $this->db->ejecutar($sql);
-
+        $data=  $this->db->ejecutar($sql);
         return $data;
-
     }
 
-    function prueba(){
-        echo("estoy en prueba");
+    function insertarPropietario($idPropietario,$idPropiedad){
+    
+        $sql = "UPDATE propiedad SET idPropietario='$idPropietario' WHERE id='$idPropiedad'";
+        $this->db->ejecutar($sql);
+        $this->db->cerrarConexion();
+
     }
 }
