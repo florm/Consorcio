@@ -14,7 +14,7 @@ class Model_Propiedad extends Model
                 VALUES ('$piso', '$depto', '$porcentajeParticipacion','$idConsorcio')";
 
         $this->db->ejecutar($sql);
-        $this->db->cerrarConexion();
+
 
     }
 
@@ -27,7 +27,6 @@ class Model_Propiedad extends Model
     function insertarPropietario($idPropietario,$idPropiedad){
     
         $sql = "UPDATE propiedad SET idPropietario='$idPropietario' WHERE id='$idPropiedad'";
-
         $this->db->ejecutar($sql);
         $this->db->cerrarConexion();
 

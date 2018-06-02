@@ -31,6 +31,4 @@ class Model_Consorcio extends Model
         $fila = mysqli_fetch_all($resultado);
         return $fila;
     }
-
-
 }

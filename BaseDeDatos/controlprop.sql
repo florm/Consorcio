@@ -172,8 +172,6 @@ CREATE TABLE `propietario` (
 -- Volcado de datos para la tabla `propietario`
 --
 
-INSERT INTO `propietario` (`id`, `nombre`, `apellido`, `dni`, `cuil`, `email`, `telefono`, `consejo`, `estado`, `idUsuario`, `idSexo`, `idTipoDocumento`) VALUES
-(1, 'Florencia', 'Martin', '29941591', '26299415916', 'flor@gmail.com', '1541695790', 0, NULL, 2, 2, 5);
 
 -- --------------------------------------------------------
 
@@ -237,8 +235,8 @@ CREATE TABLE `sexo` (
 --
 
 INSERT INTO `sexo` (`id`, `nombre`) VALUES
-(2, 'femenino'),
-(3, 'masculino');
+(1, 'femenino'),
+(2, 'masculino');
 
 -- --------------------------------------------------------
 
@@ -256,9 +254,9 @@ CREATE TABLE `tipodocumento` (
 --
 
 INSERT INTO `tipodocumento` (`id`, `nombre`) VALUES
-(5, 'dni'),
-(3, 'lc'),
-(2, 'le'),
+(1, 'dni'),
+(2, 'lc'),
+(3, 'le'),
 (4, 'pasaporte');
 
 -- --------------------------------------------------------
@@ -279,8 +277,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `username`, `password`, `idRol`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1),
-(2, 'florm', '767923f509af6ee6ab1a23d622939ede', 2);
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1);
 
 --
 -- Índices para tablas volcadas

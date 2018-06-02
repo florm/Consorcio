@@ -42,6 +42,7 @@ if(isset($_SESSION['idRol']))
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
 <body>
+<div id="contenedorAlertas" class="div-contenedor-alertas" style=""></div>
     <header class="navbar">
         <a class="navbar-brand" href="#">
             <img src="/imagenes/logoApp.png" class="d-inline-block align-top img-logo pl-2 pr-5" alt="">

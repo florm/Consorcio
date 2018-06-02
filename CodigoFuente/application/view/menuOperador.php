@@ -11,6 +11,9 @@
             <li class="nav-item">
                 <a class="nav-link menu-sidebar-item interno py-3" href="/consorcio/lista">Listar Consorcios</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link menu-sidebar-item interno py-3" href="/consorcio/propiedades">Listar Propiedades</a>
+            </li>
         </ul>
     </div>
 </li>

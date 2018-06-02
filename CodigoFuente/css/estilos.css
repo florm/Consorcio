@@ -213,6 +213,20 @@ table.dataTable {
     text-align: center;
 }
 
+/*estilo fijo de contenedor de alertas
+.div-contenedor-alertas {
+    position: absolute;
+    z-index: 999999;
+    display: block;
+    width: 100%;
+    text-align: center;
+    top: 68px;
+    background-color: #21b921;
+    position: sticky;
+    top: 0;
+    font-size: 1.5rem;
+}
+*/
 .div-contenedor-alertas {
     position: absolute;
     z-index: 999999;
