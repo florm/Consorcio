@@ -7,6 +7,10 @@ if(isset($_SESSION['apellido']))
     $apellido = $_SESSION['apellido'];
 if(isset($_SESSION['idRol']))
     $idRol = $_SESSION['idRol'];
+if(isset($_SESSION['idPropietario']))
+    $idPropietario = $_SESSION['idPropietario'];
+
+//var_dump($_SESSION);
 
 ?>
 <!DOCTYPE html>
@@ -105,7 +109,11 @@ if(isset($_SESSION['idRol']))
                                     include("menuOperador.php");
                                 }
                                 else{
-                                    include("menuPropietario.php");
+                                    if ( isset($idPropietario)) {
+                                       include("menuPropietario.php");
+                                    }else{
+                                        include("menuUsuario.php");
+                                    }  
                                 }
 
                             ?>
@@ -115,7 +123,11 @@ if(isset($_SESSION['idRol']))
 
             </div>
             <main class="col-md-9 col-xl-9 col-sm-8 p-0 background-content-default" role="main">
-                <?php include 'application/view/'.$content_view; ?>
+                <?php include 'application/view/'.$content_view; 
+                  // if ( !isset($idPropietario)) {
+                  //     include("propietario_view.php");
+                   // }
+                ?>
 
             </main>
         </div>
