@@ -29,3 +29,5 @@ class Controller_Consorcio extends Controller
         exit();
    }
 }
+
+?>

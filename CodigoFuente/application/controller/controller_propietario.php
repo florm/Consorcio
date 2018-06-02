@@ -1,6 +1,7 @@
 <?php
 include_once ('./application/model/model_tipoDocumento.php');
 include_once ('./application/model/model_sexo.php');
+include_once ('./application/model/model_consorcio.php');
 class Controller_Propietario extends Controller
 {
     function __construct(){
@@ -16,7 +17,7 @@ class Controller_Propietario extends Controller
     }
 
 
-    function crearPropietario(){
+    function crear(){
         $nombre = Utilidades::getPost('nombre');
         $apellido = Utilidades::getPost('apellido');
         $dni = Utilidades::getPost('dni');
@@ -30,8 +31,12 @@ class Controller_Propietario extends Controller
         $idSexo = Utilidades::getPost('idSexo');
         $idTipoDocumento = Utilidades::getPost('idTipoDocumento');
 
-        $this->model->crear($nombre, $apellido,$dni,$cuil,$email,$tel,$consejo, $idUsuario, $idSexo, $idTipoDocumento );
-        $this->view->generate("main_view.php", "template_view.php");
+        $idPropietario = $this->model->crear($nombre, $apellido,$dni,$cuil,$email,$tel,$consejo, $idUsuario, $idSexo, $idTipoDocumento );
+        if(!isset($_SESSION['idPropietario']))
+            $this->sesion->add('idPropietario', $idPropietario);
 
+        $consorcio = new model_consorcio();
+        $data = ["consorcio" => $consorcio->getConsorcio()];
+        $this->view->generate("cargarDepto_view.php", "template_view.php", $data);
     }
 }

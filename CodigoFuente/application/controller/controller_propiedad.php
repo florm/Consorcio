@@ -18,4 +18,16 @@ class Controller_Propiedad extends Controller
         $this->model->crear($piso,$depto,$porcentajeParticipacion,$idConsorcio);
         $this->view->generate("propiedad_view.php", "template_view.php");
     }
+
+    function insertar(){
+        $idPropietario = Utilidades::getPost('idPropietario');
+        $idPropiedad = Utilidades::getPost('idPropiedad');
+        $this->model->insertarPropietario($idPropietario,$idPropiedad);
+
+        header("Location: /");
+        exit();
+
+        
+
+   }
 }

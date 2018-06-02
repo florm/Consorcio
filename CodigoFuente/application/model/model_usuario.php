@@ -42,8 +42,10 @@ class Model_Usuario extends Model{
 
                 $this->sesion->add('nombre', $this->db->traerCampo($filaPropietario,'nombre'));
                 $this->sesion->add('apellido', $this->db->traerCampo($filaPropietario, 'apellido'));
+                $this->sesion->add('idPropietario', $this->db->traerCampo($filaPropietario, 'id')); //ver
             }
         }
+
 
         $this->db->cerrarConexion( $this->db);
 

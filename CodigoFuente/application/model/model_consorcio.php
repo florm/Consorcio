@@ -22,6 +22,15 @@ class Model_Consorcio extends Model
          $data=  $this->db->ejecutar($sql);
 
         return $data;
-
     }
+
+    function getConsorcio(){
+        $sql = "SELECT * FROM Consorcio";
+        $resultado = $this->db->ejecutar($sql);
+
+        $fila = mysqli_fetch_all($resultado);
+        return $fila;
+    }
+
+
 }
