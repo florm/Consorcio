@@ -23,6 +23,11 @@ $(document).ready(function(){
     table.buttons().container()
         .appendTo(botones);
 
+    $("#consorcio").change(function () {
+        var idConsorcio = $("#consorcio option:selected").val();
+        muestraPropiedades(idConsorcio);           
+    });
+
 
 });
 
@@ -51,3 +56,19 @@ var langEsp = {
     }
 }
 
+function muestraPropiedades(idConsorcio) {
+    var parametros = {
+        "idConsorcio" : idConsorcio
+    };
+    $.ajax({
+        data:  parametros,
+        url:   '../includes/getPropiedades.php',
+        type:  'post',
+        beforeSend: function () {
+            $("#resultado").html("Procesando, espere por favor...");
+        },
+        success:  function (response) {
+            $("#resultado").html(response);
+        }
+    });
+}

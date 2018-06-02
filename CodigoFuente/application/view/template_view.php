@@ -7,6 +7,7 @@ if(isset($_SESSION['apellido']))
     $apellido = $_SESSION['apellido'];
 if(isset($_SESSION['idRol']))
     $idRol = $_SESSION['idRol'];
+
 ?>
 <!DOCTYPE html>
 <html>
