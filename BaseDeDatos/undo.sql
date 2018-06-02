@@ -1,0 +1,15 @@
+DROP TABLE consorcio;
+DROP TABLE expensa;
+DROP TABLE gasto;
+DROP TABLE liqgasto;
+DROP TABLE liquidacion;
+DROP TABLE ordenpago;
+DROP TABLE pago;
+DROP TABLE propiedad;
+DROP TABLE propietario;
+DROP TABLE proveedor;
+DROP TABLE reclamo;
+DROP TABLE rol;
+DROP TABLE sexo;
+DROP TABLE tipodocumento;
+DROP TABLE usuario

@@ -11,11 +11,16 @@ class Controller_Propiedad extends Controller
     }
 
     function alta(){
-        $piso = Utilidades::getPost('piso');
-        $depto = Utilidades::getPost('depto');
-        $porcentajeParticipacion = Utilidades::getPost('porcentajeParticipacion');
-        $idConsorcio= Utilidades::getPost('idConsorcio');
-        $this->model->crear($piso,$depto,$porcentajeParticipacion,$idConsorcio);
-        $this->view->generate("propiedad_view.php", "template_view.php");
+        $propiedades = $_POST['propiedades'];
+        for($i= 0; $i < sizeof($_POST['propiedades']); $i++){
+            $this->model->crear($propiedades[$i]['piso'], $propiedades[$i]['depto'],$propiedades[$i]['porcentajeParticipacion'],
+                $propiedades[$i]['idConsorcio']);
+        }
+
+
+        //$this->view->generate("propiedad_view.php", "template_view.php");
+
     }
+
+
 }

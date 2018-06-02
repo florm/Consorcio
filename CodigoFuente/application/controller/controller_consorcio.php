@@ -28,4 +28,10 @@ class Controller_Consorcio extends Controller
         header("Location: /propiedad/index");
         exit();
    }
+
+   function propiedades(){
+
+       $data = $this->model->getConsorcios();
+       $this->view->generate("listaPropiedades_view.php", "template_view.php", $data);
+   }
 }

@@ -14,7 +14,7 @@ class Model_Propiedad extends Model
                 VALUES ('$piso', '$depto', '$porcentajeParticipacion','$idConsorcio')";
 
         $this->db->ejecutar($sql);
-        $this->db->cerrarConexion();
+
 
     }
 
@@ -25,8 +25,9 @@ class Model_Propiedad extends Model
 
         return $data;
 
+    }
 
-
-
+    function prueba(){
+        echo("estoy en prueba");
     }
 }
