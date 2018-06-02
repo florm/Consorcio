@@ -4,7 +4,7 @@
         <div class="form-row">
             <div class="form-group col-auto">
                 <?php
-                var_dump($data);
+
                 echo " <select id='consorcio' name='consorcio' class='form-control'>";
                 echo "<option value='0' >Seleccione consorcio</option>";
 

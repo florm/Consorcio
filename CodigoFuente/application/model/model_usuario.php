@@ -18,7 +18,7 @@ class Model_Usuario extends Model{
     function validarUsuario ($username, $password){
 	    $password = md5($password);
 
-       $usuario = "SELECT * FROM usuario WHERE" . " " . "username = '$username'" . " " . "AND password = '$password'";
+        $usuario = "SELECT * FROM usuario WHERE" . " " . "username = '$username'" . " " . "AND password = '$password'";
 
         $resultadoUsuario = $this->db->ejecutar($usuario);
 
@@ -29,9 +29,11 @@ class Model_Usuario extends Model{
             $idRol = $this->db->traerCampo($filaUsuario, 'idRol');
             $this->sesion->add('login', $username);
             $this->sesion->add('idRol', $idRol);
+            $this->sesion->add('idUsuario', $idUsuario);
 
             //busco nombre y apellido del usuario para cargarlo en la sesion
             $propietario ="SELECT * FROM propietario WHERE" . " " . "idUsuario = '$idUsuario'";
+
             $resultadoPropietario = $this->db->ejecutar($propietario);
             if($this->db->cantidadFilas($resultadoPropietario) == 0){
                 $this->sesion->add('nombre', 'admin');
@@ -42,7 +44,7 @@ class Model_Usuario extends Model{
 
                 $this->sesion->add('nombre', $this->db->traerCampo($filaPropietario,'nombre'));
                 $this->sesion->add('apellido', $this->db->traerCampo($filaPropietario, 'apellido'));
-                $this->sesion->add('idPropietario', $this->db->traerCampo($filaPropietario, 'id')); //ver
+                $this->sesion->add('idPropietario', $this->db->traerCampo($filaPropietario, 'id'));
             }
         }
 
