@@ -41,9 +41,23 @@ class Model_Propiedad extends Model
     function listarPropiedades($idConsorcio){
         $sql = "SELECT * FROM propiedad WHERE idConsorcio = '$idConsorcio' ORDER BY piso ASC ";
         $resultado = $this->db->ejecutar($sql);
-        //$propiedades = $this->db->traerFilas($resultado);
-        //$this->db->cerrarConexion();
-        return $resultado;
+        $data = array();
+        while($fila = mysqli_fetch_array($resultado)){
+            $subarray = array();
+            $subarray[] = '<div contenteditable class="update" data-id="'.$fila["id"].'" data-column="piso">'.$fila["piso"].'</div>';
+            $subarray[] = '<div contenteditable class="update" data-id="'.$fila["id"].'" data-column="depto">'.$fila["depto"].'</div>';
+            $subarray[] = '<div contenteditable class="update" data-id="'.$fila["id"].'" data-column="porcentajeParticipacion">'.$fila["porcentajeParticipacion"].'</div>';
+            $subarray[] = '<button type="button" name="delete" class="btn btn-danger btn-xs delete" id="'.$fila['id'].'">Borrar</button>';
+            $data[] = $subarray;
+        }
+        $data = array(
+            "draw" => intval($_POST["draw"]),
+            "recordsTotal" => mysqli_num_rows($resultado),
+            "recordsFilter" => mysqli_num_rows($resultado),
+            "data" => $data
+        );
+
+        echo json_encode($data);
     }
 
     function traerPropiedades($idPropietario){

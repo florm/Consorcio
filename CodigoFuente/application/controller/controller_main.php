@@ -9,10 +9,16 @@ class Controller_Main extends Controller{
         }
 
         else{
-            $data = "Home";
 
-           $this->view->generate("main_view.php", "template_view.php", $data);
+           $this->view->generate("main_view.php", "template_view.php");
         }
 
+    }
+
+    function cambiarConsorcio(){
+        $id = $_POST['idConsorcio'];
+        $nombreConsorcio = $_POST['nombreConsorcio'];
+        $this->model->cambiarConsorcio($id, $nombreConsorcio);
+        $this->model->getNombreConsorcio($id);
     }
 }
