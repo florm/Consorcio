@@ -1,4 +1,5 @@
-<div class="contenedor-formulario">
+<div class="m-4">
+    <div id="alert_message"></div>
     <table id="tablaPropiedades" class="table table-bordered">
         <thead>
             <tr>
@@ -8,7 +9,7 @@
                 <th>Acciones</th>
             </tr>
         </thead>
-        <tbody></tbody>
+
     </table>
 
 </div>

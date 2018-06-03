@@ -39,6 +39,8 @@ class Model_Propiedad extends Model
     }
 
     function listarPropiedades($idConsorcio){
+
+
         $sql = "SELECT * FROM propiedad WHERE idConsorcio = '$idConsorcio' ORDER BY piso ASC ";
         $resultado = $this->db->ejecutar($sql);
         $data = array();
@@ -58,6 +60,7 @@ class Model_Propiedad extends Model
         );
 
         echo json_encode($data);
+
     }
 
     function traerPropiedades($idPropietario){
@@ -65,5 +68,10 @@ class Model_Propiedad extends Model
         $resultado = $this->db->ejecutar($sql);
         $fila = mysqli_fetch_all($resultado);
         return $fila;
+    }
+
+    function eliminarPropiedad($id){
+        $sql = "DELETE FROM propiedad WHERE id='$id'";
+        $this->db->ejecutar($sql);
     }
 }

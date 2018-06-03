@@ -51,5 +51,11 @@ class Controller_Propiedad extends Controller
 
     }
 
+    function eliminar(){
+        $idPropiedad = $_POST['id'];
+        $this->model->eliminarPropiedad($idPropiedad);
+        echo("Propiedad eliminada");
+    }
+
 
 }
