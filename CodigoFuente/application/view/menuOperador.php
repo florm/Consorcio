@@ -6,10 +6,10 @@
     <div class="collapse" id="submenu-consorcio" aria-expanded="false">
         <ul class="flex-column nav">
             <li class="nav-item">
-                <a class="nav-link menu-sidebar-item interno py-3" href="/consorcio/index">Dar de alta</a>
+                <a class="nav-link menu-sidebar-item interno py-3" href="/consorcio/index">Nuevo Consorcio</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link menu-sidebar-item interno py-3" href="/consorcio/lista">Listar Consorcios</a>
+                <a class="nav-link menu-sidebar-item interno py-3" href="/consorcio/lista">Listar todos</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link menu-sidebar-item interno py-3" href="/consorcio/propiedades">Listar Propiedades</a>

@@ -1,5 +1,5 @@
 <?php
-
+include_once ('C:\xampp\htdocs\Consorcio\CodigoFuente\application\model\model_main.php');
 $username = strtoupper($_SESSION['login']);
 if(isset($_SESSION['nombre']))
     $nombre = $_SESSION['nombre'];
@@ -10,9 +10,12 @@ if(isset($_SESSION['idRol']))
 if(isset($_SESSION['idPropietario']))
     $idPropietario = $_SESSION['idPropietario'];
 
-//var_dump($_SESSION);
+$main = new model_main();
+$consorcios = $main->listarConsorcio();
+$nombreConsorcioEnUso = $main->getConsorcioEnUsoNombre();
 
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -80,22 +83,30 @@ if(isset($_SESSION['idPropietario']))
     <div class="container-fluid">
         <div class="row flex-xl-nowrap">
             <div class="col-xl-3 col-md-3 col-sm-4 px-0 bd-sidebar background-menu-default">
-
-            <form class="d-flex flex-column text-center">
+            <?php
+             if($idRol == 1 || $idRol == 3)
+                 echo '<form class="d-flex flex-column text-center">
                 <div class="d-flex flex-column px-5 text-left py-4">
                     <label for="btnConsorcios" class="text-consorcio color-consorcio">CONSORCIO</label>
                     <div class="d-flex justify-content-between  pb-2">
-                        <a id="btnConsorcios" class="btn select-consorcio" href="#" data-toggle="collapse" data-target="#collapseConsorcios" aria-expanded="false" aria-controls="collapseConsorcios">Consorcio1 ▾</a>
+                        <a id="btnConsorcios" class="btn select-consorcio" href="#" data-toggle="collapse" data-target="#collapseConsorcios" aria-expanded="false" aria-controls="collapseConsorcios"></a>
                     </div>
                 </div>
                 <div class="collapse" id="collapseConsorcios" style="">
-                        <ul class="flex-column nav" id="ulConsorcios">
-                            <li class="nav-item"><a class="nav-link item-consorcio" href="#" id="2">Consorcio2</a></li>
-                            <li class="nav-item"><a class="nav-link item-consorcio" href="#" id="3">Consorcio3</a></li>
-                        </ul>
+                    <ul class="flex-column nav" id="ulConsorcios">
+                    </ul>
                 </div>
+            </form>';
+             else{
+                    echo '<div class="header-usuario text-center d-flex flex-column justify-content-center align-items-center" 
+                            style="height:  60px;">
+                                <span id="usuarioNombre" class="user-name">';
+                    echo($nombre . " " );
+                    echo($apellido);
+                    echo'</span></div>';
+             }
+            ?>
 
-            </form>
                 <nav class="navbar navbar-dark px-0 py-0">
                     <div class="navbar-collapse collapse show menu-sidebar">
                         <ul class="nav flex-column flex-nowrap">
@@ -134,9 +145,16 @@ if(isset($_SESSION['idPropietario']))
         <?php include("footer.php") ?>
     </div>
 
+<script type="text/javascript">
+    var consorcios = <?php echo($consorcios);?>;
+    var nombreConsorcioEnUso = <?php echo($nombreConsorcioEnUso); ?>
+
+</script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script type="text/javascript" src="../js/script.js"></script>
+    <script type="text/javascript" src="../js/template_main.js"></script>
 
     <!-- datatable-->
     <script type="text/javascript" src="../dataTables/datatables.js"></script>
@@ -150,10 +168,6 @@ if(isset($_SESSION['idPropietario']))
    <script type="text/javascript" src="../dataTables/Scroller-1.4.4/js/dataTables.scroller.js"></script>
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
-
-
-
-
 
 
 </body>
