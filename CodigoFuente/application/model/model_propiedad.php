@@ -14,6 +14,12 @@ class Model_Propiedad extends Model
                 VALUES ('$piso', '$depto', '$porcentajeParticipacion','$idConsorcio')";
 
         $this->db->ejecutar($sql);
+        $propiedad = $this->db->ultimoId();
+
+        $sqlPropiedad="SELECT * FROM propiedad WHERE id= '$propiedad'";
+        $resultado = $this->db->ejecutar($sqlPropiedad);
+        return $this->db->traerFila($resultado);
+
 
 
     }
@@ -30,6 +36,14 @@ class Model_Propiedad extends Model
         $this->db->ejecutar($sql);
         $this->db->cerrarConexion();
 
+    }
+
+    function listarPropiedades($idConsorcio){
+        $sql = "SELECT * FROM propiedad WHERE idConsorcio = '$idConsorcio' ORDER BY piso ASC ";
+        $resultado = $this->db->ejecutar($sql);
+        //$propiedades = $this->db->traerFilas($resultado);
+        //$this->db->cerrarConexion();
+        return $resultado;
     }
 
     function traerPropiedades($idPropietario){

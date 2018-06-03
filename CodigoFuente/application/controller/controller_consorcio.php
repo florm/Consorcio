@@ -31,9 +31,11 @@ class Controller_Consorcio extends Controller
 
    function propiedades(){
 
-       $data = $this->model->getConsorcios();
+       $data = $this->model->getConsorcio();
        $this->view->generate("listaPropiedades_view.php", "template_view.php", $data);
    }
+
+
 }
 
 ?>
