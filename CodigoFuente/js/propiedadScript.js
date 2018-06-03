@@ -39,8 +39,10 @@ $(document).ready(function(){
   })
 
     function mostrarAlerta(mesaje, tipo){
-
+        alert("mostrarAlerta");
     }
+
+
 });
 
 
