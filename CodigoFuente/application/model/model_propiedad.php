@@ -45,4 +45,11 @@ class Model_Propiedad extends Model
         //$this->db->cerrarConexion();
         return $resultado;
     }
+
+    function traerPropiedades($idPropietario){
+        $sql = "SELECT * FROM propiedad WHERE idPropietario = '$idPropietario'";
+        $resultado = $this->db->ejecutar($sql);
+        $fila = mysqli_fetch_all($resultado);
+        return $fila;
+    }
 }

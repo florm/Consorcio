@@ -4,7 +4,8 @@
         <div class="form-row">
             <div class="form-group col-auto">
                 <?php
-                echo " <select id='consorcio-prop' name='consorcio' class='form-control'>";
+
+                echo " <select id='consorcio' name='consorcio' class='form-control'>";
                 echo "<option value='0' >Seleccione consorcio</option>";
 
                 for ($row = 0; $row < count($data); $row++) {

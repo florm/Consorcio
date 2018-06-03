@@ -19,4 +19,6 @@ class Model_Propietario extends Model
 
     }
 
+    
+
 }
