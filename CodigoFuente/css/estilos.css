@@ -533,3 +533,5 @@ input[type="checkbox"]:checked + label:before {
 .dataTables_filter{
     display: none;
 }
+
+th, td { width:30px }

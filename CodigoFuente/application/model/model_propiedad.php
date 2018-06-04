@@ -49,7 +49,7 @@ class Model_Propiedad extends Model
             $subarray[] = '<div contenteditable class="update" data-id="'.$fila["id"].'" data-column="piso">'.$fila["piso"].'</div>';
             $subarray[] = '<div contenteditable class="update" data-id="'.$fila["id"].'" data-column="depto">'.$fila["depto"].'</div>';
             $subarray[] = '<div contenteditable class="update" data-id="'.$fila["id"].'" data-column="porcentajeParticipacion">'.$fila["porcentajeParticipacion"].'</div>';
-            $subarray[] = '<button type="button" name="delete" class="btn btn-danger btn-xs delete" id="'.$fila['id'].'">Borrar</button>';
+            $subarray[] = '<div class="d-flex flex-row justify-content-center"><button type="button" name="delete" class="btn btn-danger btn-xs delete" id="'.$fila['id'].'">Borrar</button></div>';
             $data[] = $subarray;
         }
         $data = array(
