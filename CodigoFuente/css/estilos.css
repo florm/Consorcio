@@ -529,3 +529,9 @@ input[type="checkbox"]:checked + label:before {
 .dataTables_wrapper {
     top: 35px;
 }
+
+.dataTables_filter{
+    display: none;
+}
+
+th, td { width:30px }

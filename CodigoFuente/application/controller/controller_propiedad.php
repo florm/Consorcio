@@ -23,17 +23,13 @@ class Controller_Propiedad extends Controller
     }
 
     function altaSimple(){
-        $propiedades = $_POST['propiedad'];
+        $piso = $_POST['piso'];
+        $depto = $_POST['depto'];
+        $porcentajeParticipacion = $_POST['porcentajeParticipacion'];
+        $idConsorcio = $_SESSION['idConsorcioEnUso'];
+        $this->model->crear($piso, $depto, $porcentajeParticipacion, $idConsorcio);
+        echo("Propiedad creada correctamente");
 
-        $data = $this->model->crear($propiedades['piso'], $propiedades['depto'],$propiedades['porcentajeParticipacion'],
-                $propiedades['idConsorcio']);
-        echo '
-                    <tr class="gradeA" role="row">
-                        <td hidden value="'.$data['id'].'"></td>
-                        <td class="sorting_1">'.$data['piso'].'</td>
-                        <td>'.$data['depto'].'</td>
-                        <td>'.$data['porcentajeParticipacion'].'</td>
-                    </tr>';
     }
     function insertar(){
         $idPropietario = Utilidades::getPost('idPropietario');
@@ -49,6 +45,12 @@ class Controller_Propiedad extends Controller
         $idConsorcio = $_SESSION['idConsorcioEnUso'];
         $this->model->listarPropiedades($idConsorcio);
 
+    }
+
+    function eliminar(){
+        $idPropiedad = $_POST['id'];
+        $this->model->eliminarPropiedad($idPropiedad);
+        echo("Propiedad eliminada");
     }
 
 
