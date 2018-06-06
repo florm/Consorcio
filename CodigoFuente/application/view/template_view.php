@@ -1,5 +1,6 @@
+
 <?php
-include_once ('C:\xampp\htdocs\Consorcio\CodigoFuente\application\model\model_main.php');
+include_once ('./application/model/model_main.php');
 $username = strtoupper($_SESSION['login']);
 if(isset($_SESSION['nombre']))
     $nombre = $_SESSION['nombre'];

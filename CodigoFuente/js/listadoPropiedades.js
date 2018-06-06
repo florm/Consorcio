@@ -4,6 +4,7 @@
 $(document).ready(function(){
 
     cargarTabla();
+
     function cargarTabla(){
         var dataTable = $("#tablaPropiedades").DataTable({
             "processing": true,
