@@ -4,9 +4,11 @@ class Controller_Propiedad extends Controller
 
     function __construct(){
         parent::__construct();
+        $this->validarSesion();
     }
 
     function index(){
+
         $this->view->generate("propiedad_view.php", "template_view.php");
     }
 

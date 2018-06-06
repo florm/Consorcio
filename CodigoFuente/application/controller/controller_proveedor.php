@@ -4,6 +4,7 @@ class Controller_Proveedor extends Controller
 
     function __construct(){
         parent::__construct();
+        $this->validarSesion();
     }
 
     function index(){
