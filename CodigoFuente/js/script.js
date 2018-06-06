@@ -2,14 +2,8 @@
  * Created by Flor on 20/05/2018.
  */
 $(document).ready(function(){
-    var aLogOut = $("#aLogOut");
 
-    aLogOut.click(function(){
-        window.location.href = "../usuario/logout";
-    });
-
-
-    var table = $('#example').DataTable( {
+    var proveedores = $('#proveedores').DataTable( {
         lengthChange: false,
         "language": langEsp,
         "buttons": [
@@ -18,17 +12,36 @@ $(document).ready(function(){
         ],
         scrollY:        400,
         scrollCollapse: true,
-        paging:         false
+        paging:         true,
+
     } );
 
-    var botones = $('#example_wrapper .col-md-6:eq(0)');
-    table.buttons().container()
+    var botones = $('#proveedores_wrapper .col-md-6:eq(0)');
+    proveedores.buttons().container()
         .appendTo(botones);
 
-    $("#consorcio").change(function () {
-        var idConsorcio = $("#consorcio option:selected").val();
-        muestraPropiedades(idConsorcio);           
+    $(document).on('click', '.delete', function(){
+        var id = $(this).attr("id");
+        if(confirm("¿Esta seguro de que desea eliminar este registro?"))
+        {
+            $.ajax({
+                url:"../proveedor/eliminar",
+                method:"POST",
+                data:{id:id},
+                success:function(data){
+                    $('#alert_message').html('<div class="alert alert-success">'+data+'</div>');
+
+
+                }
+            });
+            setInterval(function(){
+                $('#alert_message').html(''); window.location.reload();
+            }, 3000);
+
+        }
     });
+
+
 
 
 });
@@ -57,6 +70,11 @@ var langEsp = {
         "sSortDescending": ": Activar para ordenar la columna de manera descendente"
     }
 }
+
+$("#consorcio").change(function () {
+    var idConsorcio = $("#consorcio option:selected").val();
+    muestraPropiedades(idConsorcio);
+});
 
 function muestraPropiedades(idConsorcio) {
     var parametros = {

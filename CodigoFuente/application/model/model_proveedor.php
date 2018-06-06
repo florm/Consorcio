@@ -22,6 +22,11 @@ class Model_Proveedor extends Model
         return $data;
     }
 
+    function eliminarProveedor($id){
+        $sql = "DELETE FROM proveedor WHERE id='$id'";
+        $this->db->ejecutar($sql);
+    }
+
 }
 
 ?>

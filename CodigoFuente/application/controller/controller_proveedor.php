@@ -25,6 +25,13 @@ class Controller_Proveedor extends Controller
         header("Location: /proveedor/lista");
         exit();
    }
+
+    function eliminar(){
+        $idProveedor = $_POST['id'];
+        $this->model->eliminarProveedor($idProveedor);
+        echo("Proveedor eliminado");
+
+    }
 }
 
 ?>

@@ -44,10 +44,8 @@ class Controller_Propiedad extends Controller
    }
 
     function listar(){
-        //TODO verificar inicio idConsrocio session sino mostrar mensaje
-        $idConsorcio = $_SESSION['idConsorcioEnUso'];
-        $this->model->listarPropiedades($idConsorcio);
-
+            $idConsorcio = $_SESSION['idConsorcioEnUso'];
+            $this->model->listarPropiedades($idConsorcio);
     }
 
     function eliminar(){
