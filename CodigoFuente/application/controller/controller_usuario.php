@@ -5,7 +5,7 @@ class Controller_Usuario extends Controller{
 
     function __construct(){
         parent::__construct();
-        $this->validarSesion();
+
     }
     
     function login(){

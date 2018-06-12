@@ -1,4 +1,4 @@
-        <table id="example" class="table table-striped table-bordered" style="width:100%">
+        <table id="listaConsorcio" class="table table-striped table-bordered" style="width:100%">
             <thead>
             <tr role="row">
                 <th tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1"  style="width: 60px;" hidden>Id</th>

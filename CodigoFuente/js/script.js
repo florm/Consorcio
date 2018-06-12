@@ -3,6 +3,19 @@
  */
 $(document).ready(function(){
 
+    var consorcios = $('#listaConsorcio').DataTable( {
+        lengthChange: false,
+        "language": langEsp,
+        "buttons": [
+            { extend: 'pdf', text: 'Descargar PDF', titleAttr: 'PDF' },
+
+        ],
+        scrollY:        400,
+        scrollCollapse: true,
+        paging:         true,
+
+    } );
+
     var proveedores = $('#proveedores').DataTable( {
         lengthChange: false,
         "language": langEsp,
