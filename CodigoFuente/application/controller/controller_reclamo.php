@@ -1,5 +1,6 @@
 <?php 
 include_once ('./application/model/model_propiedad.php');
+include_once ('./application/model/model_proveedor.php');
 class Controller_Reclamo extends Controller
 {
 	
@@ -35,7 +36,9 @@ class Controller_Reclamo extends Controller
     }
 
     function solicitar(){
-        $this->view->generate("solicitarServicio_view.php", "template_view.php");
+        $proveedor = new model_proveedor();
+        $data = ["proveedor"=> $proveedor->getProveedor()];
+        $this->view->generate("solicitarServicio_view.php", "template_view.php", $data);
     }
 
     function listar(){
@@ -51,6 +54,10 @@ class Controller_Reclamo extends Controller
     function aceptar(){
         $idReclamo = $_POST['id'];
         $this->model->aceptarReclamo($idReclamo);
+    }
+
+    function solicitarServicio(){
+
     }
 
 }

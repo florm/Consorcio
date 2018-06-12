@@ -37,7 +37,7 @@ $(document).ready(function(){
 
     $(document).on('click', '.aceptar', function(){
         var id = $(this).attr("id");
-        
+
             $.ajax({
                 url:"../reclamo/aceptar",
                 method:"POST",
@@ -47,5 +47,7 @@ $(document).ready(function(){
                     cargarTabla();
                 }
             });
+        $(".actualizar-reporte").removeAttr("hidden");
+        $("#idRec").val(id);
     });
 });
