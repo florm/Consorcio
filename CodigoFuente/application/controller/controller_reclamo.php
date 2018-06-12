@@ -33,6 +33,25 @@ class Controller_Reclamo extends Controller
         exit();
     }
 
+    function solicitar(){
+        $this->view->generate("solicitarServicio_view.php", "template_view.php");
+    }
+
+    function listar(){
+        $idConsorcio = $_SESSION['idConsorcioEnUso'];
+        $this->model->listarReclamos($idConsorcio);
+    }
+
+    function rechazar(){
+        $idReclamo = $_POST['id'];
+        $this->model->rechazarReclamo($idReclamo);
+    }
+
+    function aceptar(){
+        $idPropiedad = $_POST['idPropiedad'];
+        var_dump($idPropiedad);
+    }
+
 }
 
  ?>

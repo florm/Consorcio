@@ -24,7 +24,6 @@
 
             <input type="date" class="form-control" id="fecha"
                        name="fecha" value="<?php echo date("Y-m-d"); ?>" hidden>
-
         </div>
     </div>
     <div class="form-group input-size text-center">
