@@ -46,7 +46,8 @@ $nombreConsorcioEnUso = $main->getConsorcioEnUsoNombre();
     <link rel="stylesheet" type="text/css" href="../dataTables/AutoFill-2.2.2/css/autoFill.bootstrap4.min.css"/>
     <link rel="stylesheet" type="text/css" href="../dataTables/Buttons-1.5.1/css/buttons.bootstrap4.css"/>
     <link rel="stylesheet" type="text/css" href="../dataTables/Scroller-1.4.4/css/scroller.bootstrap4.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"/>
+     <link rel="stylesheet" type="text/css" href="../dataTables/DataTables-1.10.16/css/dataTables.bootstrap4.css"/>
+    
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css"/>
 
 

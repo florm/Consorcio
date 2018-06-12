@@ -20,7 +20,7 @@ $(document).ready(function(){
             "ajax": {
                 url: "../propiedad/listar",
                 type: "POST",
-                
+
             }
         });
 
