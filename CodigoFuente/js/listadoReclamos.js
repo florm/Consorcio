@@ -31,7 +31,20 @@ $(document).ready(function(){
                 success:function(data){
                     $('#tablaReclamos').DataTable().destroy();
                     cargarTabla();
+                }
+            });
+    });
 
+    $(document).on('click', '.aceptar', function(){
+        var id = $(this).attr("id");
+        
+            $.ajax({
+                url:"../reclamo/aceptar",
+                method:"POST",
+                data:{id:id},
+                success:function(data){
+                    $('#tablaReclamos').DataTable().destroy();
+                    cargarTabla();
                 }
             });
     });

@@ -52,6 +52,12 @@ class Model_Reclamo extends Model
         $this->db->ejecutar($sql);
         //$this->db->cerrarConexion();
     }
+
+    function aceptarReclamo($idReclamo){
+        $sql = "UPDATE reclamo SET estado='Aceptado' WHERE id='$idReclamo'";
+        $this->db->ejecutar($sql);
+        //$this->db->cerrarConexion();
+    }
    
 }
 
