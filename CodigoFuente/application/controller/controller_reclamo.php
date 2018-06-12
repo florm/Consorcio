@@ -1,5 +1,6 @@
 <?php 
 include_once ('./application/model/model_propiedad.php');
+include_once ('./application/model/model_proveedor.php');
 class Controller_Reclamo extends Controller
 {
 	
@@ -30,6 +31,39 @@ class Controller_Reclamo extends Controller
         $fecha = Utilidades::getPost('fecha');
         
         $this->model->cargarReclamo($idPropiedad, $descripcion, $fecha, $estado);
+        header("Location: /");
+        exit();
+    }
+
+    function solicitar(){
+        $proveedor = new model_proveedor();
+        $data = ["proveedor"=> $proveedor->getProveedor()];
+        $this->view->generate("solicitarServicio_view.php", "template_view.php", $data);
+    }
+
+    function listar(){
+        $idConsorcio = $_SESSION['idConsorcioEnUso'];
+        $this->model->listarReclamos($idConsorcio);
+    }
+
+    function rechazar(){
+        $idReclamo = $_POST['id'];
+        $this->model->rechazarReclamo($idReclamo);
+    }
+
+    function aceptar(){
+        $idReclamo = $_POST['id'];
+        $this->model->aceptarReclamo($idReclamo);
+    }
+
+    function solicitarServicio(){
+        $fecha = Utilidades::getPost('fecha');
+        $concepto = Utilidades::getPost('concepto');
+        $importe = Utilidades::getPost('importe');
+        $idReclamo = Utilidades::getPost('idReclamo');
+        $idProveedor = Utilidades::getPost('idProveedor');
+
+        $this->model->registrarGasto($fecha, $concepto, $importe, $idReclamo, $idProveedor);
         header("Location: /");
         exit();
     }
