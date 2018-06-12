@@ -47,9 +47,12 @@ class Model_Reclamo extends Model
         echo json_encode($data);
     }
 
-
-    
-    
+    function rechazarReclamo($idReclamo){
+        $sql = "UPDATE reclamo SET estado='Rechazado' WHERE id='$idReclamo'";
+        $this->db->ejecutar($sql);
+        //$this->db->cerrarConexion();
+    }
+   
 }
 
 ?>

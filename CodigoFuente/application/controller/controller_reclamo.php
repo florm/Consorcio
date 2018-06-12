@@ -43,6 +43,11 @@ class Controller_Reclamo extends Controller
         $this->model->listarReclamos($idConsorcio);
     }
 
+    function rechazar(){
+        $idReclamo = $_POST['id'];
+        $this->model->rechazarReclamo($idReclamo);
+    }
+
 }
 
  ?>

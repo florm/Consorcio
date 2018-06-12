@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
     cargarTabla();
-    
+
     function cargarTabla(){
         var dataTable = $("#tablaReclamos").DataTable({
             "processing": true,
@@ -20,4 +20,19 @@ $(document).ready(function(){
             }
         });
     }
+
+    $(document).on('click', '.rechazar', function(){
+        var id = $(this).attr("id");
+
+            $.ajax({
+                url:"../reclamo/rechazar",
+                method:"POST",
+                data:{id:id},
+                success:function(data){
+                    $('#tablaReclamos').DataTable().destroy();
+                    cargarTabla();
+
+                }
+            });
+    });
 });
