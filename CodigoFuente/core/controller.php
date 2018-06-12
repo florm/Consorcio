@@ -11,9 +11,10 @@ class Controller {
     function __construct(){
         $this->view = new View();
         $this->sesion = new Sesion();
-
     }
 
-    function action_index(){
+    function validarSesion(){
+        if(empty($this->sesion->get('login')))
+            header('Location: /');
     }
 }

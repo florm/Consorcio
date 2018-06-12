@@ -61,8 +61,6 @@ class Route
 
     private static function executeActionFromController($controller, $action)
     {
-
-
         if (method_exists($controller, $action)) {
             //Ejecuto el metodo
             $controller->$action();

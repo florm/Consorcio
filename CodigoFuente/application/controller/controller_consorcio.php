@@ -4,6 +4,7 @@ class Controller_Consorcio extends Controller
 
     function __construct(){
         parent::__construct();
+        $this->validarSesion();
     }
     function index(){
        $this->view->generate("consorcio_view.php", "template_view.php");

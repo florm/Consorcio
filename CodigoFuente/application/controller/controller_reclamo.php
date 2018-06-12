@@ -5,6 +5,7 @@ class Controller_Reclamo extends Controller
 	
 	function __construct(){
         parent::__construct();
+        $this->validarSesion();
     }
 
     function index(){

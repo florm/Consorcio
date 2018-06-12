@@ -6,6 +6,7 @@ class Controller_Propietario extends Controller
 {
     function __construct(){
         parent::__construct();
+        $this->validarSesion();
     }
 
     function index(){

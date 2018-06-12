@@ -1,6 +1,10 @@
+
 <?php
-include_once ('.\application\model\model_main.php');
-$username = strtoupper($_SESSION['login']);
+include_once ('./application/model/model_main.php');
+
+if(isset($_SESSION['login']))
+    $username = strtoupper($_SESSION['login']);
+
 if(isset($_SESSION['nombre']))
     $nombre = $_SESSION['nombre'];
 if(isset($_SESSION['apellido']))

@@ -3,6 +3,11 @@
 
 class Controller_Usuario extends Controller{
 
+    function __construct(){
+        parent::__construct();
+        $this->validarSesion();
+    }
+    
     function login(){
         $username = $_POST['username'];
         $password = $_POST['password'];
