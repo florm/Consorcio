@@ -57,7 +57,15 @@ class Controller_Reclamo extends Controller
     }
 
     function solicitarServicio(){
+        $fecha = Utilidades::getPost('fecha');
+        $concepto = Utilidades::getPost('concepto');
+        $importe = Utilidades::getPost('importe');
+        $idReclamo = Utilidades::getPost('idReclamo');
+        $idProveedor = Utilidades::getPost('idProveedor');
 
+        $this->model->registrarGasto($fecha, $concepto, $importe, $idReclamo, $idProveedor);
+        header("Location: /");
+        exit();
     }
 
 }

@@ -58,6 +58,13 @@ class Model_Reclamo extends Model
         $this->db->ejecutar($sql);
         //$this->db->cerrarConexion();
     }
+
+    function registrarGasto($fecha, $concepto, $importe, $idReclamo, $idProveedor){
+        $sql = "INSERT INTO gasto(fecha, concepto, importe, idReclamo, idProveedor)
+                VALUES ('$fecha', '$concepto', '$importe', '$idReclamo', '$idProveedor')";
+
+        $this->db->ejecutar($sql);
+    }
    
 }
 

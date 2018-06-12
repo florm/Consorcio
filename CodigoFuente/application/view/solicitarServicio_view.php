@@ -34,12 +34,12 @@
             <div class="form-group col-md-6">
                 <input type="number" class="form-control" id="importe" name="importe" placeholder="Importe $$">
             </div>
-            
+
             <div class="form-group col-md-12">
                 <textarea class="form-control" id="concepto" name="concepto" placeholder="Detalle el pedido.." rows="5"></textarea>
             </div>
 
-            <input type="text" class="form-control" id="idRec" name="idRec" hidden>
+            <input type="text" class="form-control" id="idRec" name="idReclamo" hidden>
 
             <input type="date" class="form-control" id="fecha" name="fecha" value="<?php echo date("Y-m-d"); ?>" hidden>
         </div>

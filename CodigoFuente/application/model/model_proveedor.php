@@ -30,7 +30,6 @@ class Model_Proveedor extends Model
 
         return $fila;
     }
-
 }
 
 ?>
