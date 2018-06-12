@@ -48,8 +48,8 @@ class Controller_Reclamo extends Controller
     }
 
     function aceptar(){
-        $idPropiedad = $_POST['idPropiedad'];
-        var_dump($idPropiedad);
+        $idReclamo = $_POST['id'];
+        $this->model->aceptarReclamo($idReclamo);
     }
 
 }

@@ -23,13 +23,12 @@ class Model_Reclamo extends Model
                                         FROM propiedad
                                         WHERE idConsorcio='$idConsorcio')";
 
-
         $resultado = $this->db->ejecutar($sql);
         $data = array();
         while($fila = mysqli_fetch_array($resultado)){
             $subarray = array();
 
-            $subarray[] = '<div contenteditable class="idPropiedad" data-id="'.$fila["id"].'" data-column="idPropiedad">'.$fila["idPropiedad"].'</div>';
+            $subarray[] = '<div contenteditable class="update" data-id="'.$fila["id"].'" data-column="idPropiedad">'.$fila["idPropiedad"].'</div>';
             //$subarray[] = '<div contenteditable class="update" data-id="'.$fila["id"].'" data-column="descripcion">'.$fila["descripcion"].'</div>';
             $subarray[] = '<div contenteditable class="update" data-id="'.$fila["id"].'" data-column="descripcion">'.$fila["descripcion"].'</div>';
             $subarray[] = '<div contenteditable class="update" data-id="'.$fila["id"].'" data-column="estado">'.$fila["estado"].'</div>';
@@ -51,6 +50,11 @@ class Model_Reclamo extends Model
         $sql = "UPDATE reclamo SET estado='Rechazado' WHERE id='$idReclamo'";
         $this->db->ejecutar($sql);
         //$this->db->cerrarConexion();
+    }
+
+    function aceptarReclamo($idReclamo){
+        $sql = "UPDATE reclamo SET estado='Aceptado' WHERE id='$idReclamo'";
+        $this->db->ejecutar($sql);
     }
 
 
