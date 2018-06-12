@@ -34,6 +34,15 @@ class Controller_Reclamo extends Controller
         exit();
     }
 
+    function solicitar(){
+        $this->view->generate("solicitarServicio_view.php", "template_view.php");
+    }
+
+    function listar(){
+        $idConsorcio = $_SESSION['idConsorcioEnUso'];
+        $this->model->listarReclamos($idConsorcio);
+    }
+
 }
 
  ?>

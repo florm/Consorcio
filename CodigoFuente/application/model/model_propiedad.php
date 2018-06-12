@@ -60,7 +60,6 @@ class Model_Propiedad extends Model
         );
 
         echo json_encode($data);
-
     }
 
     function traerPropiedades($idPropietario){
