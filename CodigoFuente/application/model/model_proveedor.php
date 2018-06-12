@@ -22,6 +22,14 @@ class Model_Proveedor extends Model
         return $data;
     }
 
+    function getProveedor(){
+        $sql = "SELECT * FROM proveedor";
+        $resultado = $this->db->ejecutar($sql);
+
+        $fila = mysqli_fetch_all($resultado);
+
+        return $fila;
+    }
 }
 
 ?>
