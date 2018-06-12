@@ -33,7 +33,7 @@
     </div>
 </li>
 <li class="nav-item borde-top text-left">
-    <a class="nav-link menu-sidebar-item py-3 pl-5" href="/reclamo/solicitar">
+    <a class="nav-link menu-sidebar-item py-3 pl-5" href="#">
         <img src="/imagenes/iconos/reclamos.svg" alt="exp" class="pr-3" /> Solicitar servicios
     </a>
 </li>
