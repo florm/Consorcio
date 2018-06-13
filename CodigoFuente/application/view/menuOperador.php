@@ -38,7 +38,17 @@
     </a>
 </li>
 <li class="nav-item borde-top text-left">
-    <a class="nav-link menu-sidebar-item py-3 pl-5" href="#">
-        <img src="/imagenes/iconos/reclamos.svg" alt="exp" class="pr-3" /> Generar Liquidacion
-    </a>
+    <span class="collapsed nav-link menu-sidebar-item py-3 pl-5" data-toggle="collapse" data-target="#submenu-liquidacion">
+        <img src="/imagenes/iconos/admin.svg" alt="adm" class="pr-3" /> Liquidacion
+    </span>
+    <div class="collapse" id="submenu-liquidacion" aria-expanded="false">
+        <ul class="flex-column nav">
+            <li class="nav-item">
+                <a class="nav-link menu-sidebar-item interno py-3" href="/liquidacion">Generar Liquidacion</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link menu-sidebar-item interno py-3" href="#">Listar Liquidaciones</a>
+            </li>
+        </ul>
+    </div>
 </li>
