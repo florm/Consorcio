@@ -20,7 +20,15 @@ class Controller_Liquidacion extends Controller
     //
     function alta()
     {
-        
+        $idConsorcio = $_SESSION['idConsorcioEnUso'];
+        $periodo = Utilidades::getPost('periodo')."-00"; 
+        //Concateno -00 ya que no me interesa el dia, para conservar el formato date en la base de datos. El campo periodo es algo que no se va a vizualisar en la pagina.
+        $fecha = Utilidades::getPost('fecha');
+
+        //var_dump($periodo);
+        //var_dump($fecha);
+
+        $this->model->prueba($idConsorcio, $periodo, $fecha);
     }
     //function propiedades(){
 
