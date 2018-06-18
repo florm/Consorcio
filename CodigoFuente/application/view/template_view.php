@@ -52,6 +52,15 @@ $nombreConsorcioEnUso = $main->getConsorcioEnUsoNombre();
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- MONTH PICKER -->
+    <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <link href="../monthPicker/MonthPicker.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+    <!-- <link href="../monthPicker/examples.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="../monthPicker/stylesheets/stylesheet.css" rel="stylesheet" type="text/css" />-->
+    <!-- MONTH PICKER -->
+
     </head>
 <body>
 <div id="contenedorAlertas" class="div-contenedor-alertas" style=""></div>
@@ -173,6 +182,14 @@ $nombreConsorcioEnUso = $main->getConsorcioEnUsoNombre();
    <script type="text/javascript" src="../dataTables/Scroller-1.4.4/js/dataTables.scroller.js"></script>
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+
+   <!-- MONTH PICKER -->
+    
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <script src="https://cdn.rawgit.com/digitalBush/jquery.maskedinput/1.4.1/dist/jquery.maskedinput.min.js"></script>
+    <script src="../monthPicker/MonthPicker.js"></script>
+    <script src="../monthPicker/examples.js"></script>
+    <!-- MONTH PICKER -->
 
 
 </body>

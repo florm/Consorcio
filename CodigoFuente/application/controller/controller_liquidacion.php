@@ -17,25 +17,28 @@ class Controller_Liquidacion extends Controller
     //    $data = $this->model->listarconsorcio();
     //    $this->view->generate("listaconsorcio_view.php", "template_view.php", $data);
     //}
-    //
+ 
     function alta()
     {
-        $periodo = date_create(Utilidades::getPost('periodo'));
-
-        $periodoDesde= date_create(Utilidades::getPost('periodo'));
-
-        $periodoHasta = date_add($periodo, date_interval_create_from_date_string("1 month"));
-
         $idConsorcio = $_SESSION['idConsorcioEnUso'];
+        $periodo = Utilidades::getPost('periodo');
 
-        $fecha = date("Y-m-d");
+        //$periodo = Utilidades::getPost('periodo')."-00"; ESTO ES OPCIONAL, SI QUIERO GUARDARLO PERIODO EN FORMATO DATE
+        //Concateno -00 ya que no me interesa el dia, para conservar el formato date en la base de datos. El campo periodo es algo que no se va a vizualisar en la pagina.
 
-        //$idConsorcio = $this->model->crear($nombre, $cuit, $dirCalle, $dirNumero, $codPost, $telefono, $email);
-        //$this->sesion->add('idConsorcio', $idConsorcio);
-        //header("Location: /propiedad/index");
-        //exit();
-
+        $fecha = Utilidades::getPost('fecha');
+        $arrayPeriodo = explode("-", $periodo); //Descompone el String cada vez que encuentra un "-" y los coloca en array.
+        $this->model->liquidar($idConsorcio, $arrayPeriodo, $fecha, $periodo);
+        header("Location: /liquidacion/lista");
+        exit();
     }
+
+    function lista(){
+        //$idConsorcio = $_SESSION['idConsorcioEnUso'];
+        $this->view->generate("listaLiquidacion_view.php", "template_view.php");
+    }
+
+
     //function propiedades(){
 
     //   $data = $this->model->getConsorcio();

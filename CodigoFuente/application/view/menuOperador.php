@@ -44,10 +44,10 @@
     <div class="collapse" id="submenu-liquidacion" aria-expanded="false">
         <ul class="flex-column nav">
             <li class="nav-item">
-                <a class="nav-link menu-sidebar-item interno py-3" href="/liquidacion">Generar Liquidacion</a>
+                <a class="nav-link menu-sidebar-item interno py-3" href="/liquidacion/index">Generar Liquidacion</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link menu-sidebar-item interno py-3" href="#">Listar Liquidaciones</a>
+                <a class="nav-link menu-sidebar-item interno py-3" href="/liquidacion/lista">Listar Liquidaciones</a>
             </li>
         </ul>
     </div>
