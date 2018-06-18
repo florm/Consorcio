@@ -1,4 +1,4 @@
-<form method="post" action="liquidacion/alta" class="contenedor-formulario">
+<form method="post" action="alta" class="contenedor-formulario">
     <p class="subheader-formulario">Generar Liquidación</p>
     <div class="form-group input-size">
             <div class="form-row">
