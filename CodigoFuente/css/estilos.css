@@ -536,4 +536,7 @@ input[type="checkbox"]:checked + label:before {
 
 th, td { width:30px }
 
+.subheader-formulario-negrita{
+    font-weight: bold;
+}
 
