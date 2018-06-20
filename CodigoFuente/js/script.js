@@ -29,6 +29,32 @@ $(document).ready(function(){
 
     } );
 
+    var liquidaciones = $('#liquidaciones').DataTable( {
+        lengthChange: false,
+        "language": langEsp,
+        "buttons": [
+            { extend: 'pdf', text: 'Descargar PDF', titleAttr: 'PDF' },
+
+        ],
+        scrollY:        400,
+        scrollCollapse: true,
+        paging:         true,
+
+    } );
+
+    var propiedadPropietario = $('#propiedadPropietario').DataTable( {
+        lengthChange: false,
+        "language": langEsp,
+        "buttons": [
+            { extend: 'pdf', text: 'Descargar PDF', titleAttr: 'PDF' },
+
+        ],
+        scrollY:        400,
+        scrollCollapse: true,
+        paging:         true,
+
+    } );
+
     var botones = $('#proveedores_wrapper .col-md-6:eq(0)');
     proveedores.buttons().container()
         .appendTo(botones);
