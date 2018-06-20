@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
     $(document).on('click', '.detalle', function(){
+        $('#tablaDetalleLiquidacion').DataTable().destroy();
         var id = $(this).attr("id");
         var dataTable = $("#tablaDetalleLiquidacion").DataTable({
             "processing": true,
