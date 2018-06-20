@@ -2,7 +2,7 @@
     <p class="subheader-formulario">Enviar Reclamo</p>
     <div class="form-group input-size">
         <div class="form-row">
-            
+            <!-- VER EL SELECT, AGREGARLE CONSORCIO PORQUE ES CONFUSO CUANDO HAY MAS DE UNA PROPIEDAD -->
             <div class="form-group col-md-12">
                 <?php
                 echo " <select id='idPropiedad' name= 'idPropiedad' class='form-control'>";

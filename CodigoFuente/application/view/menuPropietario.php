@@ -1,14 +1,14 @@
 <!-- propietarios -->
 
-<li class="nav-item borde-top text-left">
+<!--<li class="nav-item borde-top text-left">
     <a class="nav-link menu-sidebar-item py-3 pl-5" href="#">
         <img src="/imagenes/iconos/pagos.svg" alt="exp" class="pr-3" /> Realizar Pago
     </a>
-</li>
+</li>-->
 
 <li class="nav-item borde-top text-left">
-    <a class="nav-link menu-sidebar-item py-3 pl-5" href="#">
-        <img src="/imagenes/iconos/expensas.svg" alt="exp" class="pr-3" /> Ver Expensas
+    <a class="nav-link menu-sidebar-item py-3 pl-5" href="/expensa/lista">
+        <img src="/imagenes/iconos/expensas.svg" alt="exp" class="pr-3" /> Expensas
     </a>
 </li>
 

@@ -23,8 +23,13 @@ class Model_Reclamo extends Model
                                         FROM propiedad
                                         WHERE idConsorcio='$idConsorcio')";
 
+        // VER ERROR PARA PODER LISTAR EL PISO Y DEPTO DE LA PROPIEDAD
+        // $sql = "SELECT * FROM reclamo r 
+        //                 JOIN propiedad p ON r.idPropiedad = p.id
+        //                 WHERE p.idConsorcio = '$idConsorcio";
 
         $resultado = $this->db->ejecutar($sql);
+
         $data = array();
         while($fila = mysqli_fetch_array($resultado)){
             $subarray = array();
