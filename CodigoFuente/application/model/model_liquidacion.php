@@ -51,7 +51,15 @@ class Model_Liquidacion extends Model
         $fechaVencimiento = strtotime ( '+1 month' , strtotime ( $nuevafecha ) ) ;
         $fechaVencimiento = date ( 'Y-m-j' , $fechaVencimiento );
 
-        
+        foreach ($listaDePropiedades as $propiedad) {
+
+            $importe = ($propiedad[3] * $gastoTotal) / 100;
+
+            $sql6 = "INSERT INTO expensa (idLiquidacion, idPropiedad, importe, fechaVencimiento)
+                VALUES ('$idLiquidacion', '$propiedad[0]', '$importe', '$fechaVencimiento')"; 
+
+            $this->db->ejecutar($sql6);
+        }
 
     }
 
