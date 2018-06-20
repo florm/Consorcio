@@ -29,8 +29,8 @@ class Controller_Liquidacion extends Controller
         $fecha = Utilidades::getPost('fecha');
         $arrayPeriodo = explode("-", $periodo); //Descompone el String cada vez que encuentra un "-" y los coloca en array.
         $this->model->liquidar($idConsorcio, $arrayPeriodo, $fecha, $periodo);
-        //header("Location: /liquidacion/lista");
-        //exit();
+        header("Location: /liquidacion/lista");
+        exit();
     }
 
     function lista(){
