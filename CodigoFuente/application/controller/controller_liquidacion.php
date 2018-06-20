@@ -34,16 +34,15 @@ class Controller_Liquidacion extends Controller
     }
 
     function lista(){
-        //$idConsorcio = $_SESSION['idConsorcioEnUso'];
-        $this->view->generate("listaLiquidacion_view.php", "template_view.php");
+        $idConsorcio = $_SESSION['idConsorcioEnUso'];
+        $data = $this->model->listarLiquidaciones($idConsorcio);
+        $this->view->generate("listaLiquidacion_view.php", "template_view.php", $data);
     }
 
-
-    //function propiedades(){
-
-    //   $data = $this->model->getConsorcio();
-    //   $this->view->generate("listaPropiedades_view.php", "template_view.php", $data);
-    //
+    function listarDetalles(){
+        $idLiquidacion = $_POST['id'];
+        $this->model->verDetallesLiquidacion($idLiquidacion);
+    }
 
 
     //}
