@@ -34,7 +34,7 @@
             <tr>
                 <th>Importe</th>
                 <th>Vencimiento</th>
-                <th>Importe</th>
+                <th>Acciones</th>
             </tr>
         </thead>
 

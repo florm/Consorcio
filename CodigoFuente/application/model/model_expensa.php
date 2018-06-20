@@ -32,7 +32,7 @@ class Model_Expensa extends Model
             $subarray[] = '<div contenteditable class="update" data-id="'.$fila["id"].'" data-column="importe">'.$fila["importe"].'</div>';
             //$subarray[] = '<div contenteditable class="update" data-id="'.$fila["id"].'" data-column="descripcion">'.$fila["descripcion"].'</div>';
             $subarray[] = '<div contenteditable class="update" data-id="'.$fila["id"].'" data-column="fechaVencimiento">'.$fila["fechaVencimiento"].'</div>';
-            $subarray[] = '<div class="d-flex flex-row justify-content-around"><button type="button" name="aceptar" class="btn btn-success btn-xs aceptar" id="'.$fila['id'].'">Aceptar</button><button type="button" name="rechazar" class="btn btn-danger btn-xs rechazar" id="'.$fila['id'].'">Rechazar</button></div>';
+            $subarray[] = '<div class="d-flex flex-row justify-content-around"><button type="button" name="verdetalles" class="btn btn-info btn-xs verdetalles" id="'.$fila['id'].'">Ver Detalle</button><button type="button" name="pagar" class="btn btn-success btn-xs pagar" id="'.$fila['id'].'">Pagar</button></div>';
 
             $data[] = $subarray;
         }
