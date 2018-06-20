@@ -17,7 +17,12 @@ class Model_Liquidacion extends Model
 
         $gastoTotal = 0;
 
-        $sql2 = "SELECT * FROM gasto WHERE MONTH(fecha) = '$arrayPeriodo[1]' AND YEAR(fecha) = $arrayPeriodo[0]";
+        $sql2 = "SELECT * FROM gasto g
+                            JOIN reclamo r ON g.idReclamo = r.id
+                            JOIN propiedad p ON r.idPropiedad = p.id
+        WHERE p.idConsorcio = '$idConsorcio'
+        AND MONTH(g.fecha) = '$arrayPeriodo[1]' AND YEAR(g.fecha) = $arrayPeriodo[0]";
+
         $result2 = $this->db->ejecutar($sql2);
         $listaDeGastos = mysqli_fetch_all($result2);
 
@@ -36,6 +41,12 @@ class Model_Liquidacion extends Model
     	//$result = $this->db->ejecutar($sql);
         //$fila = mysqli_fetch_all($result);
         //var_dump($fila);
+    }
+
+    function listarLiquidaciones($idConsorcio){
+        $sql = "SELECT * FROM liquidacion WHERE idConsorcio = '$idConsorcio'";
+        $data=  $this->db->ejecutar($sql);
+        return $data;
     }
 
 }
