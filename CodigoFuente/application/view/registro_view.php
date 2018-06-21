@@ -19,7 +19,7 @@
         <input type="password" class="form-control" id="rpassword" name="rpassword" placeholder="Repetir Contraseña" required>
     </div>
 
-    <input type="submit" id="registrase" value="REGISTRARSE" class="btn btn-ingresar"></button>
+    <input type="submit" id="registrarse" value="REGISTRARSE" class="btn btn-ingresar"></button>
 
 </form>
 
