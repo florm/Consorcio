@@ -1,4 +1,5 @@
 <?php
+
 class Controller_Propiedad extends Controller
 {
 
@@ -40,12 +41,11 @@ class Controller_Propiedad extends Controller
 
         header("Location: /");
         exit();
-
    }
 
     function listar(){
-            $idConsorcio = $_SESSION['idConsorcioEnUso'];
-            $this->model->listarPropiedades($idConsorcio);
+        $idConsorcio = $_SESSION['idConsorcioEnUso'];
+        $this->model->listarPropiedades($idConsorcio);
     }
 
     function eliminar(){

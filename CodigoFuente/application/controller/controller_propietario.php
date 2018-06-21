@@ -2,6 +2,7 @@
 include_once ('./application/model/model_tipoDocumento.php');
 include_once ('./application/model/model_sexo.php');
 include_once ('./application/model/model_consorcio.php');
+
 class Controller_Propietario extends Controller
 {
     function __construct(){
@@ -39,5 +40,11 @@ class Controller_Propietario extends Controller
         $consorcio = new model_consorcio();
         $data = ["consorcio" => $consorcio->getConsorcio()];
         $this->view->generate("cargarDepto_view.php", "template_view.php", $data);
+    }
+
+    function agregarPropiedad(){
+        $consorcio = new model_consorcio();
+        $data = ["consorcio" => $consorcio->getConsorcio()];
+        $this->view->generate("agregarPropiedad_view.php", "template_view.php", $data);
     }
 }
