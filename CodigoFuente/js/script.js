@@ -80,9 +80,6 @@ $(document).ready(function(){
         }
     });
 
-
-
-
 });
 
 var langEsp = {
