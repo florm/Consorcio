@@ -66,12 +66,16 @@ class Controller_Usuario extends Controller{
     function listarInactivos(){
         $this->model->listarUsuariosInactivos();
     }
-    
+
     function altaUsuario(){
         $idUsuario = $_POST['id'];
         $this->model->actualizarUsuario($idUsuario);
     }
 
+    function eliminar(){
+        $idUsuario = $_POST['id'];
+        $this->model->eliminarUsuario($idUsuario);
+    }
 
 }
 ?>

@@ -114,5 +114,10 @@ class Model_Usuario extends Model{
         $this->db->ejecutar($sql);
     }
 
+    function eliminarUsuario($idUsuario){
+        $sql = "DELETE FROM usuario WHERE id = '$idUsuario'";
+        $this->db->ejecutar($sql);
+    }
+
 }
 ?>

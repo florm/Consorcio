@@ -21,5 +21,31 @@ $(document).ready(function(){
         });
     }
 
-    
+    $(document).on('click', '.habilitarUser', function(){
+        var id = $(this).attr("id");
+
+            $.ajax({
+                url:"../usuario/altaUsuario",
+                method:"POST",
+                data:{id:id},
+                success:function(data){
+                    $('#tablaUsuariosInactivos').DataTable().destroy();
+                    cargarTabla();
+                }
+            });
+    });
+
+    $(document).on('click', '.eliminarUser', function(){
+        var id = $(this).attr("id");
+
+            $.ajax({
+                url:"../usuario/eliminar",
+                method:"POST",
+                data:{id:id},
+                success:function(data){
+                    $('#tablaUsuariosInactivos').DataTable().destroy();
+                    cargarTabla();
+                }
+            });
+    });
 });
