@@ -66,18 +66,18 @@ class Model_Usuario extends Model{
         $this->db->ejecutar($sql);
 
         //transformamos primera letra de nombre y apellido en mayusculas
-        $nombre = ucfirst($nombre );
-        $apellido = ucfirst($apellido );
+        // $nombre = ucfirst($nombre );
+        // $apellido = ucfirst($apellido );
 
-        $this->sesion->add('login', $username);
-        $this->sesion->add('nombre', $nombre);
-        $this->sesion->add('apellido', $apellido);
-        $this->sesion->add('idRol', $idRol);
+        // $this->sesion->add('login', $username);
+        // $this->sesion->add('nombre', $nombre);
+        // $this->sesion->add('apellido', $apellido);
+        // $this->sesion->add('idRol', $idRol);
 
-        $idUsuario = $this->db->ultimoId();
-        $this->sesion->add('idUsuario',$idUsuario );
+        // $idUsuario = $this->db->ultimoId();
+        // $this->sesion->add('idUsuario',$idUsuario );
 
-        $this->db->cerrarConexion();
+        // $this->db->cerrarConexion();
 
 
     }
