@@ -82,4 +82,37 @@ class Model_Usuario extends Model{
 
     }
 
+    function listarUsuariosInactivos(){
+
+        $sql = "SELECT * FROM usuario WHERE estado = 0";
+
+        $resultado = $this->db->ejecutar($sql);
+
+        $data = array();
+        while($fila = mysqli_fetch_array($resultado)){
+            $subarray = array();
+
+            $subarray[] = '<div contenteditable class="update" data-id="'.$fila["id"].'" data-column="username">'.$fila["username"].'</div>';
+            //$subarray[] = '<div contenteditable class="update" data-id="'.$fila["id"].'" data-column="descripcion">'.$fila["descripcion"].'</div>';
+            $subarray[] = '<div contenteditable class="update" data-id="'.$fila["id"].'" data-column="estado">'.$fila["estado"].'</div>';
+            $subarray[] = '<div class="d-flex flex-row justify-content-around"><button type="button" name="habilitarUser" class="btn btn-success btn-xs habilitarUser" id="'.$fila['id'].'">Habilitar</button><button type="button" name="eliminarUser" class="btn btn-danger btn-xs eliminarUser" id="'.$fila['id'].'">Eliminar</button></div>';
+
+            $data[] = $subarray;
+        }
+        $data = array(
+            "draw" => intval($_POST["draw"]),
+            "recordsTotal" => mysqli_num_rows($resultado),
+            "recordsFilter" => mysqli_num_rows($resultado),
+            "data" => $data
+        );
+
+        echo json_encode($data);
+    }
+
+    function actualizarUsuario($idUsuario){
+        $sql = "UPDATE usuario SET estado=1 WHERE id='$idUsuario'";
+        $this->db->ejecutar($sql);
+    }
+
 }
+?>

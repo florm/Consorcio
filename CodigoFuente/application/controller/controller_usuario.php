@@ -59,6 +59,19 @@ class Controller_Usuario extends Controller{
 
     }
 
+    function alta(){
+        $this->view->generate("altaUsuario_view.php", "template_view.php");
+    }
+
+    function listarInactivos(){
+        $this->model->listarUsuariosInactivos();
+    }
+    
+    function altaUsuario(){
+        $idUsuario = $_POST['id'];
+        $this->model->actualizarUsuario($idUsuario);
+    }
+
 
 }
 ?>

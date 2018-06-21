@@ -6,7 +6,7 @@
     <div class="collapse" id="submenu-reportes" aria-expanded="false">
         <ul class="flex-column nav">
             <li class="nav-item">
-                <a class="nav-link menu-sidebar-item interno py-3" href="#">Alta</a>
+                <a class="nav-link menu-sidebar-item interno py-3" href="/usuario/alta">Alta</a>
             </li>
             <!--<li class="nav-item">
                 <a class="nav-link menu-sidebar-item interno py-3" href="#">Cuenta Corriente</a>
