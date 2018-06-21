@@ -46,16 +46,16 @@ class Controller_Usuario extends Controller{
         $apellido= Utilidades::getPost('apellido');
 
         $this->model->crearUsuario($username, $password, $nombre, $apellido);
+        header("Location: /");
+        // if($this->sesion->get('login')== $username){
+        //     //redirijo al controlador main funcion index para que entre al else y vaya al main
+        //     header("Location: /");
+        //     exit();
 
-        if($this->sesion->get('login')== $username){
-            //redirijo al controlador main funcion index para que entre al else y vaya al main
-            header("Location: /");
-            exit();
-
-        }
-        else {
-          echo("entro a else, no creo login");
-        }
+        // }
+        // else {
+        //   echo("entro a else, no creo login");
+        // }
 
     }
 
