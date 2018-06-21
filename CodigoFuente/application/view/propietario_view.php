@@ -3,10 +3,10 @@
     <div class="form-group input-size">
             <div class="form-row">
             <div class="form-group col-md-4">
-                <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo($_SESSION['nombre']); ?>" readonly>
+                <input type="text" class="form-control" id="nombre" name="nombre">
             </div>
             <div class="form-group col-md-4">
-                <input type="text" class="form-control" id="apellido" name="apellido" value="<?php echo($_SESSION['apellido']); ?>" readonly>
+                <input type="text" class="form-control" id="apellido" name="apellido">
             </div>
             <div class="form-group col-md-4">
                 <?php

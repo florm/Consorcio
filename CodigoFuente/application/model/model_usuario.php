@@ -119,5 +119,44 @@ class Model_Usuario extends Model{
         $this->db->ejecutar($sql);
     }
 
+    function listarUsuariosGenerales(){
+
+        $sql = "SELECT * FROM usuario WHERE idRol = 2";
+
+        $resultado = $this->db->ejecutar($sql);
+
+        $data = array();
+        while($fila = mysqli_fetch_array($resultado)){
+            $subarray = array();
+
+            $subarray[] = '<div contenteditable class="update" data-id="'.$fila["id"].'" data-column="username">'.$fila["username"].'</div>';
+            $subarray[] = '<div class="d-flex flex-row justify-content-around"><button type="button" name="asignarOperador" class="btn btn-success btn-xs asignarOperador" id="'.$fila['id'].'">Asignar Operador</button></div>';
+
+            $data[] = $subarray;
+        }
+        $data = array(
+            "draw" => intval($_POST["draw"]),
+            "recordsTotal" => mysqli_num_rows($resultado),
+            "recordsFilter" => mysqli_num_rows($resultado),
+            "data" => $data
+        );
+
+        echo json_encode($data);
+    }
+
+    function asignarRolOperador($idUsuario){
+        $idRol = $this->rol->buscarRol("operador");
+        $sql = "UPDATE usuario SET idRol='$idRol' WHERE id='$idUsuario'";
+        $this->db->ejecutar($sql);
+    }  
+
+    function crearPersonal($username, $password){
+        $password = md5($password);
+        $idRol = $this->rol->buscarRol("operador");
+        $sql = "INSERT INTO usuario (username, password, idRol, estado) VALUES ('$username', '$password', $idRol, 1)";
+
+        $this->db->ejecutar($sql);
+    }
+
 }
 ?>

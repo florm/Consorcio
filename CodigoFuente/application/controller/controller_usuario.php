@@ -79,5 +79,35 @@ class Controller_Usuario extends Controller{
         $this->model->eliminarUsuario($idUsuario);
     }
 
+    function personal(){
+        $this->view->generate("personal_view.php", "template_view.php");
+    }
+
+    function listarUsuariosGeneral(){
+        $this->model->listarUsuariosGenerales();
+    }
+
+    function asignar(){
+        $idUsuario = $_POST['id'];
+        $this->model->actualizarUsuario($idUsuario);
+        $this->model->asignarRolOperador($idUsuario);
+    }
+
+    function registrarPersonal(){
+        $this->view->generate("registrarPersonal_view.php", "template_view.php");
+    }
+
+    function altaPersonal(){
+
+        $username = Utilidades::getPost('username');
+        $password = Utilidades::getPost('password');
+
+        $this->model->crearPersonal($username, $password);
+
+        
+        header("Location: /");
+
+    }
+
 }
 ?>
