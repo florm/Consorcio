@@ -32,21 +32,43 @@ class Model_Usuario extends Model{
                 $this->sesion->add('idRol', $idRol);
                 $this->sesion->add('idUsuario', $idUsuario);
 
+
+                switch ($idRol) {
+                    case 1:
+                        $this->sesion->add('nombre', 'admin');
+                        $this->sesion->add('apellido', 'admin');
+                        break;
+                    case 2:
+                        $propietario ="SELECT * FROM propietario WHERE" . " " . "idUsuario = '$idUsuario'";
+                        $resultadoPropietario = $this->db->ejecutar($propietario);
+                        $filaPropietario = $this->db->traerFila($resultadoPropietario);
+                        $this->sesion->add('nombre', $this->db->traerCampo($filaPropietario,'nombre'));
+                        $this->sesion->add('apellido', $this->db->traerCampo($filaPropietario, 'apellido'));
+                        $this->sesion->add('idPropietario', $this->db->traerCampo($filaPropietario, 'id'));
+                        break;
+                    case 3:
+                        $this->sesion->add('nombre', 'operador');
+                        $this->sesion->add('apellido', 'operador');
+                        break;
+                }
+
+                //CAMBIA LOGICA AL LOGEAR
                 //busco nombre y apellido del usuario para cargarlo en la sesion
-                $propietario ="SELECT * FROM propietario WHERE" . " " . "idUsuario = '$idUsuario'";
+                // $propietario ="SELECT * FROM propietario WHERE" . " " . "idUsuario = '$idUsuario'";
 
-                $resultadoPropietario = $this->db->ejecutar($propietario);
-                if($this->db->cantidadFilas($resultadoPropietario) == 0){
-                    $this->sesion->add('nombre', 'admin');
-                    $this->sesion->add('apellido', 'admin');
-                }
-                else{
-                    $filaPropietario = $this->db->traerFila($resultadoPropietario);
+                // $resultadoPropietario = $this->db->ejecutar($propietario);
+                // if($this->db->cantidadFilas($resultadoPropietario) == 0){
+                //     $this->sesion->add('nombre', 'admin');
+                //     $this->sesion->add('apellido', 'admin');
+                // }
+                // else{
+                //     $filaPropietario = $this->db->traerFila($resultadoPropietario);
 
-                    $this->sesion->add('nombre', $this->db->traerCampo($filaPropietario,'nombre'));
-                    $this->sesion->add('apellido', $this->db->traerCampo($filaPropietario, 'apellido'));
-                    $this->sesion->add('idPropietario', $this->db->traerCampo($filaPropietario, 'id'));
-                }
+                //     $this->sesion->add('nombre', $this->db->traerCampo($filaPropietario,'nombre'));
+                //     $this->sesion->add('apellido', $this->db->traerCampo($filaPropietario, 'apellido'));
+                //     $this->sesion->add('idPropietario', $this->db->traerCampo($filaPropietario, 'id'));
+                // }
+
             }
         }
 
