@@ -58,7 +58,7 @@ class Model_Usuario extends Model{
 
 
 
-    function crearUsuario($username, $password, $nombre, $apellido){
+    function crearUsuario($username, $password){ //Saco , $nombre, $apellido por validacion de estado
         $password = md5($password);
         $idRol = $this->rol->buscarRol("propietario");
         $sql = "INSERT INTO usuario (username, password, idRol) VALUES ('$username', '$password', $idRol)";

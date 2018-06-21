@@ -42,10 +42,10 @@ class Controller_Usuario extends Controller{
 
         $username = Utilidades::getPost('username');
         $password = Utilidades::getPost('password');
-        $nombre = Utilidades::getPost('nombre');
-        $apellido= Utilidades::getPost('apellido');
+        //$nombre = Utilidades::getPost('nombre');
+        //$apellido= Utilidades::getPost('apellido');
 
-        $this->model->crearUsuario($username, $password, $nombre, $apellido);
+        $this->model->crearUsuario($username, $password); //Saco $nombre, $apellido 
 
         // if($this->sesion->get('login')== $username){
         //     //redirijo al controlador main funcion index para que entre al else y vaya al main

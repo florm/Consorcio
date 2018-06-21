@@ -35,6 +35,8 @@ class Model_Liquidacion extends Model
             $gastoTotal = $gastoTotal + $gasto[3];
         }
 
+        $gastoTotal = $gastoTotal * 1.2; //Se le agrega 20%
+
         // ----------------------------
         $sql4 = "UPDATE liquidacion SET gastoTotal='$gastoTotal' WHERE id='$idLiquidacion'";
         $result4 = $this->db->ejecutar($sql4);
