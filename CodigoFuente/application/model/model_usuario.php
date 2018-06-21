@@ -35,20 +35,25 @@ class Model_Usuario extends Model{
 
                 switch ($idRol) {
                     case 1:
-                        $this->sesion->add('nombre', 'admin');
-                        $this->sesion->add('apellido', 'admin');
+                        $this->sesion->add('nombre', 'Administrador ');
+                        $this->sesion->add('apellido', '');
                         break;
                     case 2:
                         $propietario ="SELECT * FROM propietario WHERE" . " " . "idUsuario = '$idUsuario'";
                         $resultadoPropietario = $this->db->ejecutar($propietario);
                         $filaPropietario = $this->db->traerFila($resultadoPropietario);
-                        $this->sesion->add('nombre', $this->db->traerCampo($filaPropietario,'nombre'));
-                        $this->sesion->add('apellido', $this->db->traerCampo($filaPropietario, 'apellido'));
-                        $this->sesion->add('idPropietario', $this->db->traerCampo($filaPropietario, 'id'));
+                        if ($this->db->traerCampo($filaPropietario,'nombre') == '') {
+                            $this->sesion->add('nombre', 'Usuario ');
+                            $this->sesion->add('apellido', '');
+                        } else{
+                            $this->sesion->add('nombre', $this->db->traerCampo($filaPropietario,'nombre'));
+                            $this->sesion->add('apellido', $this->db->traerCampo($filaPropietario, 'apellido'));
+                            $this->sesion->add('idPropietario', $this->db->traerCampo($filaPropietario, 'id'));
+                        }
                         break;
                     case 3:
-                        $this->sesion->add('nombre', 'operador');
-                        $this->sesion->add('apellido', 'operador');
+                        $this->sesion->add('nombre', 'Operador ');
+                        $this->sesion->add('apellido', '');
                         break;
                 }
 
