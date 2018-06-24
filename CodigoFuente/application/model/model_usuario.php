@@ -185,5 +185,17 @@ class Model_Usuario extends Model{
         $this->db->ejecutar($sql);
     }
 
+    function revisarUsuariosExistentes($username){
+        $sql = "SELECT * FROM usuario WHERE username = '$username'";
+        $resultado = $this->db->ejecutar($sql);
+        
+        $fila = mysqli_num_rows($resultado);
+        if ($fila == 0) {
+            echo 1;//Nombre de usuario disponible
+        }else{
+            echo 0;//Nombre NO disponible
+        }
+    }
+
 }
 ?>

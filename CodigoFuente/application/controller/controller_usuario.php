@@ -109,5 +109,10 @@ class Controller_Usuario extends Controller{
 
     }
 
+    function revisarExistencia(){
+        $username = $_POST['username'];
+        $this->model->revisarUsuariosExistentes($username);
+    }
+
 }
 ?>
