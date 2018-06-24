@@ -35,12 +35,14 @@ class Model_Liquidacion extends Model
             $gastoTotal = $gastoTotal + $gasto[3];
         }
 
+        $gastoTotal = $gastoTotal * 1.2; //Se le agrega 20%
+
         // ----------------------------
         $sql4 = "UPDATE liquidacion SET gastoTotal='$gastoTotal' WHERE id='$idLiquidacion'";
         $result4 = $this->db->ejecutar($sql4);
 
         // ----------------------------
-        $sql5 = "SELECT * FROM propiedad WHERE idConsorcio = '$idConsorcio'";
+        $sql5 = "SELECT * FROM propiedad WHERE idConsorcio = '$idConsorcio' AND idPropietario != 0";
         $result5 = $this->db->ejecutar($sql5);
         $listaDePropiedades = mysqli_fetch_all($result5);
 

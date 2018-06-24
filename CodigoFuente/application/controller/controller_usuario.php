@@ -42,10 +42,10 @@ class Controller_Usuario extends Controller{
 
         $username = Utilidades::getPost('username');
         $password = Utilidades::getPost('password');
-        $nombre = Utilidades::getPost('nombre');
-        $apellido= Utilidades::getPost('apellido');
+        //$nombre = Utilidades::getPost('nombre');
+        //$apellido= Utilidades::getPost('apellido');
 
-        $this->model->crearUsuario($username, $password, $nombre, $apellido);
+        $this->model->crearUsuario($username, $password); //Saco $nombre, $apellido 
 
         // if($this->sesion->get('login')== $username){
         //     //redirijo al controlador main funcion index para que entre al else y vaya al main
@@ -77,6 +77,41 @@ class Controller_Usuario extends Controller{
     function eliminar(){
         $idUsuario = $_POST['id'];
         $this->model->eliminarUsuario($idUsuario);
+    }
+
+    function personal(){
+        $this->view->generate("personal_view.php", "template_view.php");
+    }
+
+    function listarUsuariosGeneral(){
+        $this->model->listarUsuariosGenerales();
+    }
+
+    function asignar(){
+        $idUsuario = $_POST['id'];
+        $this->model->actualizarUsuario($idUsuario);
+        $this->model->asignarRolOperador($idUsuario);
+    }
+
+    function registrarPersonal(){
+        $this->view->generate("registrarPersonal_view.php", "template_view.php");
+    }
+
+    function altaPersonal(){
+
+        $username = Utilidades::getPost('username');
+        $password = Utilidades::getPost('password');
+
+        $this->model->crearPersonal($username, $password);
+
+        
+        header("Location: /");
+
+    }
+
+    function revisarExistencia(){
+        $username = $_POST['username'];
+        $this->model->revisarUsuariosExistentes($username);
     }
 
 }
