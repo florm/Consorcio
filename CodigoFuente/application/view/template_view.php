@@ -190,5 +190,7 @@ $nombreConsorcioEnUso = $main->getConsorcioEnUsoNombre();
     <script src="../monthPicker/examples.js"></script>
     <!-- MONTH PICKER -->
 
+    <!-- Validar registro personal-->
+    <script type="text/javascript" src="../js/validarRegistro.js"></script>
 </body>
 </html>
