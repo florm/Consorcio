@@ -17,16 +17,8 @@ class Model_Reclamo extends Model
 
     function listarReclamos($idConsorcio){
 
-        $sql = "SELECT * 
-                FROM reclamo
-                WHERE idPropiedad IN (SELECT id
-                                        FROM propiedad
-                                        WHERE idConsorcio='$idConsorcio')";
-
-        // VER ERROR PARA PODER LISTAR EL PISO Y DEPTO DE LA PROPIEDAD
-        // $sql = "SELECT * FROM reclamo r 
-        //                 JOIN propiedad p ON r.idPropiedad = p.id
-        //                 WHERE p.idConsorcio = '$idConsorcio";
+        $sql = "SELECT * FROM reclamo r JOIN propiedad p on r.idPropiedad = p.id JOIN consorcio c ON p.idConsorcio = c.id
+            WHERE c.id = '$idConsorcio'";
 
         $resultado = $this->db->ejecutar($sql);
 
@@ -34,10 +26,9 @@ class Model_Reclamo extends Model
         while($fila = mysqli_fetch_array($resultado)){
             $subarray = array();
 
-            $subarray[] = '<div contenteditable class="update" data-id="'.$fila["id"].'" data-column="idPropiedad">'.$fila["idPropiedad"].'</div>';
-            //$subarray[] = '<div contenteditable class="update" data-id="'.$fila["id"].'" data-column="descripcion">'.$fila["descripcion"].'</div>';
-            $subarray[] = '<div contenteditable class="update" data-id="'.$fila["id"].'" data-column="descripcion">'.$fila["descripcion"].'</div>';
-            $subarray[] = '<div contenteditable class="update" data-id="'.$fila["id"].'" data-column="estado">'.$fila["estado"].'</div>';
+            $subarray[] = '<div class="update text-uppercase" data-id="'.$fila["id"].'" data-column="idPropiedad">'.$fila["piso"]." ".$fila["depto"].'</div>';
+            $subarray[] = '<div class="update" data-id="'.$fila["id"].'" data-column="descripcion">'.$fila["descripcion"].'</div>';
+            $subarray[] = '<div class="update" data-id="'.$fila["id"].'" data-column="estado">'.$fila["estado"].'</div>';
             $subarray[] = '<div class="d-flex flex-row justify-content-around"><button type="button" name="aceptar" class="btn btn-success btn-xs aceptar" id="'.$fila['id'].'">Aceptar</button><button type="button" name="rechazar" class="btn btn-danger btn-xs rechazar" id="'.$fila['id'].'">Rechazar</button></div>';
 
             $data[] = $subarray;

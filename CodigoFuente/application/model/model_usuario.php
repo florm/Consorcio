@@ -1,6 +1,7 @@
 <?php
 
 include_once ('./application/model/model_rol.php');
+include_once ('./application/model/model_consorcio.php');
 
 class Model_Usuario extends Model{
     private $id;
@@ -8,11 +9,13 @@ class Model_Usuario extends Model{
     private $password;
     private $idRol;
     private $rol;
+    private $consorcio;
 
     function __construct()
     {
         parent::__construct();
         $this->rol = new Model_Rol();
+        $this->consorcio = new Model_Consorcio();
     }
 
     function validarUsuario ($username, $password){
@@ -149,26 +152,24 @@ class Model_Usuario extends Model{
     function listarUsuariosGenerales(){
 
         $sql = "SELECT * FROM usuario WHERE idRol = 2";
-
         $resultado = $this->db->ejecutar($sql);
+        //$data = array();
+        //while($fila = mysqli_fetch_array($resultado)){
+        //    $subarray = array();
 
-        $data = array();
-        while($fila = mysqli_fetch_array($resultado)){
-            $subarray = array();
+        //    $subarray[] = '<div contenteditable class="update" data-id="'.$fila["id"].'" data-column="username">'.$fila["username"].'</div>';
+        //    $subarray[] = '<div class="d-flex flex-row justify-content-around"><button type="button" name="asignarOperador" data-toggle="modal" data-target="#modalConsorcio" class="btn btn-success btn-xs asignarOperador" id="'.$fila['id'].'">Asignar Operador</button></div>';
 
-            $subarray[] = '<div contenteditable class="update" data-id="'.$fila["id"].'" data-column="username">'.$fila["username"].'</div>';
-            $subarray[] = '<div class="d-flex flex-row justify-content-around"><button type="button" name="asignarOperador" class="btn btn-success btn-xs asignarOperador" id="'.$fila['id'].'">Asignar Operador</button></div>';
+        //    $data[] = $subarray;
+        //}
+        //$data = array(
+        //    "draw" => intval($_POST["draw"]),
+        //    "recordsTotal" => mysqli_num_rows($resultado),
+        //    "recordsFilter" => mysqli_num_rows($resultado),
+        //    "data" => $data
+        //);
 
-            $data[] = $subarray;
-        }
-        $data = array(
-            "draw" => intval($_POST["draw"]),
-            "recordsTotal" => mysqli_num_rows($resultado),
-            "recordsFilter" => mysqli_num_rows($resultado),
-            "data" => $data
-        );
-
-        echo json_encode($data);
+        return $resultado;
     }
 
     function asignarRolOperador($idUsuario){
@@ -195,6 +196,10 @@ class Model_Usuario extends Model{
         }else{
             echo 0;//Nombre NO disponible
         }
+    }
+
+    function listarConsorcios(){
+        return $this->consorcio->listarConsorcio();
     }
 
 }

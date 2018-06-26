@@ -80,11 +80,14 @@ class Controller_Usuario extends Controller{
     }
 
     function personal(){
-        $this->view->generate("personal_view.php", "template_view.php");
+        $data[] = $this->model->listarUsuariosGenerales();
+        $data[] = $this->model->listarConsorcios();
+        $this->view->generate("personal_view.php", "template_view.php", $data);
     }
 
     function listarUsuariosGeneral(){
-        $this->model->listarUsuariosGenerales();
+
+        $this->view->generate("personal_view.php", "template_view.php");
     }
 
     function asignar(){

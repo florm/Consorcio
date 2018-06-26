@@ -42,7 +42,7 @@ class Model_Liquidacion extends Model
         $result4 = $this->db->ejecutar($sql4);
 
         // ----------------------------
-        $sql5 = "SELECT * FROM propiedad WHERE idConsorcio = '$idConsorcio' AND idPropietario != 0";
+        $sql5 = "SELECT * FROM propiedad WHERE idConsorcio = '$idConsorcio'";
         $result5 = $this->db->ejecutar($sql5);
         $listaDePropiedades = mysqli_fetch_all($result5);
 
@@ -95,6 +95,13 @@ class Model_Liquidacion extends Model
         );
 
         echo json_encode($data);
+    }
+
+    function buscarNombreConsorcio($idConsorcio){
+        $sql = "SELECT * FROM consorcio 
+                        WHERE id = '$idConsorcio'";
+        $resultado = $this->db->ejecutar($sql);
+        return $this->db->traerCampo($this->db->traerFila($resultado),'nombre');
     }
 
 }

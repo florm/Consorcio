@@ -3,7 +3,7 @@
     <table id="tablaReclamos" class="table table-bordered">
         <thead>
             <tr>
-                <th>Id Propiedad</th>
+                <th>Propiedad</th>
                 <th>Descripcion</th>
                 <th>Estado</th>
                 <th>Acciones</th>

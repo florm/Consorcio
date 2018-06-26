@@ -10,7 +10,8 @@ class Controller_Liquidacion extends Controller
 
     function index()
     {
-        $this->view->generate("liquidacion_view.php", "template_view.php");
+        $data = $this->model->buscarNombreConsorcio($_SESSION['idConsorcioEnUso']);
+        $this->view->generate("liquidacion_view.php", "template_view.php", $data);
     }
 
     //function lista(){

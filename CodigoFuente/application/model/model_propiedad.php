@@ -63,7 +63,7 @@ class Model_Propiedad extends Model
     }
 
     function traerPropiedades($idPropietario){
-        $sql = "SELECT * FROM propiedad WHERE idPropietario = '$idPropietario'";
+        $sql = "SELECT * FROM propiedad p join consorcio c on p.idConsorcio = c.id WHERE idPropietario = '$idPropietario'";
         $resultado = $this->db->ejecutar($sql);
         $fila = mysqli_fetch_all($resultado);
         return $fila;

@@ -3,7 +3,7 @@
     <div class="form-group input-size">
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="consorcio" name="consorcio" placeholder="Nombre de Consorcio" readonly>
+                    <input type="text" class="form-control" id="consorcio" name="consorcio" placeholder="<?php echo $data; ?>" readonly>
                 </div>
 
                 <div class="form-group col-md-6">

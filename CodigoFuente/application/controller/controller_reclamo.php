@@ -21,6 +21,7 @@ class Controller_Reclamo extends Controller
         //$this->sesion->add('idPropiedad', $idPropiedad);
 
     	//$data = $this->model->getConsorcios();
+
         $this->view->generate("reclamo_view.php", "template_view.php", $data);
     }
 
