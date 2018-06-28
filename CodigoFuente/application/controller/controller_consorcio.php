@@ -7,7 +7,14 @@ class Controller_Consorcio extends Controller
         $this->validarSesion();
     }
     function index(){
-       $this->view->generate("consorcio_view.php", "template_view.php");
+        $data['operadores'] = Utilidades::getOperadores();
+        $data['provincias'] = Utilidades::getProvincias();
+        //var_dump($data);
+       $this->view->generate("consorcio_view.php", "template_view.php",$data);
+    }
+
+    function mapa(){
+        $this->view->generate("mapa_view.php", "template_view.php");
     }
 
     function lista(){
@@ -18,13 +25,22 @@ class Controller_Consorcio extends Controller
     function alta(){
         $nombre = Utilidades::getPost('nombre');
         $cuit = Utilidades::getPost('cuit');
+        $pais = 'Argentina';
+        $idProvincia = Utilidades::getPost('idProvincia');
+        $idCiudad = Utilidades::getPost('idCiudad');
         $dirCalle = Utilidades::getPost('dirCalle');
         $dirNumero = Utilidades::getPost('dirNumero');
         $codPost = Utilidades::getPost('codPost');
         $telefono = Utilidades::getPost('telefono');
         $email = Utilidades::getPost('email');
+        $idOperador = Utilidades::getPost('idOperador');
 
-        $idConsorcio = $this->model->crear($nombre,$cuit,$dirCalle,$dirNumero,$codPost,$telefono,$email);
+        $coordenadas = Utilidades::getCoordenadas($dirCalle, $dirNumero, $codPost, $idProvincia,$idCiudad, $pais);
+
+        $lat = $coordenadas['lat'];
+        $lng = $coordenadas ['lng'];
+
+        $idConsorcio = $this->model->crear($nombre,$cuit,$idProvincia,$idCiudad,$pais,$dirCalle,$dirNumero,$codPost,$telefono,$email,$idOperador, $lat, $lng);
         $this->sesion->add('idConsorcio', $idConsorcio);
         header("Location: /propiedad/index");
         exit();

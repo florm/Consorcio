@@ -172,6 +172,8 @@ class Model_Usuario extends Model{
         return $resultado;
     }
 
+
+
     function asignarRolOperador($idUsuario){
         $idRol = $this->rol->buscarRol("operador");
         $sql = "UPDATE usuario SET idRol='$idRol' WHERE id='$idUsuario'";

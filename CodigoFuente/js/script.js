@@ -111,7 +111,6 @@ $("#consorcio").change(function () {
     var idConsorcio = $("#consorcio option:selected").val();
     muestraPropiedades(idConsorcio);
 });
-
 function muestraPropiedades(idConsorcio) {
     var parametros = {
         "idConsorcio" : idConsorcio
@@ -128,3 +127,25 @@ function muestraPropiedades(idConsorcio) {
         }
     });
 }
+$("#provincia").change(function () {
+    var idProvincia = $("#provincia option:selected").val();
+    muestraCiudades(idProvincia);
+});
+function muestraCiudades(idProvincia) {
+    var parametros = {
+        "idProvincia" : idProvincia
+    };
+    $.ajax({
+        data:  parametros,
+        url:   '../includes/getCiudad.php',
+        type:  'post',
+        beforeSend: function () {
+            $("#resultado").html("Procesando, espere por favor...");
+        },
+        success:  function (response) {
+            $("#resultado").html(response);
+            $("#resultado").removeAttr("hidden");
+        }
+    });
+}
+

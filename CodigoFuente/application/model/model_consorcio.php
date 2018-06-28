@@ -7,9 +7,11 @@ class Model_Consorcio extends Model
        parent::__construct();
     }
 
-    function crear($nombre,$cuit,$dirCalle,$dirNumero,$codPost,$telefono,$email){
-        $sql = "INSERT INTO consorcio(nombre, cuit, dirCalle, dirNumero, codPost, telefono, email)
-                VALUES ('$nombre', '$cuit', '$dirCalle', '$dirNumero', '$codPost', '$telefono', '$email')";
+    function crear($nombre,$cuit,$idProvincia, $idCiudad, $pais, $dirCalle,$dirNumero,$codPost,$telefono,$email, $idOperador, $lat, $lng){
+        $sql = "INSERT INTO consorcio(nombre, cuit, idProvincia, idCiudad, pais, dirCalle, dirNumero, codPost, telefono, email,
+                idOperador, lat, lng)
+                VALUES ('$nombre','$cuit','$idProvincia', '$idCiudad', '$pais', '$dirCalle','$dirNumero','$codPost','$telefono'
+                ,'$email', '$idOperador', '$lat', '$lng')";
                 
         $this->db->ejecutar($sql);
         $idConsorcio = $this->db->ultimoId();

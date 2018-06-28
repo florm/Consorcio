@@ -6,6 +6,9 @@
     <div class="collapse" id="submenu-consorcio" aria-expanded="false">
         <ul class="flex-column nav">
             <li class="nav-item">
+                <a class="nav-link menu-sidebar-item interno py-3" href="/consorcio/mapa">Ver mapa de Consorcio</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link menu-sidebar-item interno py-3" href="/consorcio/index">Nuevo Consorcio</a>
             </li>
             <li class="nav-item">
