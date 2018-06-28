@@ -4,8 +4,9 @@
 $(document).ready(function(){
     var piso = $("input[name=piso]");
     var btnAgregarPropiedad = $("#btnAgregarPropiedad");
-  var contenedorPropiedad = $("#contenedorPropiedad");
- var modeloPropiedad = $(".modeloPropiedad");
+    var contenedorPropiedad = $("#contenedorPropiedad");
+    var modeloPropiedad = $(".modeloPropiedad");
+    var modalPropiedad =$("#modalPropiedad");
   btnAgregarPropiedad.click(function(){
         var modelo = modeloPropiedad.clone();
         modelo.addClass("atributos-propiedad");
@@ -15,6 +16,7 @@ $(document).ready(function(){
   });
 
   var btnGuardarPropiedad = $("#btnGuardarPropiedad");
+  var btnCancelar = $("#btnCancelar");
   var mensaje = $("#mensaje");
 
   btnGuardarPropiedad.click(function(){
@@ -33,15 +35,15 @@ $(document).ready(function(){
           url: "alta",
           data:{propiedades :propiedades},
           success: function(data) {
-              mostrarAlerta("mensajeprueba", "s", false)
+              modalPropiedad.modal("show");
           }
       });
-  })
+  });
 
-    function mostrarAlerta(mesaje, tipo){
-        alert("mostrarAlerta");
-    }
 
+  btnCancelar.click(function(){
+      window.location.href = "../consorcio/lista";
+  });
 
 });
 
