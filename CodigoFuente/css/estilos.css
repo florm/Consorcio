@@ -18,7 +18,7 @@
 }
 
 .background-menu-default {
-    height: 640px;
+    /*height: 640px;*/
     background: #37003b;
 }
 .background-content-default {
@@ -184,7 +184,8 @@ table.dataTable {
 }
 
 .modal-header {
-    border-bottom: none;
+    background: #73ea73;
+    height: 3.5rem;
 }
 
 .btn-confirm-font {
@@ -515,9 +516,7 @@ input[type="checkbox"]:checked + label:before {
     background-color: #1fb6ff;
     margin-top: 20px;
     margin-bottom: 20px;
-    width: 338.89px;
-    height: 2.235rem;
-    margin-left: -15px;
+    width: 13rem;
     color: white;
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
