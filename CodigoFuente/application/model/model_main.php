@@ -7,8 +7,8 @@ class Model_Main extends Model{
         parent::__construct();
     }
 
-    function listarConsorcio(){
-        $sql = "SELECT * FROM consorcio ORDER BY nombre ASC ";
+    function listarConsorcioDeOperador($idOperador){
+        $sql = "SELECT * FROM consorcio WHERE idOperador = '$idOperador' ORDER BY nombre ASC";
 
         $data=  $this->db->ejecutar($sql);
 
@@ -19,12 +19,21 @@ class Model_Main extends Model{
         return json_encode($consorcios);
 
     }
-    function getConsorcioEnUsoNombre(){
-        if(isset($_SESSION['nombreConsorcioEnUso']))
-            $data = $_SESSION['nombreConsorcioEnUso'];
-        else{
-            $data = $this->sesion->add("nombreConsorcioEnUso", "Seleccione consorcio");
+    function listarConsorcios(){
+        $sql = "SELECT * FROM consorcio ORDER BY nombre ASC";
+
+        $data=  $this->db->ejecutar($sql);
+
+        while($fila = mysqli_fetch_assoc($data)) {
+            $consorcios[] = $fila;
         }
+
+        return json_encode($consorcios);
+
+    }
+
+    function getConsorcioEnUsoNombre(){
+        $data = $_SESSION['nombreConsorcioEnUso'];
         return json_encode($data);
     }
 

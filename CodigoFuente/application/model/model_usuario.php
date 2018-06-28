@@ -38,6 +38,8 @@ class Model_Usuario extends Model{
 
                 switch ($idRol) {
                     case 1:
+                        $sql ="SELECT * FROM consorcio";
+                        $this->crearSesionConsorcio($sql);
                         $this->sesion->add('nombre', 'Administrador ');
                         $this->sesion->add('apellido', '');
                         break;
@@ -55,8 +57,11 @@ class Model_Usuario extends Model{
                         }
                         break;
                     case 3:
+                        $sql ="SELECT * FROM consorcio WHERE" . " " . "idOperador = '$idUsuario'";
+                        $this->crearSesionConsorcio($sql);
                         $this->sesion->add('nombre', 'Operador ');
                         $this->sesion->add('apellido', '');
+
                         break;
                 }
 
@@ -86,7 +91,14 @@ class Model_Usuario extends Model{
 
     }
 
-
+    function crearSesionConsorcio($sql){
+        $resultadoConsorcio = $this->db->ejecutar($sql);
+        $filaConsorcio = $this->db->traerFila($resultadoConsorcio);
+        $idConsorcioEnUso = $this->db->traerCampo($filaConsorcio,'id');
+        $nombreConsorcioEnUso = $this->db->traerCampo($filaConsorcio,'nombre');
+        $this->sesion->add('idConsorcioEnUso', $idConsorcioEnUso);
+        $this->sesion->add('nombreConsorcioEnUso', $nombreConsorcioEnUso);
+    }
 
     function crearUsuario($username, $password){ //Saco , $nombre, $apellido por validacion de estado
         $password = md5($password);

@@ -1,7 +1,7 @@
 
 <?php
 include_once ('./application/model/model_main.php');
-
+$main = new model_main();
 if(isset($_SESSION['login']))
     $username = strtoupper($_SESSION['login']);
 
@@ -9,14 +9,22 @@ if(isset($_SESSION['nombre']))
     $nombre = $_SESSION['nombre'];
 if(isset($_SESSION['apellido']))
     $apellido = $_SESSION['apellido'];
-if(isset($_SESSION['idRol']))
+if(isset($_SESSION['idRol'])){
     $idRol = $_SESSION['idRol'];
+    $idUsuario = $_SESSION['idUsuario'];
+    if($idRol == 3){
+        $consorcios = $main->listarConsorcioDeOperador($idUsuario);
+        $nombreConsorcioEnUso = $main->getConsorcioEnUsoNombre();
+    }
+    if($idRol == 1){
+        $consorcios = $main->listarConsorcios();
+        $nombreConsorcioEnUso = $main->getConsorcioEnUsoNombre();
+    }
+}
 if(isset($_SESSION['idPropietario']))
     $idPropietario = $_SESSION['idPropietario'];
 
-$main = new model_main();
-$consorcios = $main->listarConsorcio();
-$nombreConsorcioEnUso = $main->getConsorcioEnUsoNombre();
+
 
 ?>
 
@@ -98,7 +106,20 @@ $nombreConsorcioEnUso = $main->getConsorcioEnUsoNombre();
         <div class="row flex-xl-nowrap">
             <div class="col-xl-3 col-md-3 col-sm-4 px-0 bd-sidebar background-menu-default">
             <?php
-             if($idRol == 1 || $idRol == 3)
+             if($idRol == 1)
+                 echo '<form class="d-flex flex-column text-center">
+                <div class="d-flex flex-column px-5 text-left py-4">
+                    <label for="btnConsorcios" class="text-consorcio color-consorcio">CONSORCIO</label>
+                    <div class="d-flex justify-content-between  pb-2">
+                        <a id="btnConsorcios" class="btn select-consorcio" href="#" data-toggle="collapse" data-target="#collapseConsorcios" aria-expanded="false" aria-controls="collapseConsorcios"></a>
+                    </div>
+                </div>
+                <div class="collapse" id="collapseConsorcios" style="">
+                    <ul class="flex-column nav" id="ulConsorcios">
+                    </ul>
+                </div>
+            </form>';
+             else if($idRol == 3)
                  echo '<form class="d-flex flex-column text-center">
                 <div class="d-flex flex-column px-5 text-left py-4">
                     <label for="btnConsorcios" class="text-consorcio color-consorcio">CONSORCIO</label>
@@ -160,7 +181,7 @@ $nombreConsorcioEnUso = $main->getConsorcioEnUsoNombre();
     </div>
 
 <script type="text/javascript">
-    var consorcios = <?php echo($consorcios);?>;
+    var consorcios = <?php echo($consorcios); ?>;
     var nombreConsorcioEnUso = <?php echo($nombreConsorcioEnUso); ?>
 
 </script>
