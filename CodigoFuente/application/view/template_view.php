@@ -16,9 +16,13 @@ if(isset($_SESSION['idRol'])){
         $consorcios = $main->listarConsorcioDeOperador($idUsuario);
         $nombreConsorcioEnUso = $main->getConsorcioEnUsoNombre();
     }
-    if($idRol == 1){
+    else if($idRol == 1){
         $consorcios = $main->listarConsorcios();
         $nombreConsorcioEnUso = $main->getConsorcioEnUsoNombre();
+    }
+    else{
+        $consorcios = "null";
+        $nombreConsorcioEnUso = "null";
     }
 }
 if(isset($_SESSION['idPropietario']))
