@@ -18,7 +18,7 @@
 }
 
 .background-menu-default {
-    /*height: 640px;*/
+    min-height: 640px;
     background: #37003b;
 }
 .background-content-default {

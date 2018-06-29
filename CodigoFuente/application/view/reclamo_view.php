@@ -9,7 +9,7 @@
                 echo "<option value='0'>Departamento..</option>";
                 $propiedad = $data["propiedad"];
                 for ($row = 0; $row < count($propiedad); $row++) {
-                    echo "<option value='".$propiedad[$row][0]."' >" . " Piso " . $propiedad[$row][1] . " Depto " . $propiedad[$row][2] . " - Consorcio " . $propiedad[$row][10] . "</option>"."<br>";
+                    echo "<option value='".$propiedad[$row][0]."' >" . " Piso " . $propiedad[$row][1] . " Depto " . $propiedad[$row][2] . " - Consorcio " . $propiedad[$row][7] . "</option>"."<br>";
                 }
                 echo "</select>";
                 ?>

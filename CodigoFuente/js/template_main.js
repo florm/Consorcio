@@ -23,6 +23,8 @@ $(document).ready(function(){
                 li.append(a);
                 ulConsorcios.append(li);
                 btnConsorcios.text(item['nombre'] + "▾");
+            if(window.nombreConsorcioEnUso)
+                btnConsorcios.text(window.nombreConsorcioEnUso + "▾");
 
         });
     }

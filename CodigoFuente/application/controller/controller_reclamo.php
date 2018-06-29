@@ -45,6 +45,7 @@ class Controller_Reclamo extends Controller
     function listar(){
         $idConsorcio = $_SESSION['idConsorcioEnUso'];
         $this->model->listarReclamos($idConsorcio);
+
     }
 
     function rechazar(){

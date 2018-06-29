@@ -3,7 +3,7 @@
             <tr role="row">
                 <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" style="width: 170px;">Periodo</th>
                 <th tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" style="width: 206px;">Fecha</th>
-                <th tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1"  style="width: 110px;">Gasto Total</th>
+                <th tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1"  style="width: 110px;">Importe Total</th>
                 <th tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1"  style="width: 110px;">Detalles</th>
             </tr>
             </thead>
@@ -14,7 +14,7 @@
                 <tr class="gradeA" role="row">
                     <td class="sorting_1">'.$lista['periodo'].'</td>
                     <td>'.$lista['fecha'].'</td>
-                    <td>'.$lista['gastoTotal'].'</td>
+                    <td>'.$lista['importeTotal'].'</td>
                     <td>
                        <div class="d-flex flex-row justify-content-center"><button type="button" name="detalle" class="btn btn-info btn-xs detalle" id="'.$lista['id'].'">Detalle</button> 
                     </td>
