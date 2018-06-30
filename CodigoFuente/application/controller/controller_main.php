@@ -7,7 +7,6 @@ class Controller_Main extends Controller{
             $data = "Login";
             $this->view->generate("login_view.php", "template_log_view.php", $data);
         }
-
         else{
            if($_SESSION['idRol'] == 2){
                $idPropietario = $this->sesion->get('idPropietario');
