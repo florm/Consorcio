@@ -17,4 +17,5 @@
         <span>Aún no está registrado?</span>
         <a href="usuario/registrar">Registrarse</a>
     </div>
-</form>   
+</form>
+

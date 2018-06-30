@@ -72,14 +72,10 @@ class Model_Usuario extends Model{
 
                 }
             }
-            $this->db->cerrarConexion( $this->db);
-            return true;
-        }
-        else{
-            $this->db->cerrarConexion( $this->db);
-            return false;
+            
         }
 
+        $this->db->cerrarConexion( $this->db);
 
 
     }
