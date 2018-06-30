@@ -63,7 +63,10 @@ $(document).ready(function(){
             data: {idExpensa: idExpensa},
             success: function(){
                 $("#modalExpensa").modal("show");
-                $("#btnPagar").attr("hidden","hidden");
+                setInterval(function(){
+                    window.location.reload();
+                }, 2000);
+
             }
         });
 

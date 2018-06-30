@@ -34,10 +34,17 @@ class Model_Expensa extends Model
             $subarray[] = '<div class="update" data-id="'.$fila["id"].'" data-column="importe">'.$fila["importe"].'</div>';
             //$subarray[] = '<div contenteditable class="update" data-id="'.$fila["id"].'" data-column="descripcion">'.$fila["descripcion"].'</div>';
             $subarray[] = '<div class="update" data-id="'.$fila["id"].'" data-column="fechaVencimiento">'.$fila["fechaVencimiento"].'</div>';
-            $subarray[] = '<div class="d-flex flex-row justify-content-around">
-                            <button type="button" id="btnDetalles" name="verdetalles" class="btn btn-info btn-xs verdetalles" idLiquidacion="'.$fila['idLiquidacion'].'" idPropiedad="'.$fila['idPropiedad'].'">Ver Detalle</button>
-                            <button type="button" id="btnPagar" name="pagar" class="btn btn-success btn-xs pagar"  idExpensa="'.$fila['id'].'">Pagar</button>
+            $subarray[] = '<div class="d-flex flex-row justify-content-around">'.
+                            '<button type="button" id="btnDetalles" name="verdetalles" class="btn btn-info btn-xs verdetalles" idLiquidacion="'.$fila['idLiquidacion'].'" idPropiedad="'.$fila['idPropiedad'].'">Ver</button>';
+            if($fila['estado'] == 0){
+                $subarray[] = '<button type="button" id="btnPagar" name="pagar" class="btn btn-danger btn-xs pagar"  idExpensa="'.$fila['id'].'">Pagar</button>
                            </div>';
+
+            }
+            else{
+                $subarray[] = '<button type="button" id="btnPagado" name="pagar" class="btn btn-success btn-xs pagar" disabled>Pagado</button>
+                           </div>';
+            }
 
             $data[] = $subarray;
         }
