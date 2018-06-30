@@ -36,7 +36,7 @@ class Model_Expensa extends Model
             $subarray[] = '<div class="update" data-id="'.$fila["id"].'" data-column="fechaVencimiento">'.$fila["fechaVencimiento"].'</div>';
             $subarray[] = '<div class="d-flex flex-row justify-content-around">
                             <button type="button" id="btnDetalles" name="verdetalles" class="btn btn-info btn-xs verdetalles" idLiquidacion="'.$fila['idLiquidacion'].'" idPropiedad="'.$fila['idPropiedad'].'">Ver Detalle</button>
-                            <button type="button" name="pagar" class="btn btn-success btn-xs pagar"  idExpensa="'.$fila['id'].'">Pagar</button>
+                            <button type="button" id="btnPagar" name="pagar" class="btn btn-success btn-xs pagar"  idExpensa="'.$fila['id'].'">Pagar</button>
                            </div>';
 
             $data[] = $subarray;
@@ -84,6 +84,10 @@ class Model_Expensa extends Model
         $fila = $this->db->traerFila($resultado);
         $total = $this->db->traerCampo($fila, 'importe');
         return $total;
+    }
+
+    function pagar(){
+
     }
 }   
 

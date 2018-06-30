@@ -28,6 +28,11 @@ class Controller_Expensa extends Controller
 
     }
 
+    function pagar(){
+        $idExpensa = $_POST['idExpensa'];
+        $this->model->pagar();
+    }
+
 }
 
  ?>

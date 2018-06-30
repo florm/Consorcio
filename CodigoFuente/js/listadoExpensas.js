@@ -54,4 +54,19 @@ $(document).ready(function(){
 
         $(".detalleGastos").removeAttr("hidden");
     });
+
+    $(document).on('click','#btnPagar', function(){
+        var idExpensa = $(this).attr("idExpensa");
+        $.ajax({
+            type: 'post',
+            url: "../expensa/pagar",
+            data: {idExpensa: idExpensa},
+            success: function(){
+                $("#modalExpensa").modal("show");
+                $("#btnPagar").attr("hidden","hidden");
+            }
+        });
+
+
+    });
 });
