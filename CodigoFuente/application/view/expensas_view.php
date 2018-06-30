@@ -1,3 +1,4 @@
+<h3 class="text-center m-3">Expensas</h3>
 
 <table id="propiedadPropietario" class="table table-striped table-bordered" style="width:100%">
             <thead>
@@ -39,5 +40,20 @@
 
     </table>
 </div>
+
+<div class="m-4 detalleGastos" hidden="">
+    <p class="subheader-formulario-negrita">Detalle de Gastos</p>
+        <table id="detalleGastos" class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Detalle de Gasto</th>
+                <th>Importe</th>
+            </tr>
+            </thead>
+
+        </table>
+</div>
+
 
 <script type="text/javascript" src="../js/listadoExpensas.js"></script>

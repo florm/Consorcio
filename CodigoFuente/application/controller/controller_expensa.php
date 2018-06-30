@@ -18,8 +18,16 @@ class Controller_Expensa extends Controller
 
     function listarExpensas(){
     	$idPropiedad = $_POST['id'];
-    	$this->model->listar($idPropiedad);
+        $this->model->listar($idPropiedad);
     }
+
+    function detalle(){
+        $idLiquidacion =  $_POST['idLiquidacion'];
+        $idPropiedad =  $_POST['idPropiedad'];
+        $this->model->verDetalleExpensa($idPropiedad, $idLiquidacion);
+
+    }
+
 }
 
  ?>

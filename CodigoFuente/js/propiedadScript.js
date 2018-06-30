@@ -33,6 +33,7 @@ $(document).ready(function(){
       $.ajax({
           type: "POST",
           url: "alta",
+
           data:{propiedades :propiedades},
           success: function(data) {
               modalPropiedad.modal("show");

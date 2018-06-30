@@ -131,6 +131,25 @@ class Model_Liquidacion extends Model
         return $gastoTotal;
     }
 
+    function crearTablaDetalleLiquidacion($idLiquidacion){
+        $sql = "SELECT * FROM gasto g
+                        JOIN liqgasto lg ON g.id = lg.idGasto
+                        JOIN liquidacion l ON lg.idLiquidacion = l.id
+                        WHERE l.id = '$idLiquidacion'";
+
+        $resultado = $this->db->ejecutar($sql);
+        $data = array();
+        while($fila = mysqli_fetch_array($resultado)){
+            $subarray = array();
+
+            $subarray[] = '<div contenteditable class="update" data-id="'.$fila["id"].'" data-column="fecha">'.$fila["fecha"].'</div>';
+            $subarray[] = '<div contenteditable class="update" data-id="'.$fila["id"].'" data-column="concepto">'.$fila["concepto"].'</div>';
+            $subarray[] = '<div contenteditable class="update" data-id="'.$fila["id"].'" data-column="importe">'.$fila["importe"].'</div>';
+            $data[] = $subarray;
+        }
+        return $data;
+    }
+
 }
 
 
