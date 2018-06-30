@@ -59,6 +59,24 @@ class Model_Reclamo extends Model
 
         $this->db->ejecutar($sql);
     }
+
+    function buscarReclamos($idPropietario){
+        $sql = "SELECT * FROM reclamo r JOIN propiedad p on r.idPropiedad = p.id 
+            WHERE p.idPropietario = $idPropietario";
+        $resultado = $this->db->ejecutar($sql);
+        $cantidadTotal = $this->db->cantidadFilas($resultado);
+
+        $sql2 = "SELECT * FROM reclamo r JOIN propiedad p on r.idPropiedad = p.id 
+            WHERE p.idPropietario = $idPropietario AND r.estado = 'Aceptado'";
+        $resultado2 = $this->db->ejecutar($sql2);
+        $cantidadAceptados = $this->db->cantidadFilas($resultado2);
+
+        $reclamos = array();
+        $reclamos['cantidadTotal'] = $cantidadTotal;
+        $reclamos['cantidadAceptados'] = $cantidadAceptados;
+
+        return $reclamos;
+    }
    
 }
 

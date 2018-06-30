@@ -109,7 +109,8 @@ if(isset($_SESSION['idPropietario']))
     <div class="container-fluid">
         <div class="row flex-xl-nowrap">
             <div class="col-xl-3 col-md-3 col-sm-4 px-0 bd-sidebar background-menu-default">
-            <?php
+                <a href="/"><img class="img-home" src="../imagenes/home.svg" alt=""></a>
+                <?php
              if($idRol == 1)
                  echo '<form class="d-flex flex-column text-center">
                 <div class="d-flex flex-column px-5 text-left py-4">

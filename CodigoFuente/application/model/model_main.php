@@ -1,10 +1,15 @@
 <?php
-
+include_once ('./application/model/model_propiedad.php');
+include_once ('./application/model/model_reclamo.php');
 class Model_Main extends Model{
 
+    public $propiedad;
+    public $reclamo;
     function __construct()
     {
         parent::__construct();
+        $this->propiedad = new Model_Propiedad();
+        $this->reclamo = new Model_Reclamo();
     }
 
     function listarConsorcioDeOperador($idOperador){
@@ -51,5 +56,14 @@ class Model_Main extends Model{
             echo($fila['nombre']);
         }
 
+    }
+
+    function verEstadoPropiedad($idPropietario){
+        return $this->propiedad->verEstadoPropiedad($idPropietario);
+
+    }
+
+    function buscarReclamos($idPropietario){
+        return $this->reclamo->buscarReclamos($idPropietario);
     }
 }

@@ -8,10 +8,6 @@
     <div class="form-group input-size">
         <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña" required>
     </div>
-    <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Recordarme</label>
-    </div>
     <div id="divLoginErroneo" class="alert alert-danger-custom" role="alert" hidden="hidden">
         Revise su Usuario y Contraseña e intente ingresar nuevamente
     </div>

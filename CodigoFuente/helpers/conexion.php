@@ -35,6 +35,10 @@ class Conexion extends mysqli {
         return mysqli_fetch_all($resultado);
     }
 
+    function traerArray ($resultado){
+        return mysqli_fetch_array($resultado);
+    }
+
     function cantidadFilas ($resultado){
         return mysqli_num_rows($resultado);
     }

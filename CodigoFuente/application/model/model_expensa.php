@@ -1,12 +1,15 @@
 <?php
 include_once ('./application/model/model_liquidacion.php');
+include_once ('./application/model/model_pago.php');
 class Model_Expensa extends Model
 {
 	public $liquidacion;
+	public $pago;
 	function __construct()
     {
        parent::__construct();
        $this->liquidacion = new Model_Liquidacion();
+       $this->pago = new Model_Pago();
     }
 
     function listarPropiedadesPropietario($idPropietario){
@@ -93,8 +96,22 @@ class Model_Expensa extends Model
         return $total;
     }
 
-    function pagar(){
+    function pagar($idExpensa){
+        $sql = "SELECT * FROM expensa WHERE id = $idExpensa";
+        $resultado = $this->db->ejecutar($sql);
+        $fila = $this->db->traerFila($resultado);
+        $importe = $this->db->traerCampo($fila, 'importe');
+        $idPropiedad = $this->db->traerCampo($fila,'idPropiedad');
+        $fecha = date("Y-m-d");
 
+        $this->pago->guardarPago($importe, $fecha, $idPropiedad, $idExpensa);
+        $this->actualizarEstadoExpensa($idExpensa);
+
+    }
+
+    function actualizarEstadoExpensa($idExpensa){
+        $sql = "UPDATE expensa SET estado = 1 WHERE id = $idExpensa";
+        $this->db->ejecutar($sql);
     }
 }   
 

@@ -73,4 +73,18 @@ class Model_Propiedad extends Model
         $sql = "DELETE FROM propiedad WHERE id='$id'";
         $this->db->ejecutar($sql);
     }
+
+    function verEstadoPropiedad($idPropietario){
+        $sql = "SELECT e.estado, e.fechaVencimiento, e.idPropiedad FROM  propiedad p JOIN expensa e ON p.id = e.idPropiedad WHERE idPropietario = $idPropietario";
+        $resultado = $this->db->ejecutar($sql);
+        $fechaHoy = date("Y-m-d");
+        $estado = 1; //estado no deudor
+        while($fila = $this->db->traerArray($resultado)){
+            if($fila['estado'] == 0 && $fechaHoy > $fila['fechaVencimiento'] ){
+                $estado = 0; //estado deudor
+            }
+        }
+        return $estado;
+
+    }
 }

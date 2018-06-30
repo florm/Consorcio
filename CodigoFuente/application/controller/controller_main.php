@@ -9,8 +9,16 @@ class Controller_Main extends Controller{
         }
 
         else{
-
-           $this->view->generate("main_view.php", "template_view.php");
+           if($_SESSION['idRol'] == 2){
+               $idPropietario = $this->sesion->get('idPropietario');
+               $data['estado'] = $this->model->verEstadoPropiedad($idPropietario);
+               $reclamos = $this->model->buscarReclamos($idPropietario);
+               $data['reclamosCantidad'] = $reclamos['cantidadTotal'];
+               $data['reclamosAceptados'] = $reclamos['cantidadAceptados'];
+               $this->view->generate("mainpropietario_view.php", "template_view.php", $data);
+           }
+           else
+            $this->view->generate("main_view.php", "template_view.php");
         }
 
     }

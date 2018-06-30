@@ -64,7 +64,8 @@ $(document).ready(function(){
             success: function(){
                 $("#modalExpensa").modal("show");
                 setInterval(function(){
-                    window.location.reload();
+                    //window.location.reload();
+                    window.location.href = "../";
                 }, 2000);
 
             }
