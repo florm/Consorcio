@@ -52,6 +52,13 @@ class Controller_Consorcio extends Controller
        $this->view->generate("listaPropiedades_view.php", "template_view.php", $data);
    }
 
+   function asignarOperador(){
+       $consorcios = Utilidades::getPost('consorcios');
+       $idUsuario = Utilidades::getPost('idUsuario');
+       $this->model->asignarOperador($consorcios,$idUsuario);
+       $this->view->generate("main_view.php", "template_view.php");
+   }
+
 
 }
 

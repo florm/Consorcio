@@ -479,6 +479,10 @@ input[type="checkbox"]:checked + label:before {
     border-color: #dc3545;
 }
 
+.modal-title{
+    color: #ffffff;
+}
+
 .acciones-multiples .dropdown-toggle:after {
     margin-top: 0;
 }
@@ -567,5 +571,16 @@ th, td { width:30px }
 
 .subheader-formulario-negrita{
     font-weight: bold;
+}
+
+.btn-info{
+    background-color: #37003b;
+    border-color: #37003b;
+
+}
+.btn-info:hover {
+    color: #fff;
+    background-color: #792780;
+    border-color: #792780;
 }
 

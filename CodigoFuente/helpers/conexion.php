@@ -22,6 +22,13 @@ class Conexion extends mysqli {
         return $resultado;
     }
 
+    function ejecutarConPrepare($sql, $value1, $value2){
+        $stmt = mysqli_prepare($this, $sql);
+        mysqli_stmt_bind_param($stmt, "ss", $value1, $value2);
+        mysqli_stmt_execute($stmt);
+        return mysqli_stmt_fetch($stmt);
+    }
+
     function traerFila($resultado){
         $resultado = mysqli_fetch_assoc($resultado);
         return $resultado;

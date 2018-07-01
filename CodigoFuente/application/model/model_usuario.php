@@ -20,71 +20,60 @@ class Model_Usuario extends Model{
 
     function validarUsuario ($username, $password){
 	    $password = md5($password);
+        $sql = "SELECT * FROM usuario WHERE username = ? AND password = ?";
+        $resuladoPrepare = $this->db->ejecutarConPrepare($sql,$username,$password);
+        if($resuladoPrepare){
 
-        $usuario = "SELECT * FROM usuario WHERE" . " " . "username = '$username'" . " " . "AND password = '$password'";
+            $sqlusuario = "SELECT * FROM usuario WHERE" . " " . "username = '$username'" . " " . "AND password = '$password'";
 
-        $resultadoUsuario = $this->db->ejecutar($usuario);
+            $resultadoUsuario = $this->db->ejecutar($sqlusuario);
 
-        if ($this->db->cantidadFilas($resultadoUsuario) > 0 ){
-            $filaUsuario = $this->db->traerFila($resultadoUsuario);
+            if ($this->db->cantidadFilas($resultadoUsuario) > 0 ){
+                $filaUsuario = $this->db->traerFila($resultadoUsuario);
 
-            if ($this->db->traerCampo($filaUsuario, 'estado') == 1){
-                $idUsuario = $this->db->traerCampo($filaUsuario, 'id');
-                $idRol = $this->db->traerCampo($filaUsuario, 'idRol');
-                $this->sesion->add('login', $username);
-                $this->sesion->add('idRol', $idRol);
-                $this->sesion->add('idUsuario', $idUsuario);
+                if ($this->db->traerCampo($filaUsuario, 'estado') == 1){
+                    $idUsuario = $this->db->traerCampo($filaUsuario, 'id');
+                    $idRol = $this->db->traerCampo($filaUsuario, 'idRol');
+                    $this->sesion->add('login', $username);
+                    $this->sesion->add('idRol', $idRol);
+                    $this->sesion->add('idUsuario', $idUsuario);
 
 
-                switch ($idRol) {
-                    case 1:
-                        $sql ="SELECT * FROM consorcio";
-                        $this->crearSesionConsorcio($sql);
-                        $this->sesion->add('nombre', 'Administrador ');
-                        $this->sesion->add('apellido', '');
-                        break;
-                    case 2:
-                        $propietario ="SELECT * FROM propietario WHERE" . " " . "idUsuario = '$idUsuario'";
-                        $resultadoPropietario = $this->db->ejecutar($propietario);
-                        $filaPropietario = $this->db->traerFila($resultadoPropietario);
-                        if ($this->db->traerCampo($filaPropietario,'nombre') == '') {
-                            $this->sesion->add('nombre', 'Usuario ');
+                    switch ($idRol) {
+                        case 1:
+                            $sql ="SELECT * FROM consorcio";
+                            $this->crearSesionConsorcio($sql);
+                            $this->sesion->add('nombre', 'Administrador ');
                             $this->sesion->add('apellido', '');
-                        } else{
-                            $this->sesion->add('nombre', $this->db->traerCampo($filaPropietario,'nombre'));
-                            $this->sesion->add('apellido', $this->db->traerCampo($filaPropietario, 'apellido'));
-                            $this->sesion->add('idPropietario', $this->db->traerCampo($filaPropietario, 'id'));
-                        }
-                        break;
-                    case 3:
-                        $sql ="SELECT * FROM consorcio WHERE" . " " . "idOperador = '$idUsuario'";
-                        $this->crearSesionConsorcio($sql);
-                        $this->sesion->add('nombre', 'Operador ');
-                        $this->sesion->add('apellido', '');
+                            break;
+                        case 2:
+                            $propietario ="SELECT * FROM propietario WHERE" . " " . "idUsuario = '$idUsuario'";
+                            $resultadoPropietario = $this->db->ejecutar($propietario);
+                            $filaPropietario = $this->db->traerFila($resultadoPropietario);
+                            if ($this->db->traerCampo($filaPropietario,'nombre') == '') {
+                                $this->sesion->add('nombre', 'Usuario ');
+                                $this->sesion->add('apellido', '');
+                            } else{
+                                $this->sesion->add('nombre', $this->db->traerCampo($filaPropietario,'nombre'));
+                                $this->sesion->add('apellido', $this->db->traerCampo($filaPropietario, 'apellido'));
+                                $this->sesion->add('idPropietario', $this->db->traerCampo($filaPropietario, 'id'));
+                            }
+                            break;
+                        case 3:
+                            $sql ="SELECT * FROM consorcio WHERE" . " " . "idOperador = '$idUsuario'";
+                            $this->crearSesionConsorcio($sql);
+                            $this->sesion->add('nombre', 'Operador ');
+                            $this->sesion->add('apellido', '');
 
-                        break;
+                            break;
+                    }
+
+
+
                 }
-
-                //CAMBIA LOGICA AL LOGEAR
-                //busco nombre y apellido del usuario para cargarlo en la sesion
-                // $propietario ="SELECT * FROM propietario WHERE" . " " . "idUsuario = '$idUsuario'";
-
-                // $resultadoPropietario = $this->db->ejecutar($propietario);
-                // if($this->db->cantidadFilas($resultadoPropietario) == 0){
-                //     $this->sesion->add('nombre', 'admin');
-                //     $this->sesion->add('apellido', 'admin');
-                // }
-                // else{
-                //     $filaPropietario = $this->db->traerFila($resultadoPropietario);
-
-                //     $this->sesion->add('nombre', $this->db->traerCampo($filaPropietario,'nombre'));
-                //     $this->sesion->add('apellido', $this->db->traerCampo($filaPropietario, 'apellido'));
-                //     $this->sesion->add('idPropietario', $this->db->traerCampo($filaPropietario, 'id'));
-                // }
-
             }
-        }
 
+        }
 
         $this->db->cerrarConexion( $this->db);
 
