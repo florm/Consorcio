@@ -9,8 +9,9 @@
         <div class="col-4">
             <?php
                 if($data['estado'] == 1)
-                    echo '<div class="d-flex box-sindeuda rounded justify-content-center align-items-center m-2">
+                    echo '<div class="d-flex flex-column box-sindeuda rounded justify-content-center align-items-center m-2">
                         <p>No se registran deudas pendientes</p>
+                        <a href="/expensa/lista">Ver detalles de expensas</a>
                     </div>';
                 else
                     echo '<div class="d-flex flex-column box-condeuda rounded justify-content-center align-items-center m-2">
