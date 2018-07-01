@@ -558,6 +558,25 @@ input[type="checkbox"]:checked + label:before {
     width: 100%;
     height: 100px;
 }
+
+.box-estadistica{
+    font-weight: 500;
+    width: 100%;
+    height: 100px;
+    color: white;
+}
+
+.box-estadistica1{
+    background-color: #452157;
+}
+
+.box-estadistica2{
+    background-color: #5e2d77;
+}
+
+.box-estadistica3{
+    background-color: #7b3b9c;
+}
 /*dataTables*/
 .dataTables_wrapper {
     top: 35px;

@@ -47,4 +47,43 @@ class Model_Consorcio extends Model
         $this->db->ejecutar($sql2);
 
     }
+
+    function traerInformacionConsorcio($idConsorcio){
+        $sql = "SELECT * FROM consorcio c JOIN propiedad p ON c.id = p.idConsorcio WHERE c.id='$idConsorcio'";
+        $resultado = $this->db->ejecutar($sql);
+        //$consorcio = mysqli_fetch_all($resultado);
+
+        $data = array();
+        //$data['consorcio'] = $consorcio[1];
+        $data['cantidadPropiedades'] = mysqli_num_rows($resultado);
+
+        $sql2 = "SELECT * FROM expensa e JOIN propiedad p ON e.idPropiedad = p.id JOIN consorcio c ON p.idConsorcio = c.id WHERE c.id = '$idConsorcio'";
+        $resultado2 = $this->db->ejecutar($sql2);
+
+        $listaExpensas = mysqli_fetch_all($resultado2);
+        $result = 0;
+        foreach ($listaExpensas as $expensa) {
+            if ($expensa[5] == 1) {
+                     $result++;
+            }        
+        }
+        $data['expensasTotales'] = mysqli_num_rows($resultado2);
+        $data['expensasPagadas'] = $result;
+
+        $sql3 = "SELECT * FROM reclamo r JOIN propiedad p ON r.idPropiedad = p.id JOIN consorcio c ON p.idConsorcio = c.id WHERE c.id = '$idConsorcio'";
+        $resultado3 = $this->db->ejecutar($sql3);
+
+        $listaReclamos = mysqli_fetch_all($resultado3);
+        $result2 = 0;
+        foreach ($listaReclamos as $reclamo) {
+            if ($reclamo[2] == 'Aceptado') {
+                     $result2++;
+            }        
+        }
+
+        $data['reclamosTotales'] = mysqli_num_rows($resultado3);
+        $data['reclamosAceptados'] = $result2;
+
+        return $data;
+    }
 }

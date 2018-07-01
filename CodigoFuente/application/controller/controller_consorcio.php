@@ -59,7 +59,11 @@ class Controller_Consorcio extends Controller
        $this->view->generate("main_view.php", "template_view.php");
    }
 
-
+   function estadisticas(){
+        $idConsorcio = $_SESSION['idConsorcioEnUso'];
+        $data= $this->model->traerInformacionConsorcio($idConsorcio);
+        $this->view->generate("estadistica_view.php", "template_view.php",$data);
+    }
 }
 
 ?>
