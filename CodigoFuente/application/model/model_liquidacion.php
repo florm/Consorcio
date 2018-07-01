@@ -53,7 +53,7 @@ class Model_Liquidacion extends Model
         
         //Calculo de fecha de vencimiento
         $nuevafecha = date($fecha);
-        $fechaVencimiento = strtotime ( '+1 month' , strtotime ( $nuevafecha ) ) ;
+        $fechaVencimiento = strtotime ( '+15 days' , strtotime ( $nuevafecha ) ) ;
         $fechaVencimiento = date ( 'Y-m-j' , $fechaVencimiento );
 
         foreach ($listaDePropiedades as $propiedad) {
