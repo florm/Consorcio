@@ -26,6 +26,9 @@
             <li class="nav-item">
                 <a class="nav-link menu-sidebar-item interno py-3" href="/usuario/registrarPersonal">Registrar</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link menu-sidebar-item interno py-3" href="/usuario/listaroperadoresactivos">Listar Operadores</a>
+            </li>
         </ul>
     </div>
 </li>

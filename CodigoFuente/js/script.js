@@ -55,6 +55,19 @@ $(document).ready(function(){
 
     } );
 
+    var operadores = $('#operadores').DataTable( {
+        lengthChange: false,
+        "language": langEsp,
+        "buttons": [
+            { extend: 'pdf', text: 'Descargar PDF', titleAttr: 'PDF' },
+
+        ],
+        scrollY:        400,
+        scrollCollapse: true,
+        paging:         true,
+
+    } );
+
     var botones = $('#proveedores_wrapper .col-md-6:eq(0)');
     proveedores.buttons().container()
         .appendTo(botones);
@@ -78,6 +91,18 @@ $(document).ready(function(){
             }, 3000);
 
         }
+    });
+
+    $(document).on('click', '.bajaOperador', function(){
+        var id = $(this).attr("id");
+            $.ajax({
+                url:"../usuario/bajaOperador",
+                method:"POST",
+                data:{id:id},
+                success:function(data){
+                    window.location.href = "../usuario/listaroperadoresactivos";
+                }
+            });
     });
 
 });
