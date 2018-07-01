@@ -72,6 +72,7 @@ class Model_Consorcio extends Model
             }        
         }
         $data['expensasTotales'] = mysqli_num_rows($resultado2);
+        $data['expensasImpagas'] = mysqli_num_rows($resultado2)- $result;
         $data['expensasPagadas'] = $result;
 
         $sql3 = "SELECT * FROM reclamo r JOIN propiedad p ON r.idPropiedad = p.id JOIN consorcio c ON p.idConsorcio = c.id WHERE c.id = '$idConsorcio'";
@@ -86,6 +87,7 @@ class Model_Consorcio extends Model
         }
 
         $data['reclamosTotales'] = mysqli_num_rows($resultado3);
+        $data['reclamosNoAceptados'] = mysqli_num_rows($resultado3)- $result2;
         $data['reclamosAceptados'] = $result2;
 
         return $data;
