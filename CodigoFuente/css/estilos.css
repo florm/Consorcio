@@ -603,3 +603,13 @@ th, td { width:30px }
     border-color: #792780;
 }
 
+/*chart*/
+.chartReclamos p{
+    background-color: #11306f;
+    color: #ffffff;
+}
+
+.chartCobranzas p{
+    background-color: #8e2b09;
+    color: #ffffff;
+}

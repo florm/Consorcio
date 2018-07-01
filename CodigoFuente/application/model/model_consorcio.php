@@ -80,7 +80,7 @@ class Model_Consorcio extends Model
 
 
         $result2 = 0;
-        while ($reclamo = mysqli_fetch_assoc($resultado2)) {
+        while ($reclamo = mysqli_fetch_assoc($resultado3)) {
             if ($reclamo['estado'] == 'Aceptado') {
                      $result2++;
             }        
