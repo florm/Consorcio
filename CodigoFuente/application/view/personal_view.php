@@ -13,7 +13,7 @@
                 <tr class="gradeA" role="row">
                     <td class="sorting_1">'.$lista['username'].'</td>
                     <td>
-                       <div class="d-flex flex-row justify-content-center"><button type="button" name="asignarOperador" data-toggle="modal" data-target="#modalConsorcio" class="btn btn-success btn-xs asignarOperador" id="'.$lista['id'].'">Asignar Operador</button> 
+                       <div class="d-flex flex-row justify-content-center"><button type="button" name="asignarOperador" data-toggle="modal" data-target="#modalConsorcio" class="btn btn-info btn-xs asignarOperador" id="'.$lista['id'].'">Asignar Operador</button> 
                     </td>
                 </tr>
                 ';
@@ -40,11 +40,15 @@
                     <p class="m-2 text-center">Seleccionar Consorcio</p>
                         <?php
                         while($lista = mysqli_fetch_array($data[1])){
-                            echo '<div class="form-check">
+                            echo '<div class="form-check m-2">
                                 <input type="checkbox" name="consorcios[]" value="'.$lista['id'].'" class="form-check-input" id="'.$lista['id'].'">
                                 <label class="form-check-label" for="'.$lista['id'].'">'.$lista['nombre'].'</label>
                             </div>';
 
+                        }
+
+                        if(mysqli_num_rows($data[1]) == 0){
+                            echo '<h5 class="text-center m-4">No existen consorcios sin Operador asignado</h5>';
                         }
                         ?>
                     <input id="idUsuario" name="idUsuario" type="text" value="" hidden>

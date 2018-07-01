@@ -309,8 +309,8 @@ div[id^='alertacustom'] {
 }
 
 .page-item.active > .page-link {
-    background-color: #1fb6ff;
-    border: solid 0.9px #1fb6ff;
+    background-color: #37003b;
+    border: solid 0.9px #37003b;
 }
 
     .page-item.active > .page-link:hover {
