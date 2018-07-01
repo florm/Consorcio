@@ -81,7 +81,7 @@ class Controller_Usuario extends Controller{
 
     function personal(){
         $data[] = $this->model->listarUsuariosGenerales();
-        $data[] = $this->model->listarConsorcios();
+        $data[] = $this->model->listarConsorciosSinOperador();
         $this->view->generate("personal_view.php", "template_view.php", $data);
     }
 

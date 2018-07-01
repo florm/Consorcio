@@ -21,6 +21,9 @@
     </div>
 
     <input type="submit" id="registrarse" value="REGISTRARSE" class="btn btn-ingresar"></button>
+    <div class="alert alert-danger-custom" role="alert">
+        Luego de registrarse, un Administrador debe darle de alta para poder ingresar al Sistema.
+    </div>
 
 </form>
 

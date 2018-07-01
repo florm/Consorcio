@@ -201,8 +201,8 @@ class Model_Usuario extends Model{
         }
     }
 
-    function listarConsorcios(){
-        return $this->consorcio->listarConsorcio();
+    function listarConsorciosSinOperador(){
+        return $this->consorcio->listarConsorciosSinOperador();
     }
 
 }
