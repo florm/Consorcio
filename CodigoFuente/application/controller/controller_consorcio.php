@@ -64,6 +64,18 @@ class Controller_Consorcio extends Controller
         $data= $this->model->traerInformacionConsorcio($idConsorcio);
         $this->view->generate("estadistica_view.php", "template_view.php",$data);
     }
+
+   function estadisticasgenerales(){
+      $this->view->generate("estadisticageneral_view.php", "template_view.php");
+   }
+
+   function ganancias(){
+      $periodo = Utilidades::getPost('periodo');
+      $arrayPeriodo = explode("-", $periodo);
+      $data = $this->model->gananciasgenerales($arrayPeriodo);
+      echo json_encode($data) ;
+     // var_dump($data);
+   }
 }
 
 ?>
