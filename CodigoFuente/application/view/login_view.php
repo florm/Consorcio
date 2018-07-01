@@ -8,7 +8,8 @@
     <div class="form-group input-size">
         <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña" required>
     </div>
-    <div id="divLoginErroneo" class="alert alert-danger-custom" role="alert" hidden>
+
+    <div id="divLoginErroneo" class="alert alert-danger-custom" role="alert" hidden="hidden">
         Revise su Usuario y Contraseña e intente ingresar nuevamente
     </div>
 
@@ -18,4 +19,3 @@
         <a href="usuario/registrar">Registrarse</a>
     </div>
 </form>
-

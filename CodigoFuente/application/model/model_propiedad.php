@@ -79,10 +79,14 @@ class Model_Propiedad extends Model
         $resultado = $this->db->ejecutar($sql);
         $fechaHoy = date("Y-m-d");
         $estado = 1; //estado no deudor
-        while($fila = $this->db->traerArray($resultado)){
-            if($fila['estado'] == 0 && $fechaHoy > $fila['fechaVencimiento'] ){
-                $estado = 0; //estado deudor
+        if($this->db->cantidadFilas($resultado)>0){
+
+            while($fila = $this->db->traerArray($resultado)){
+                if($fila['estado'] == 0 && $fechaHoy > $fila['fechaVencimiento'] ){
+                    $estado = 0; //estado deudor
+                }
             }
+
         }
         return $estado;
 

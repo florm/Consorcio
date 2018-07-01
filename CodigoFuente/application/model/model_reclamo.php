@@ -64,15 +64,22 @@ class Model_Reclamo extends Model
         $sql = "SELECT * FROM reclamo r JOIN propiedad p on r.idPropiedad = p.id 
             WHERE p.idPropietario = $idPropietario";
         $resultado = $this->db->ejecutar($sql);
-        $cantidadTotal = $this->db->cantidadFilas($resultado);
+        $cantidadTotal = 0;
+        $cantidadAceptados = 0;
+        if($this->db->cantidadFilas($resultado)>0){
+            $cantidadTotal = $this->db->cantidadFilas($resultado);
+        }
 
         $sql2 = "SELECT * FROM reclamo r JOIN propiedad p on r.idPropiedad = p.id 
             WHERE p.idPropietario = $idPropietario AND r.estado = 'Aceptado'";
         $resultado2 = $this->db->ejecutar($sql2);
-        $cantidadAceptados = $this->db->cantidadFilas($resultado2);
+
+        if($this->db->cantidadFilas($resultado2)>0){
+            $cantidadAceptados = $this->db->cantidadFilas($resultado2);
+        }
 
         $reclamos = array();
-        $reclamos['cantidadTotal'] = $cantidadTotal;
+        $reclamos['cantidadTotal']=$cantidadTotal;
         $reclamos['cantidadAceptados'] = $cantidadAceptados;
 
         return $reclamos;

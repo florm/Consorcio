@@ -33,4 +33,18 @@ class Model_Consorcio extends Model
         $fila = mysqli_fetch_all($resultado);
         return $fila;
     }
+
+    function asignarOperador($consorcios, $idUsuario){
+        foreach($consorcios as $idConsorcio){
+            $sql = "UPDATE consorcio SET idOperador = $idUsuario WHERE id = $idConsorcio";
+            $this->db->ejecutar($sql);
+
+        }
+
+        $sql = "UPDATE usuario SET idRol = 3 WHERE id = $idUsuario";
+        $sql2 = "UPDATE usuario SET estado = 1 WHERE id = $idUsuario";
+        $this->db->ejecutar($sql);
+        $this->db->ejecutar($sql2);
+
+    }
 }

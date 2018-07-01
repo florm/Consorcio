@@ -72,7 +72,7 @@ class Model_Usuario extends Model{
 
                 }
             }
-            
+
         }
 
         $this->db->cerrarConexion( $this->db);

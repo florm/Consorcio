@@ -8,7 +8,7 @@ class Controller_Main extends Controller{
             $this->view->generate("login_view.php", "template_log_view.php", $data);
         }
         else{
-           if($_SESSION['idRol'] == 2){
+           if($_SESSION['idRol'] == 2 && isset($_SESSION['idPropietario'])){
                $idPropietario = $this->sesion->get('idPropietario');
                $data['estado'] = $this->model->verEstadoPropiedad($idPropietario);
                $reclamos = $this->model->buscarReclamos($idPropietario);
