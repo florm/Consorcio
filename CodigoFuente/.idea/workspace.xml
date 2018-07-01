@@ -98,11 +98,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="estadistica_view.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="estadistica_view.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/view/estadistica_view.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="136">
               <caret line="28" column="54" lean-forward="true" selection-start-line="27" selection-start-column="4" selection-end-line="28" selection-end-column="54" />
+=======
+            <state relative-caret-position="-102">
+              <caret line="26" column="33" lean-forward="false" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
+>>>>>>> ac8c2a235294c3b9c6e4588fe314585368d10719
               <folding />
             </state>
           </provider>
@@ -118,6 +123,7 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="controller_usuario.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controller/controller_usuario.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -129,11 +135,15 @@
         </entry>
       </file>
       <file leaf-file-name="model_consorcio.php" pinned="false" current-in-tab="false">
+=======
+      <file leaf-file-name="model_consorcio.php" pinned="false" current-in-tab="true">
+>>>>>>> ac8c2a235294c3b9c6e4588fe314585368d10719
         <entry file="file://$PROJECT_DIR$/application/model/model_consorcio.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="294">
               <caret line="82" column="56" lean-forward="false" selection-start-line="82" selection-start-column="56" selection-end-line="82" selection-end-column="56" />
               <folding>
+<<<<<<< HEAD
                 <marker date="1530478832941" expanded="true" signature="270:605" ph="INSERT INTO consorcio... " />
                 <marker date="1530478832941" expanded="true" signature="790:833" ph="SELECT * FRO... consorcio" />
                 <marker date="1530478832941" expanded="true" signature="971:1035" ph="SELECT * FRO... consorcio" />
@@ -145,6 +155,18 @@
                 <marker date="1530478832941" expanded="true" signature="1840:1932" ph="SELECT * FRO... consorcio" />
                 <marker date="1530478832941" expanded="true" signature="2095:2228" ph="SELECT * FRO... expensa" />
                 <marker date="1530478832941" expanded="true" signature="2672:2805" ph="SELECT * FRO... reclamo" />
+=======
+                <marker date="1530473976411" expanded="true" signature="270:605" ph="INSERT INTO consorcio... " />
+                <marker date="1530473976411" expanded="true" signature="790:833" ph="SELECT * FRO... consorcio" />
+                <marker date="1530473976411" expanded="true" signature="971:1035" ph="SELECT * FRO... consorcio" />
+                <marker date="1530473976411" expanded="true" signature="1158:1181" ph="SELECT * FRO... Consorcio" />
+                <marker date="1530473976411" expanded="true" signature="1429:1485" ph="UPDATE conso... " />
+                <marker date="1530473976411" expanded="true" signature="1567:1607" ph="UPDATE usuar... " />
+                <marker date="1530473976411" expanded="true" signature="1637:1678" ph="UPDATE usuar... " />
+                <marker date="1530473976411" expanded="true" signature="1840:1932" ph="SELECT * FRO... consorcio" />
+                <marker date="1530473976411" expanded="true" signature="2095:2228" ph="SELECT * FRO... expensa" />
+                <marker date="1530473976411" expanded="true" signature="2672:2805" ph="SELECT * FRO... reclamo" />
+>>>>>>> ac8c2a235294c3b9c6e4588fe314585368d10719
               </folding>
             </state>
           </provider>
@@ -226,9 +248,12 @@
         <option value="$PROJECT_DIR$/application/model/model_liquidacion.php" />
         <option value="$PROJECT_DIR$/application/view/mainpropietario_view.php" />
         <option value="$PROJECT_DIR$/css/estilos.css" />
-        <option value="$PROJECT_DIR$/application/model/model_consorcio.php" />
         <option value="$PROJECT_DIR$/application/view/estadistica_view.php" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/application/model/model_usuario.php" />
+=======
+        <option value="$PROJECT_DIR$/application/model/model_consorcio.php" />
+>>>>>>> ac8c2a235294c3b9c6e4588fe314585368d10719
       </list>
     </option>
   </component>
@@ -571,12 +596,16 @@
       <workItem from="1528842377584" duration="5200000" />
       <workItem from="1529959142374" duration="12503000" />
       <workItem from="1530112394292" duration="25485000" />
-      <workItem from="1530454823439" duration="8663000" />
+      <workItem from="1530454823439" duration="12519000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="308194000" />
+=======
+    <option name="totallyTimeSpent" value="311663000" />
+>>>>>>> ac8c2a235294c3b9c6e4588fe314585368d10719
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
@@ -961,6 +990,31 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/application/model/model_usuario.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3402">
+          <caret line="204" column="60" lean-forward="false" selection-start-line="204" selection-start-column="60" selection-end-line="204" selection-end-column="60" />
+          <folding>
+            <marker date="1530468302804" expanded="true" signature="539:596" ph="SELECT * FRO... usuario" />
+            <marker date="1530468302804" expanded="true" signature="741:838" ph="SELECT * FRO... usuario" />
+            <marker date="1530468302804" expanded="true" signature="1562:1585" ph="SELECT * FRO... consorcio" />
+            <marker date="1530468302804" expanded="true" signature="1901:1967" ph="SELECT * FRO... propietario" />
+            <marker date="1530468302804" expanded="true" signature="2894:2959" ph="SELECT * FRO... consorcio" />
+            <marker date="1530468302804" expanded="true" signature="3997:4086" ph="INSERT INTO usuario... " />
+            <marker date="1530468302804" expanded="true" signature="4698:4736" ph="SELECT * FRO... usuario" />
+            <marker date="1530468302804" expanded="true" signature="6043:6092" ph="UPDATE usuar... " />
+            <marker date="1530468302804" expanded="true" signature="6195:6238" ph="DELETE FROM " />
+            <marker date="1530468302804" expanded="true" signature="6340:6377" ph="SELECT * FRO... usuario" />
+            <marker date="1530468302804" expanded="true" signature="7407:7462" ph="UPDATE usuar... " />
+            <marker date="1530468302804" expanded="true" signature="7663:7763" ph="INSERT INTO usuario... " />
+            <marker date="1530468302804" expanded="true" signature="7876:7926" ph="SELECT * FRO... usuario" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+>>>>>>> ac8c2a235294c3b9c6e4588fe314585368d10719
     <entry file="file://$PROJECT_DIR$/application/model/model_expensa.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1428">
@@ -969,24 +1023,24 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/application/controller/controller_usuario.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="84" column="8" lean-forward="false" selection-start-line="84" selection-start-column="8" selection-end-line="84" selection-end-column="8" />
+          <folding>
+            <marker date="1530468302788" expanded="true" signature="1047:1163" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+>>>>>>> ac8c2a235294c3b9c6e4588fe314585368d10719
     <entry file="file://$PROJECT_DIR$/application/view/propiedad_view.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/view/personal_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="189" lean-forward="false" selection-start-line="15" selection-start-column="189" selection-end-line="15" selection-end-column="189" />
-          <folding>
-            <marker date="1530459591685" expanded="true" signature="552:958" ph="..." />
-            <marker date="1530459591685" expanded="true" signature="647:936" ph="..." />
-            <marker date="1530459591685" expanded="true" signature="723:931" ph="..." />
-            <marker date="1530459591685" expanded="true" signature="1776:2075" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1031,6 +1085,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/application/controller/controller_consorcio.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="614">
@@ -1039,6 +1094,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> ac8c2a235294c3b9c6e4588fe314585368d10719
     <entry file="file://$PROJECT_DIR$/js/altaUsuario.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-346">
@@ -1063,8 +1120,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/model/model_consorcio.php">
+    <entry file="file://$PROJECT_DIR$/application/view/personal_view.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="294">
           <caret line="82" column="56" lean-forward="false" selection-start-line="82" selection-start-column="56" selection-end-line="82" selection-end-column="56" />
           <folding>
@@ -1121,15 +1179,56 @@
             <marker date="1530479905440" expanded="true" signature="8500:8550" ph="UPDATE usuar... " />
             <marker date="1530479905440" expanded="true" signature="8605:8656" ph="UPDATE usuar... " />
             <marker date="1530479905440" expanded="true" signature="8712:8777" ph="UPDATE conso... " />
+=======
+        <state relative-caret-position="255">
+          <caret line="15" column="189" lean-forward="false" selection-start-line="15" selection-start-column="189" selection-end-line="15" selection-end-column="189" />
+          <folding>
+            <marker date="1530459591685" expanded="true" signature="552:958" ph="..." />
+            <marker date="1530459591685" expanded="true" signature="647:936" ph="..." />
+            <marker date="1530459591685" expanded="true" signature="723:931" ph="..." />
+            <marker date="1530459591685" expanded="true" signature="1776:2075" ph="..." />
+>>>>>>> ac8c2a235294c3b9c6e4588fe314585368d10719
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/view/estadistica_view.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="136">
           <caret line="28" column="54" lean-forward="true" selection-start-line="27" selection-start-column="4" selection-end-line="28" selection-end-column="54" />
+=======
+        <state relative-caret-position="-102">
+          <caret line="26" column="33" lean-forward="false" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
+>>>>>>> ac8c2a235294c3b9c6e4588fe314585368d10719
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controller/controller_consorcio.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="58" column="65" lean-forward="false" selection-start-line="58" selection-start-column="65" selection-end-line="58" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/model/model_consorcio.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="82" column="56" lean-forward="false" selection-start-line="82" selection-start-column="56" selection-end-line="82" selection-end-column="56" />
+          <folding>
+            <marker date="1530473976411" expanded="true" signature="270:605" ph="INSERT INTO consorcio... " />
+            <marker date="1530473976411" expanded="true" signature="790:833" ph="SELECT * FRO... consorcio" />
+            <marker date="1530473976411" expanded="true" signature="971:1035" ph="SELECT * FRO... consorcio" />
+            <marker date="1530473976411" expanded="true" signature="1158:1181" ph="SELECT * FRO... Consorcio" />
+            <marker date="1530473976411" expanded="true" signature="1429:1485" ph="UPDATE conso... " />
+            <marker date="1530473976411" expanded="true" signature="1567:1607" ph="UPDATE usuar... " />
+            <marker date="1530473976411" expanded="true" signature="1637:1678" ph="UPDATE usuar... " />
+            <marker date="1530473976411" expanded="true" signature="1840:1932" ph="SELECT * FRO... consorcio" />
+            <marker date="1530473976411" expanded="true" signature="2095:2228" ph="SELECT * FRO... expensa" />
+            <marker date="1530473976411" expanded="true" signature="2672:2805" ph="SELECT * FRO... reclamo" />
+          </folding>
         </state>
       </provider>
     </entry>
