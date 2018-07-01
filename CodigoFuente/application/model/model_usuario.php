@@ -183,8 +183,8 @@ class Model_Usuario extends Model{
 
     function crearPersonal($username, $password){
         $password = md5($password);
-        $idRol = $this->rol->buscarRol("operador");
-        $sql = "INSERT INTO usuario (username, password, idRol, estado) VALUES ('$username', '$password', $idRol, 1)";
+        $idRol = 2;
+        $sql = "INSERT INTO usuario (username, password, idRol) VALUES ('$username', '$password', $idRol)";
 
         $this->db->ejecutar($sql);
     }
