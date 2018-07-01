@@ -117,5 +117,15 @@ class Controller_Usuario extends Controller{
         $this->model->revisarUsuariosExistentes($username);
     }
 
+    function listaroperadoresactivos(){
+        $data = $this->model->listarOperadoresExistentes();
+        $this->view->generate("listaOperadores_view.php", "template_view.php", $data);
+    }
+
+    function bajaOperador(){
+        $idOperador = $_POST['id'];
+        $this->model->darDeBajaOperador($idOperador);
+    }
+
 }
 ?>

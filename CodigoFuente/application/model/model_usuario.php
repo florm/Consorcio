@@ -205,5 +205,20 @@ class Model_Usuario extends Model{
         return $this->consorcio->listarConsorciosSinOperador();
     }
 
+    function listarOperadoresExistentes(){
+        $sql = "SELECT * FROM usuario WHERE idRol = 3 AND estado = 1";
+        $data = $this->db->ejecutar($sql);
+        return $data;
+    }
+
+    function darDeBajaOperador($idOperador){
+        $sql = "UPDATE usuario SET idRol= 2 WHERE id='$idOperador'";
+        $this->db->ejecutar($sql);
+        $sql2 = "UPDATE usuario SET estado= 0 WHERE id='$idOperador'";
+        $this->db->ejecutar($sql2);
+        $sql3 = "UPDATE consorcio SET idOperador= 0 WHERE idOperador='$idOperador'";
+        $this->db->ejecutar($sql3);
+    }
+
 }
 ?>
