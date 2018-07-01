@@ -92,4 +92,39 @@ class Model_Consorcio extends Model
 
         return $data;
     }
+
+    function gananciasgenerales($arrayPeriodo){
+        $sql = "SELECT * FROM gasto WHERE MONTH(fecha) = '$arrayPeriodo[1]' AND YEAR(fecha) = '$arrayPeriodo[0]' AND idReclamo is NOT NULL";
+        $resultado = $this->db->ejecutar($sql);
+        $data = array();
+        //$listaGastosAdm = mysqli_fetch_all($resultado);
+        $gastosPorReclamo = 0;
+        while ($gasto = mysqli_fetch_assoc($resultado)) {
+            $gastosPorReclamo = $gastosPorReclamo + $gasto['importe'];    
+        }
+        $data['gastosPorReclamo'] = $gastosPorReclamo;
+
+        $sql2 = "SELECT * FROM pago WHERE MONTH(fecha) = '$arrayPeriodo[1]' AND YEAR(fecha) = '$arrayPeriodo[0]'";
+        $resultado2 = $this->db->ejecutar($sql2);
+        $pagosExpensa = 0;
+        while ($pago = mysqli_fetch_assoc($resultado2)) {
+            $pagosExpensa = $pagosExpensa + $pago['importe'];    
+        }
+
+        $data['pagosExpensa'] = $pagosExpensa;
+
+        $gananciaAdministracion = $pagosExpensa - $gastosPorReclamo;
+
+        $data['gananciaAdministracion'] = $gananciaAdministracion;
+        //return $gananciaEsperada;
+        // foreach ($listaGastosAdm as $gasto) {
+        //     $gananciaEsperada = $gananciaEsperada + $gasto[3];
+        // }
+        //var_dump($data);
+       // return $gananciaEsperada;
+        //var_dump($gananciaEsperada);
+
+        return $data;
+
+    }
 }
