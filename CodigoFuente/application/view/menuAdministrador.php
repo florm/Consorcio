@@ -37,3 +37,9 @@
         <img src="/imagenes/iconos/pagos.svg" alt="exp" class="pr-3" /> Estadisticas
     </a>
 </li>
+<li class="nav-item borde-top text-left">
+    <a class="nav-link menu-sidebar-item py-3 pl-5" href="/consorcio/estadisticasgenerales">
+        <img src="/imagenes/iconos/pagos.svg" alt="exp" class="pr-3" /> Estadisticas Generales
+    </a>
+</li>
+
